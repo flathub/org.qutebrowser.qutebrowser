@@ -119,6 +119,18 @@ modules:
     cleanup:
       - "/lib/debug"
 
+  - name: pdfjs
+    buildsystem: simple
+    build-commands:
+      - unzip pdfjs-*.zip
+      - mkdir /app/share/pdf.js
+      - cp -R {LICENSE,build,web} /app/share/pdf.js
+      - find /app/share/pdf.js -type f -exec chmod 644 {} \;
+    sources:
+      - type: file
+        url: https://github.com/mozilla/pdf.js/releases/download/v2.1.266/pdfjs-2.1.266-dist.zip
+        sha256: db57b4d1f16a25427ed5afd51ec09a8bbaa12e42daee9178559097bb1940f643
+
   - name: qutebrowser
     buildsystem: simple
     build-commands:
