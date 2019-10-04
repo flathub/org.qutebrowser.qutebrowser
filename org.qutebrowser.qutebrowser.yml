@@ -136,7 +136,7 @@ modules:
       - make --file misc/Makefile install PREFIX=/app
     sources:
       - type: archive
-        url: https://github.com/qutebrowser/qutebrowser/releases/download/v1.7.0/qutebrowser-1.7.0.tar.gz
-        sha256: f1f01b33669a9b08071997bb2642d46a1e5be9e293bdeb817d83db8dc5aad273
+        url: https://github.com/qutebrowser/qutebrowser/releases/download/v1.8.1/qutebrowser-1.8.1.tar.gz
+        sha256: dcf6eb63fc2430ac28ee40e2a236391adb7cdbe7debf4cbe53e0d12ff8726e32
       - type: patch
         path: 0001-Remove-manpage-support.patch
