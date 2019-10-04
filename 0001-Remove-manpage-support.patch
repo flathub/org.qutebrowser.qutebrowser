@@ -4,21 +4,26 @@ Date: Mon, 22 Jul 2019 12:39:02 +0200
 Subject: [PATCH] Remove manpage support
 
 ---
- misc/Makefile | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ misc/Makefile | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
 diff --git a/misc/Makefile b/misc/Makefile
-index ff5a2cc..92afd51 100644
+index 985541fdd..3e60717a7 100644
 --- a/misc/Makefile
 +++ b/misc/Makefile
-@@ -12,15 +12,11 @@ endif
+@@ -9,19 +9,13 @@ ifdef DESTDIR
+ SETUPTOOLSOPTS = --root="$(DESTDIR)"
+ endif
  
- .PHONY: install
+-all: man
++all:
+ 	$(PYTHON) setup.py build
  
--doc/qutebrowser.1.html:
--	a2x -f manpage doc/qutebrowser.1.asciidoc
- 
--install: doc/qutebrowser.1.html
+-man: doc/qutebrowser.1
+-doc/qutebrowser.1: doc/qutebrowser.1.asciidoc
+-	a2x -f manpage $<
+-
+-install: man
 +install:
  	$(PYTHON) setup.py install --prefix="$(PREFIX)" --optimize=1 $(SETUPTOOLSOPTS)
  	install -Dm644 misc/org.qutebrowser.qutebrowser.appdata.xml \
@@ -30,4 +35,10 @@ index ff5a2cc..92afd51 100644
  	$(foreach i,$(ICONSIZES),install -Dm644 "icons/qutebrowser-$(i)x$(i).png" \
 --
 libgit2 0.27.8
+@@ -35,4 +29,4 @@ install: man
+ 		  scripts/testbrowser scripts/asciidoc2html.py scripts/setupcommon.py \
+ 			scripts/link_pyqt.py,$(wildcard scripts/*))
+ 
+-.PHONY: all man install
++.PHONY: all install
 
