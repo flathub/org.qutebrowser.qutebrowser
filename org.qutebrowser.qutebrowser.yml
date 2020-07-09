@@ -3,7 +3,7 @@ app-id: org.qutebrowser.qutebrowser
 runtime: org.kde.Platform
 runtime-version: '5.14'
 sdk: org.kde.Sdk
-command: launch.sh
+command: qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
 base-version: '5.14'
@@ -15,6 +15,7 @@ finish-args:
   - "--share=network"
   - "--filesystem=xdg-download"
   - "--device=dri"
+  - "--env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess"
 modules:
   - python3-pygments.json
   - python3-pypeg2.json
@@ -136,8 +137,8 @@ modules:
       - find /app/share/pdf.js -type f -exec chmod 644 {} \;
     sources:
       - type: file
-        url: https://github.com/mozilla/pdf.js/releases/download/v2.1.266/pdfjs-2.1.266-dist.zip
-        sha256: db57b4d1f16a25427ed5afd51ec09a8bbaa12e42daee9178559097bb1940f643
+        url: https://github.com/mozilla/pdf.js/releases/download/v2.4.456/pdfjs-2.4.456-dist.zip
+        sha256: bd0c36f90130150898890a9972b053601c743ba782543df498a862266f5a7077
 
   - name: qutebrowser
     buildsystem: simple
@@ -147,11 +148,3 @@ modules:
       - type: archive
         url: https://github.com/qutebrowser/qutebrowser/releases/download/v1.13.0/qutebrowser-1.13.0.tar.gz
         sha256: d3e930ad6705fecf707d221ac253b60352d8cac91cc2ed88d68169cd2a5000f7
-
-  - name: laucher
-    buildsystem: simple
-    build-commands:
-      - install -D launch.sh /app/bin/launch.sh
-    sources:
-      - type: file
-        path: launch.sh
