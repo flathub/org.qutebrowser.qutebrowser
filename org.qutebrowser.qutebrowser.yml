@@ -16,6 +16,8 @@ finish-args:
   - "--filesystem=xdg-download"
   - "--device=dri"
   - "--env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess"
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 modules:
   - python3-pygments.json
   - python3-pypeg2.json
