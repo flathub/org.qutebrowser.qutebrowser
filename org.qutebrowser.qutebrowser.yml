@@ -150,3 +150,5 @@ modules:
       - type: archive
         url: https://github.com/qutebrowser/qutebrowser/releases/download/v1.13.0/qutebrowser-1.13.0.tar.gz
         sha256: d3e930ad6705fecf707d221ac253b60352d8cac91cc2ed88d68169cd2a5000f7
+      - type: patch
+        path: 0001-Remove-manpage-support.patch
