@@ -49,6 +49,17 @@ modules:
         url: https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz
         sha256: 3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76
 
+  - name: python3-adblock
+    only-arches:
+      - x86_64
+    buildsystem: simple
+    build-commands:
+      - pip3 install --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} adblock --no-build-isolation
+    sources:
+      - type: file
+        url: https://github.com/ArniDagur/python-adblock/releases/download/0.4.2/adblock-0.4.2-cp38-cp38-manylinux2010_x86_64.whl
+        sha256: 2608b15ad58c034bfd5b4a6385c2052e2a2545b57e49d4508d5b14e491c15a2d
+
   - name: sip
     config-opts:
       - --no-dist-info
