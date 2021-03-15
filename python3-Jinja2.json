@@ -2,7 +2,7 @@
     "name": "python3-Jinja2",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} Jinja2"
+        "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Jinja2==2.11.3\" --no-build-isolation"
     ],
     "sources": [
         {
@@ -12,8 +12,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz",
-            "sha256": "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013"
+            "url": "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz",
+            "sha256": "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
         }
     ]
 }

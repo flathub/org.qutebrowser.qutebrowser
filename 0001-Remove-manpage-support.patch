@@ -1,24 +1,12 @@
-From 17940228e5019ae54bee1865ff01783bb47c5327 Mon Sep 17 00:00:00 2001
-From: Dennis M. Pöpperl <free-software@dm-poepperl.de>
-Date: Mon, 22 Jul 2019 12:39:02 +0200
-Subject: [PATCH] Remove manpage support
-
----
- misc/Makefile | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
-
 diff --git a/misc/Makefile b/misc/Makefile
-index ff5a2cc..92afd51 100644
+index 985541fdd..281cf102f 100644
 --- a/misc/Makefile
 +++ b/misc/Makefile
-@@ -12,15 +12,11 @@ endif
+@@ -16,12 +16,10 @@ man: doc/qutebrowser.1
+ doc/qutebrowser.1: doc/qutebrowser.1.asciidoc
+ 	a2x -f manpage $<
  
- .PHONY: install
- 
--doc/qutebrowser.1.html:
--	a2x -f manpage doc/qutebrowser.1.asciidoc
- 
--install: doc/qutebrowser.1.html
+-install: man
 +install:
  	$(PYTHON) setup.py install --prefix="$(PREFIX)" --optimize=1 $(SETUPTOOLSOPTS)
  	install -Dm644 misc/org.qutebrowser.qutebrowser.appdata.xml \
@@ -28,6 +16,3 @@ index ff5a2cc..92afd51 100644
  	install -Dm644 misc/org.qutebrowser.qutebrowser.desktop \
  		"$(DESTDIR)$(DATADIR)/applications/org.qutebrowser.qutebrowser.desktop"
  	$(foreach i,$(ICONSIZES),install -Dm644 "icons/qutebrowser-$(i)x$(i).png" \
---
-libgit2 0.27.8
-
