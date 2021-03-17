@@ -191,3 +191,5 @@ modules:
         path: 0001-Remove-manpage-support.patch
       - type: patch
         path: 0002-Fix-version-parsing-with-Flatpak.patch
+      - type: patch
+        path: 0003-ipc-socket-workaround.patch

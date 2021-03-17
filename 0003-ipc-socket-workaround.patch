@@ -1,0 +1,25 @@
+From 026f41927ae6555a2e288dde6ef9f3ce44b0416c Mon Sep 17 00:00:00 2001
+From: tinywrkb <tinywrkb@gmail.com>
+Date: Thu, 18 Mar 2021 01:07:54 +0200
+Subject: [PATCH] ipc socket workaround
+
+---
+ qutebrowser/misc/ipc.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qutebrowser/misc/ipc.py b/qutebrowser/misc/ipc.py
+index 34c31ec4a..4e3a088ed 100644
+--- a/qutebrowser/misc/ipc.py
++++ b/qutebrowser/misc/ipc.py
+@@ -80,7 +80,7 @@ def _get_socketname(basedir):
+ 
+     prefix = 'i-' if utils.is_mac else 'ipc-'
+     filename = '{}{}'.format(prefix, md5)
+-    return os.path.join(standarddir.runtime(), filename)
++    return os.path.join(standarddir.runtime(), '../app/org.qutebrowser.qutebrowser', filename)
+ 
+ 
+ class Error(Exception):
+-- 
+2.30.2
+
