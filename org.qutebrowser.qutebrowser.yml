@@ -36,6 +36,9 @@ modules:
 
   - python3-Jinja2.json
   - python3-PyYAML.json
+  # pygments is an optional dependecy. with the webengine backend is only used
+  #   when viewing source with ':view-source --pygments'
+  - python3-Pygments.json
   - python3-toml.json
   - python3-typing-extensions.json
 
