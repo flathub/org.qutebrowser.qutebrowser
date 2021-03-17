@@ -186,3 +186,5 @@ modules:
         sha256: 1ddd373a4f31f16ba809870779918a8920b13dcb936f2d41ff4b27cfd4cae63b
       - type: patch
         path: 0001-Remove-manpage-support.patch
+      - type: patch
+        path: 0002-Fix-version-parsing-with-Flatpak.patch
