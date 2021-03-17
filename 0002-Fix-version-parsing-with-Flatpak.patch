@@ -1,0 +1,39 @@
+From af1a10ac35ecd3d2dd6c2ff19bf4d5b37aebdad4 Mon Sep 17 00:00:00 2001
+From: Florian Bruhin <me@the-compiler.org>
+Date: Wed, 17 Mar 2021 17:25:52 +0100
+Subject: [PATCH] Fix version parsing with Flatpak
+
+See https://github.com/flathub/org.qutebrowser.qutebrowser/issues/11
+---
+ qutebrowser/misc/elf.py | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/qutebrowser/misc/elf.py b/qutebrowser/misc/elf.py
+index 1da4709af..4d44e56ac 100644
+--- a/qutebrowser/misc/elf.py
++++ b/qutebrowser/misc/elf.py
+@@ -69,7 +69,7 @@ from typing import IO, ClassVar, Dict, Optional, Tuple, cast
+ 
+ from PyQt5.QtCore import QLibraryInfo
+ 
+-from qutebrowser.utils import log
++from qutebrowser.utils import log, version
+ 
+ 
+ class ParseError(Exception):
+@@ -310,7 +310,11 @@ def _parse_from_file(f: IO[bytes]) -> Versions:
+ 
+ def parse_webenginecore() -> Optional[Versions]:
+     """Parse the QtWebEngineCore library file."""
+-    library_path = pathlib.Path(QLibraryInfo.location(QLibraryInfo.LibrariesPath))
++    if version.is_sandboxed():
++        # Flatpak has Qt in /usr/lib/x86_64-linux-gnu, but QtWebEngine in /app/lib.
++        library_path = pathlib.Path("/app/lib")
++    else:
++        library_path = pathlib.Path(QLibraryInfo.location(QLibraryInfo.LibrariesPath))
+ 
+     # PyQt bundles those files with a .5 suffix
+     lib_file = library_path / 'libQt5WebEngineCore.so.5'
+-- 
+2.30.2
+
