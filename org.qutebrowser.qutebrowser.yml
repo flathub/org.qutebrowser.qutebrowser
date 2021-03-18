@@ -23,6 +23,7 @@ finish-args:
   - --system-talk-name=org.freedesktop.UPower
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.freedesktop.secrets
   - --talk-name=org.kde.StatusNotifierWatcher
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
@@ -184,3 +185,17 @@ modules:
           - type: file
             url: https://github.com/mozilla/pdf.js/releases/download/v2.6.347/pdfjs-2.6.347-dist.zip
             sha256: 5615181e6e1ee4d65b5945dd2c57ab82e5069480c068b75a2c2474134b4daecd
+      # userscripts/password_fill secret backend
+      - name: libsecret
+        buildsystem: meson
+        config-opts:
+          - -Dmanpage=false
+          - -Dvapi=false
+          - -Dgtk_doc=false
+          - -Dintrospection=false
+        sources:
+          - type: archive
+            url: https://gitlab.gnome.org/GNOME/libsecret/-/archive/0.20.4/libsecret-0.20.4.tar.gz
+            sha256: ca34e69b210df221ae5da6692c2cb15ef169bb4daf42e204442f24fdb0520d4b
+        cleanup:
+          - /include
