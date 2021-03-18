@@ -1,0 +1,35 @@
+From 9211c2404da3a48f7eb2b60ef94092b013c9cc8c Mon Sep 17 00:00:00 2001
+From: Florian Bruhin <me@the-compiler.org>
+Date: Thu, 18 Mar 2021 08:46:25 +0100
+Subject: [PATCH] Use correct runtime path for Flatpak
+
+See #6300
+
+(cherry picked from commit 9f67a763ef86805f0981f037ccd2fb5cb0e84b88)
+---
+ qutebrowser/utils/standarddir.py | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/qutebrowser/utils/standarddir.py b/qutebrowser/utils/standarddir.py
+index 91cbf0399..2e8f23ba5 100644
+--- a/qutebrowser/utils/standarddir.py
++++ b/qutebrowser/utils/standarddir.py
+@@ -232,7 +232,14 @@ def _init_runtime(args: Optional[argparse.Namespace]) -> None:
+         # Unfortunately this path could get too long for sockets (which have a
+         # maximum length of 104 chars), so we don't add the username here...
+ 
+-    _create(path)
++    from qutebrowser.utils import version
++    if version.is_sandboxed():
++        *parts, app_name = os.path.split(path)
++        assert app_name == APPNAME, app_name
++        path = os.path.join(*parts, 'app', os.environ['FLATPAK_ID'])
++    else:
++        _create(path)
++
+     _locations[_Location.runtime] = path
+ 
+ 
+-- 
+2.30.2
+
