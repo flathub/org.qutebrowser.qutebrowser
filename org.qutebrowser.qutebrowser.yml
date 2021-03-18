@@ -10,11 +10,20 @@ finish-args:
   - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-videos
+  - --own-name=org.kde.*
+  - --own-name=org.mpris.MediaPlayer2.qutebrowser.*
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
   - --socket=pulseaudio
   - --socket=wayland
+  - --system-talk-name=org.freedesktop.UPower
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.kde.StatusNotifierWatcher
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 modules:
