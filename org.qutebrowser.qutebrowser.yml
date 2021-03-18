@@ -91,6 +91,16 @@ modules:
       - --assume-shared
       - --concatenate
       - --confirm-license
+      - --enable=QtCore
+      - --enable=QtGui
+      - --enable=QtNetwork
+      - --enable=QtOpenGL
+      - --enable=QtPrintSupport
+      - --enable=QtQml
+      - --enable=QtQuick
+      - --enable=QtSql
+      - --enable=QtWebChannel
+      - --enable=QtWidgets
       - --no-designer-plugin
       - --no-dist-info
       - --no-docstrings
@@ -102,30 +112,9 @@ modules:
       - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.8/'
     build-options:
       arch:
-        i386:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWidgets
-            - --enable=QtSql
-            - --enable=QtOpenGL
-            - --enable=QtQuick
-            - --enable=QtQml
-        x86_64:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWidgets
-            - --enable=QtSql
-            - --enable=QtOpenGL
-            - --enable=QtQuick
-            - --enable=QtQml
+        aarch64:
+         config-opts:
+           - --disable-feature=PyQt_Desktop_OpenGL
     sources:
       - type: archive
         url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
