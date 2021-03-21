@@ -83,7 +83,7 @@ modules:
         build-commands:
           - cargo --offline fetch --manifest-path Cargo.toml --verbose
           - maturin build --release --strip --cargo-extra-args='--offline'
-          - cargo --offline build --release --locked --all-features --target-dir=target
+          #- cargo --offline build --release --locked --all-features --target-dir=target
           - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} adblock --no-build-isolation
           #- install -Dm755 target/release/libadblock.so -t /app/lib
         sources:
@@ -104,8 +104,11 @@ modules:
             build-commands:
               - cargo --offline fetch --manifest-path Cargo.toml --verbose
               - cargo --offline build --release --verbose
-              - target/release/maturin build --release --strip --cargo-extra-args='--offline'
-              - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} maturin --no-build-isolation
+              #- target/release/maturin build --release --strip --cargo-extra-args='--offline'
+              #- pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} maturin --no-build-isolation
+              # install manually and don't waste resources on re-compilation with maturin, it adds at least extra 6min on aarch64
+              - install -Dm755 target/release/maturin -t /app/bin/
+              - install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
             sources:
               - type: dir
                 path: '.'
