@@ -2,6 +2,8 @@ app-id: org.qutebrowser.qutebrowser
 runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
@@ -73,15 +75,49 @@ modules:
             url: https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz
             sha256: 3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76
       - name: python3-adblock
-        only-arches:
-          - x86_64
+        build-options:
+          env:
+            - CARGO_HOME=/run/build/python3-adblock/cargo
+          prepend-path: /usr/lib/sdk/rust-stable/bin
         buildsystem: simple
         build-commands:
-          - pip3 install --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} adblock --no-build-isolation
+          - cargo --offline fetch --manifest-path Cargo.toml --verbose
+          - maturin build --release --strip --cargo-extra-args='--offline'
+          #- cargo --offline build --release --locked --all-features --target-dir=target
+          - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} adblock --no-build-isolation
+          #- install -Dm755 target/release/libadblock.so -t /app/lib
         sources:
-          - type: file
-            url: https://github.com/ArniDagur/python-adblock/releases/download/0.4.2/adblock-0.4.2-cp38-cp38-manylinux2010_x86_64.whl
-            sha256: 2608b15ad58c034bfd5b4a6385c2052e2a2545b57e49d4508d5b14e491c15a2d
+          - type: git
+            url: https://github.com/ArniDagur/python-adblock.git
+            #branch: master
+            commit: ccb00e70cd098d6500f422702a8a2e96a233f835
+          - type: dir
+            path: '.'
+          - python3-adblock-cargo-sources.json
+        modules:
+          - name: maturin
+            build-options:
+              env:
+                - CARGO_HOME=/run/build/maturin/cargo
+              prepend-path: /usr/lib/sdk/rust-stable/bin
+            buildsystem: simple
+            build-commands:
+              - cargo --offline fetch --manifest-path Cargo.toml --verbose
+              - cargo --offline build --release --verbose
+              #- target/release/maturin build --release --strip --cargo-extra-args='--offline'
+              #- pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} maturin --no-build-isolation
+              # install manually and don't waste resources on re-compilation with maturin, it adds at least extra 6min on aarch64
+              - install -Dm755 target/release/maturin -t /app/bin/
+              - install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
+            sources:
+              - type: dir
+                path: '.'
+              - maturin-cargo-sources.json
+              - type: archive
+                url: https://github.com/PyO3/maturin/archive/v0.9.4.tar.gz
+                sha256: 130d39cc6ecae9b1cb5602d262c1a8a8230c8ddb3496d2397c49e565c0fc731a
+            cleanup:
+              - '*'
       - name: pyqt5-webengine
         build-options:
           env:
