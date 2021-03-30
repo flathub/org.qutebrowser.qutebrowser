@@ -44,6 +44,12 @@ modules:
         path: 0002-Fix-version-parsing-with-Flatpak.patch
       - type: patch
         path: 0003-Use-correct-runtime-path-for-Flatpak.patch
+      - type: patch
+        path: 0004-Add-a-test-for-flatpak-runtime-dir.patch
+      - type: patch
+        path: 0005-standarddir-Fix-custom-basedirs-with-flatpak.patch
+      - type: patch
+        path: 0006-flatpak-id-fallback.patch
     modules:
       - python3-colorama.json
       - name: python3-importlib-resources

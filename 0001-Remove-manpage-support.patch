@@ -1,5 +1,15 @@
+From b38e737bbc46c8103b493fd451ea72d275163239 Mon Sep 17 00:00:00 2001
+From: Dennis M. Pöpperl <free-software@dm-poepperl.de>
+Date: Thu, 6 Jun 2019 12:44:03 +0200
+Subject: Remove manpage support
+
+Co-authored-by:Yukio Siraichi <yukio.siraichi@gmail.com>
+---
+ misc/Makefile | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
 diff --git a/misc/Makefile b/misc/Makefile
-index 985541fdd..281cf102f 100644
+index b916a20d5..d71459dc6 100644
 --- a/misc/Makefile
 +++ b/misc/Makefile
 @@ -16,12 +16,10 @@ man: doc/qutebrowser.1
@@ -16,3 +26,6 @@ index 985541fdd..281cf102f 100644
  	install -Dm644 misc/org.qutebrowser.qutebrowser.desktop \
  		"$(DESTDIR)$(DATADIR)/applications/org.qutebrowser.qutebrowser.desktop"
  	$(foreach i,$(ICONSIZES),install -Dm644 "icons/qutebrowser-$(i)x$(i).png" \
+-- 
+2.31.0
+
