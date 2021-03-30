@@ -4,6 +4,12 @@ runtime-version: '5.15'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    version: '20.08'
+    add-ld-path: .
+    no-autodownload: true
 command: qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
@@ -34,6 +40,7 @@ modules:
     buildsystem: simple
     build-commands:
       - make --file misc/Makefile install PREFIX=/app
+      - mkdir -p /app/lib/ffmpeg
     sources:
       - type: archive
         url: https://github.com/qutebrowser/qutebrowser/releases/download/v2.1.0/qutebrowser-2.1.0.tar.gz
