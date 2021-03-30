@@ -169,6 +169,7 @@ modules:
               - --concatenate
               - --confirm-license
               - --enable=QtCore
+              - --enable=QtDBus
               - --enable=QtGui
               - --enable=QtNetwork
               - --enable=QtOpenGL
@@ -176,6 +177,7 @@ modules:
               - --enable=QtQml
               - --enable=QtQuick
               - --enable=QtSql
+              - --enable=QtTest
               - --enable=QtWebChannel
               - --enable=QtWidgets
               - --no-designer-plugin
