@@ -41,7 +41,7 @@ modules:
     build-commands:
       - make --file misc/Makefile install PREFIX=/app
       - mkdir -p /app/lib/ffmpeg
-    run-tests: false
+    run-tests: true
     test-commands:
       - |
           export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
@@ -51,21 +51,21 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        #branch: v2.1.x
-        tag: v2.1.0
-        commit: 301f65debb2accaf5ec3b7c97e44fc1855758830
+        branch: v2.1.x
+        #tag: v2.1.0
+        #commit: 301f65debb2accaf5ec3b7c97e44fc1855758830
       - type: patch
         path: 0001-Remove-manpage-support.patch
-      - type: patch
-        path: 0002-Fix-version-parsing-with-Flatpak.patch
-      - type: patch
-        path: 0003-Use-correct-runtime-path-for-Flatpak.patch
-      - type: patch
-        path: 0004-Add-a-test-for-flatpak-runtime-dir.patch
-      - type: patch
-        path: 0005-standarddir-Fix-custom-basedirs-with-flatpak.patch
-      - type: patch
-        path: 0006-flatpak-id-fallback.patch
+#     - type: patch
+#       path: 0002-Fix-version-parsing-with-Flatpak.patch
+#     - type: patch
+#       path: 0003-Use-correct-runtime-path-for-Flatpak.patch
+#     - type: patch
+#       path: 0004-Add-a-test-for-flatpak-runtime-dir.patch
+#     - type: patch
+#       path: 0005-standarddir-Fix-custom-basedirs-with-flatpak.patch
+#     - type: patch
+#       path: 0006-flatpak-id-fallback.patch
     modules:
       - name: libyaml
         sources:
@@ -263,4 +263,4 @@ modules:
             sha256: ca34e69b210df221ae5da6692c2cb15ef169bb4daf42e204442f24fdb0520d4b
         cleanup:
           - /include
-#     - tests-dependencies.json
+      - tests-dependencies.json
