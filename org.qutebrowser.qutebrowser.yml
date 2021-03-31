@@ -112,8 +112,6 @@ modules:
             url: https://github.com/ArniDagur/python-adblock.git
             #branch: master
             commit: ccb00e70cd098d6500f422702a8a2e96a233f835
-          - type: dir
-            path: '.'
           - python3-adblock-cargo-sources.json
         modules:
           - name: maturin
@@ -131,8 +129,6 @@ modules:
               - install -Dm755 target/release/maturin -t /app/bin/
               - install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
             sources:
-              - type: dir
-                path: '.'
               - maturin-cargo-sources.json
               - type: archive
                 url: https://github.com/PyO3/maturin/archive/v0.9.4.tar.gz
