@@ -49,9 +49,11 @@ modules:
           # verbose output:  -v -s --no-qt-log
           pytest --qute-bdd-webengine
     sources:
-      - type: archive
-        url: https://github.com/qutebrowser/qutebrowser/releases/download/v2.1.0/qutebrowser-2.1.0.tar.gz
-        sha256: 1ddd373a4f31f16ba809870779918a8920b13dcb936f2d41ff4b27cfd4cae63b
+      - type: git
+        url: https://github.com/qutebrowser/qutebrowser.git
+        #branch: v2.1.x
+        tag: v2.1.0
+        commit: 301f65debb2accaf5ec3b7c97e44fc1855758830
       - type: patch
         path: 0001-Remove-manpage-support.patch
       - type: patch
