@@ -41,6 +41,13 @@ modules:
     build-commands:
       - make --file misc/Makefile install PREFIX=/app
       - mkdir -p /app/lib/ffmpeg
+    run-tests: false
+    test-commands:
+      - |
+          export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+          export PYTHONPATH=.
+          # verbose output:  -v -s --no-qt-log
+          pytest --qute-bdd-webengine
     sources:
       - type: archive
         url: https://github.com/qutebrowser/qutebrowser/releases/download/v2.1.0/qutebrowser-2.1.0.tar.gz
