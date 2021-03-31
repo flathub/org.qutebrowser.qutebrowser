@@ -1,0 +1,110 @@
+From 59c38f948d1547861afdad38246b8ac4b0e26c7a Mon Sep 17 00:00:00 2001
+From: Florian Bruhin <me@the-compiler.org>
+Date: Wed, 31 Mar 2021 09:50:25 +0200
+Subject: [PATCH] flatpak: Try getting ID from /.flatpak_info
+
+---
+ qutebrowser/utils/standarddir.py |  3 +--
+ qutebrowser/utils/version.py     | 24 ++++++++++++++++++++----
+ tests/unit/utils/test_version.py | 29 +++++++++++++++++------------
+ 3 files changed, 38 insertions(+), 18 deletions(-)
+
+diff --git a/qutebrowser/utils/standarddir.py b/qutebrowser/utils/standarddir.py
+index 75455e93c..f56b5b164 100644
+--- a/qutebrowser/utils/standarddir.py
++++ b/qutebrowser/utils/standarddir.py
+@@ -236,8 +236,7 @@ def _init_runtime(args: Optional[argparse.Namespace]) -> None:
+         if version.is_sandboxed():
+             *parts, app_name = os.path.split(path)
+             assert app_name == APPNAME, app_name
+-            flatpak_id = os.environ.get('FLATPAK_ID', 'org.qutebrowser.qutebrowser')
+-            path = os.path.join(*parts, 'app', flatpak_id)
++            path = os.path.join(*parts, 'app', version.flatpak_id())
+ 
+     _create(path)
+     _locations[_Location.runtime] = path
+diff --git a/qutebrowser/utils/version.py b/qutebrowser/utils/version.py
+index a1b8e6c72..cf5e6ff2c 100644
+--- a/qutebrowser/utils/version.py
++++ b/qutebrowser/utils/version.py
+@@ -27,6 +27,8 @@ import platform
+ import subprocess
+ import importlib
+ import collections
++import pathlib
++import configparser
+ import enum
+ import datetime
+ import getpass
+@@ -191,10 +193,24 @@ def distribution() -> Optional[DistributionInfo]:
+ 
+ def is_sandboxed() -> bool:
+     """Whether the environment has restricted access to the host system."""
+-    current_distro = distribution()
+-    if current_distro is None:
+-        return False
+-    return current_distro.parsed == Distribution.kde_flatpak
++    return flatpak_id() is not None
++
++
++def flatpak_id() -> Optional[str]:
++    """Get the ID of the currently running Flatpak (or None if outside of Flatpak)."""
++    if 'FLATPAK_ID' in os.environ:
++        return os.environ['FLATPAK_ID']
++
++    # 'FLATPAK_ID' was only added in Flatpak 1.2.0:
++    # https://lists.freedesktop.org/archives/flatpak/2019-January/001464.html
++    # but e.g. Ubuntu 18.04 ships 1.0.9.
++    info_file = pathlib.Path('/.flatpak-info')
++    if not info_file.exists():
++        return None
++
++    parser = configparser.ConfigParser()
++    parser.read(info_file)
++    return parser['Application']['name']
+ 
+ 
+ def _git_str() -> Optional[str]:
+diff --git a/tests/unit/utils/test_version.py b/tests/unit/utils/test_version.py
+index c91017e84..ce91c097c 100644
+--- a/tests/unit/utils/test_version.py
++++ b/tests/unit/utils/test_version.py
+@@ -304,18 +304,23 @@ def test_distribution(tmpdir, monkeypatch, os_release, expected):
+     assert version.distribution() == expected
+ 
+ 
+-@pytest.mark.parametrize('distribution, expected', [
+-    (None, False),
+-    (version.DistributionInfo(
+-        id='org.kde.Platform', parsed=version.Distribution.kde_flatpak,
+-        version=utils.VersionNumber(5, 12),
+-        pretty='Unknown'), True),
+-    (version.DistributionInfo(
+-        id='arch', parsed=version.Distribution.arch, version=None,
+-        pretty='Arch Linux'), False)
+-])
+-def test_is_sandboxed(monkeypatch, distribution, expected):
+-    monkeypatch.setattr(version, "distribution", lambda: distribution)
++@pytest.mark.parametrize('has_env', [True, False])
++@pytest.mark.parametrize('has_file', [True, False])
++def test_is_flatpak(monkeypatch, tmp_path, has_env, has_file):
++    if has_env:
++        monkeypatch.setenv('FLATPAK_ID', 'org.qutebrowser.qutebrowser')
++
++    if has_file:
++        lines = [
++            "[Application]",
++            "name=org.qutebrowser.qutebrowser",
++            "runtime=runtime/org.kde.Platform/x86_64/5.15",
++        ]
++        fake_info_path = tmp_path / '.flatpak_info'
++        fake_info_path.write_text('\n'.join(lines))
++        monkeypatch.setattr(pathlib, 'Path', lambda _p: fake_info_path)
++
++    expected = has_env or has_file
+     assert version.is_sandboxed() == expected
+ 
+ 
+-- 
+2.31.0
+

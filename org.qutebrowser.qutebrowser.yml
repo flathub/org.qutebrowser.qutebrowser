@@ -57,6 +57,8 @@ modules:
         path: 0005-standarddir-Fix-custom-basedirs-with-flatpak.patch
       - type: patch
         path: 0006-flatpak-id-fallback.patch
+      - type: patch
+        path: 0007-flatpak-Try-getting-ID-from-.flatpak_info.patch
     modules:
       - python3-colorama.json
       - name: python3-importlib-resources
