@@ -1,0 +1,50 @@
+#!/bin/bash
+
+usage() {
+  echo "Usage: generate-test-modules [OPTION]"
+  echo
+  echo "Options:"
+  echo -e "  req, requirements\tcreates python3-tests-dependencies.json from requirements-tests.txt"
+  echo -e "  mod, modules\t\tcreates separate python3-*.json files"
+}
+if [ $# -ne 1 ]; then
+  echo "generate-test-modules needs exactly one parameter."
+  usage
+  exit
+fi
+
+
+[ -d flatpak-builder-tools ] || git clone https://github.com/flatpak/flatpak-builder-tools.git
+git -C flatpak-builder-tools pull
+
+case "$1" in
+  req|requirements)
+
+    #wget https://github.com/qutebrowser/qutebrowser/raw/v2.1.0/requirements.txt -O requirements.txt
+    
+    flatpak run --command=sh --share=network --filesystem=$PWD org.kde.Sdk//5.15 -c '\
+      pip3 install --user requirements-parser
+        flatpak-builder-tools/pip/flatpak-pip-generator \
+          -r requirements-tests.txt \
+          -o python3-tests-dependencies
+    '
+    ;;
+  mod|modules)
+    flatpak run --command=sh --share=network --filesystem=$PWD org.kde.Sdk//5.15 -c '\
+      pip3 install --user requirements-parser
+      for pypkg in \
+        pytest pytest-bdd pytest-benchmark pytest-instafail pytest-mock pytest-qt pytest-rerunfailures \
+        hypothesis bs4 tldextract vulture pytest-xvfb cheroot flask \
+        ; do
+          mod=python3-${pypkg%%=*}
+          mod=${mod%%<*}
+          flatpak-builder-tools/pip/flatpak-pip-generator \
+            $pypkg -o $mod
+      done
+    '
+    ;;
+  *)
+    echo "generate-test-modules needs exactly one parameter."
+    usage
+    ;;
+esac
