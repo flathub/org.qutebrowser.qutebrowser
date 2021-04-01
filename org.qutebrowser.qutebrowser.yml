@@ -196,10 +196,10 @@ modules:
                 - sip-build $processed
                 - echo 'trick flatpak-builder into running make' > Makefile
                 dest-filename: configure
-              - type: shell
-                commands:
-                  - echo '[tool.sip.bindings.QtGui]' >> pyproject.toml
-                  - echo 'disabled-features = ["PyQt_Desktop_OpenGL"]' >> pyproject.toml
+             #- type: shell
+             #  commands:
+             #    - echo '[tool.sip.bindings.QtGui]' >> pyproject.toml
+             #    - echo 'disabled-features = ["PyQt_Desktop_OpenGL"]' >> pyproject.toml
             cleanup:
               - /lib/debug
               - /share/sip
