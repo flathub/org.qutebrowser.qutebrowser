@@ -218,8 +218,8 @@ modules:
           - find /app/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.6.347/pdfjs-2.6.347-dist.zip
-            sha256: 5615181e6e1ee4d65b5945dd2c57ab82e5069480c068b75a2c2474134b4daecd
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.7.570/pdfjs-2.7.570-dist.zip
+            sha256: 38b36ece129a418f9a9732f7015e200a2e3a5e0b6641f7301cf7f145ab2e2131
       # userscripts/password_fill secret backend
       - name: libsecret
         buildsystem: meson
