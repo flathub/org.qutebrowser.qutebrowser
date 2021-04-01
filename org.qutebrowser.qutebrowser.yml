@@ -52,20 +52,10 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         #branch: v2.1.x
-        tag: v2.1.0
-        commit: 301f65debb2accaf5ec3b7c97e44fc1855758830
+        tag: v2.1.1
+        commit: 0ce3d58bb1aa9c4c48ecccac9aa1c1bdd3477060
       - type: patch
         path: 0001-Remove-manpage-support.patch
-      - type: patch
-        path: 0002-Fix-version-parsing-with-Flatpak.patch
-      - type: patch
-        path: 0003-Use-correct-runtime-path-for-Flatpak.patch
-      - type: patch
-        path: 0004-Add-a-test-for-flatpak-runtime-dir.patch
-      - type: patch
-        path: 0005-standarddir-Fix-custom-basedirs-with-flatpak.patch
-      - type: patch
-        path: 0006-flatpak-id-fallback.patch
     modules:
       - name: libyaml
         sources:
@@ -75,35 +65,16 @@ modules:
         cleanup:
           - '*.a'
           - '*.la'
-      - python3-colorama.json
-      - name: python3-importlib-resources
-        buildsystem: simple
-        build-commands:
-          - python setup.py build
-          - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
-        sources:
-          - type: archive
-            url: https://files.pythonhosted.org/packages/c8/b2/d8263caf10de8632ef6756991d52e7fb0d8f5aa1e473344fad79b19ccb23/importlib_resources-5.1.2.tar.gz
-            sha256: 642586fc4740bd1cad7690f836b3321309402b20b332529f25617ff18e8e1370
-        modules:
-          - python3-toml.json
-          - python3-setuptools-scm.json
-      - python3-Jinja2.json
-      - python3-PyYAML.json
+      # python3-importlib-resources dependency, is not being included by flatpak-pip-generator
+      - python3-toml.json
+      # python3-importlib-resources dependency, it is not being included by flatpak-pip-generator
+      - python3-setuptools-scm.json
+      # generated with flatpak-pip-generator from requirements.txt
+      - python3-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
       #   when viewing source with ':view-source --pygments'
+      #   is availble in the sdk but not in the runtime so it's not being included by flatpak-pip-generator
       - python3-Pygments.json
-      - python3-toml.json
-      - python3-typing-extensions.json
-      - name: python3-zipp
-        buildsystem: simple
-        build-commands:
-          - python setup.py build
-          - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
-        sources:
-          - type: archive
-            url: https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz
-            sha256: 3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76
       - name: python3-adblock
         build-options:
           env:
@@ -247,8 +218,8 @@ modules:
           - find /app/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.6.347/pdfjs-2.6.347-dist.zip
-            sha256: 5615181e6e1ee4d65b5945dd2c57ab82e5069480c068b75a2c2474134b4daecd
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.7.570/pdfjs-2.7.570-dist.zip
+            sha256: 38b36ece129a418f9a9732f7015e200a2e3a5e0b6641f7301cf7f145ab2e2131
       # userscripts/password_fill secret backend
       - name: libsecret
         buildsystem: meson
