@@ -1,5 +1,5 @@
 {
-    "name": "pypi-tests-dependencies",
+    "name": "python3-tests-dependencies",
     "buildsystem": "simple",
     "build-commands": [],
     "modules": [
@@ -40,8 +40,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/54/b9/1584ee0cd971ea935447c87bbc9d195d981feec446dd0af799d9d95c9d86/soupsieve-2.2.tar.gz",
-                    "sha256": "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
+                    "url": "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz",
+                    "sha256": "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
                 },
                 {
                     "type": "file",
@@ -87,8 +87,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/3d/78/531144bd9e5778f31721f60bfc76f0a986432aea7bc4f0c05b5ce3666ed2/jaraco.functools-3.2.1.tar.gz",
-                    "sha256": "97cf88b46ab544c266e2d81fa17bb183622268722a7dd1a3711ea426e9c26f94"
+                    "url": "https://files.pythonhosted.org/packages/fa/cc/e41cd71c277e36f4f2ecd3d550bd27e17677f0601331d54e9e8e4b3ed44d/jaraco.functools-3.3.0.tar.gz",
+                    "sha256": "bfcf7da71e2a0e980189b0744b59dba6c1dcf66dcd7a30f8a4413e478046b314"
                 },
                 {
                     "type": "file",
@@ -234,23 +234,18 @@
             "name": "python3-hunter",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hunter==3.3.1\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hunter==3.3.2\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz",
-                    "sha256": "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+                    "url": "https://files.pythonhosted.org/packages/a0/8a/190d3bd722238391bf908b69c5694fb4439075b9a471cdfb893711cc1149/manhole-1.7.0.tar.gz",
+                    "sha256": "224985bf1dd032f2dc0ca4107f727835b6f50e1df6d78781d6c9f4cae8b585e2"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/94/6c/a491e9c9c430f0f10d9b6b14bc074886b8ef318061812c34326a5fb352d3/manhole-1.6.0.tar.gz",
-                    "sha256": "d4ab98198481ed54a5b95c0439f41131f56d7d3755eedaedce5a45ca7ff4aa42"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/bc/ff/480c7eaa26c7e8502b52f1b1de5049789ea8e7cb8d795da07ff272bac5b0/hunter-3.3.1.tar.gz",
-                    "sha256": "5b31f368e713b70182f26b8501e8767c786b8ee133f5f9c09ca55b59e11e2633"
+                    "url": "https://files.pythonhosted.org/packages/77/6d/c5ce527d3b7317d3a14daa0220c99300ffc26a7dc1649494b64446a5a376/hunter-3.3.2.tar.gz",
+                    "sha256": "a91c30047ef6fe4f3189ab2a46655cbb40c7fa25abad0a881f87452eebc238cf"
                 }
             ]
         },
@@ -258,7 +253,7 @@
             "name": "python3-hypothesis",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hypothesis==6.6.0\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hypothesis==6.8.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -273,8 +268,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/7f/99/73c934586abb5966669bc2e90f5483bdb9f02918ca0b0693156b52297330/hypothesis-6.6.0.tar.gz",
-                    "sha256": "0f6b970178b7676267029eb5d352ea7ff4fda4533d2d2eaa3adbda660db54b65"
+                    "url": "https://files.pythonhosted.org/packages/4f/2f/1c0e53d135420a2f1a9d3aec772e09b62b6b06443977fb67dede77c66170/hypothesis-6.8.3.tar.gz",
+                    "sha256": "c6dfff27150552a9156b0afaca4b96ad7ee4b669d947bab8185612e228eb0139"
                 }
             ]
         },
@@ -338,7 +333,7 @@
             "name": "python3-jaraco.functools",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jaraco.functools==3.2.1\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jaraco.functools==3.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -348,8 +343,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/3d/78/531144bd9e5778f31721f60bfc76f0a986432aea7bc4f0c05b5ce3666ed2/jaraco.functools-3.2.1.tar.gz",
-                    "sha256": "97cf88b46ab544c266e2d81fa17bb183622268722a7dd1a3711ea426e9c26f94"
+                    "url": "https://files.pythonhosted.org/packages/fa/cc/e41cd71c277e36f4f2ecd3d550bd27e17677f0601331d54e9e8e4b3ed44d/jaraco.functools-3.3.0.tar.gz",
+                    "sha256": "bfcf7da71e2a0e980189b0744b59dba6c1dcf66dcd7a30f8a4413e478046b314"
                 }
             ]
         },
@@ -357,13 +352,13 @@
             "name": "python3-manhole",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"manhole==1.6.0\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"manhole==1.7.0\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/94/6c/a491e9c9c430f0f10d9b6b14bc074886b8ef318061812c34326a5fb352d3/manhole-1.6.0.tar.gz",
-                    "sha256": "d4ab98198481ed54a5b95c0439f41131f56d7d3755eedaedce5a45ca7ff4aa42"
+                    "url": "https://files.pythonhosted.org/packages/a0/8a/190d3bd722238391bf908b69c5694fb4439075b9a471cdfb893711cc1149/manhole-1.7.0.tar.gz",
+                    "sha256": "224985bf1dd032f2dc0ca4107f727835b6f50e1df6d78781d6c9f4cae8b585e2"
                 }
             ]
         },
@@ -1293,8 +1288,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz",
-                    "sha256": "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+                    "url": "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz",
+                    "sha256": "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
                 },
                 {
                     "type": "file",
@@ -1327,8 +1322,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz",
-                    "sha256": "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+                    "url": "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz",
+                    "sha256": "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
                 },
                 {
                     "type": "file",
@@ -1375,13 +1370,13 @@
             "name": "python3-soupsieve",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"soupsieve==2.2\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"soupsieve==2.2.1\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/54/b9/1584ee0cd971ea935447c87bbc9d195d981feec446dd0af799d9d95c9d86/soupsieve-2.2.tar.gz",
-                    "sha256": "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
+                    "url": "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz",
+                    "sha256": "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
                 }
             ]
         },
@@ -1394,8 +1389,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz",
-                    "sha256": "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+                    "url": "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz",
+                    "sha256": "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
                 },
                 {
                     "type": "file",
@@ -1452,13 +1447,13 @@
             "name": "python3-urllib3",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3==1.26.3\" --no-build-isolation"
+                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3==1.26.4\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz",
-                    "sha256": "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+                    "url": "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz",
+                    "sha256": "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
                 }
             ]
         },
