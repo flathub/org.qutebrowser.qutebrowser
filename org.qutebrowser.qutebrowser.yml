@@ -214,7 +214,8 @@ modules:
                     url: https://pypi.python.org/packages/source/s/sip/sip-6.0.3.tar.gz
                     sha256: 929e3515428ea962003ccf6795244a5fe4fa6e2c94dc9ab8cb2c58fcd368c34c
                 cleanup:
-                  - '*'
+                  - /bin
+                  - /include
               - name: pyqt-builder
                 buildsystem: simple
                 build-commands:
@@ -232,6 +233,15 @@ modules:
                   - type: archive
                     url: https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
                     sha256: 11238f1d86c995d8aed2e22f04a1e3779f0d70e587caffeab4857f3c662ed5a4
+          - name: pyqt5-sip
+            buildsystem: simple
+            build-commands:
+              - python setup.py build
+              - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
+            sources:
+              - type: archive
+                url: https://pypi.python.org/packages/source/P/PyQt5-sip/PyQt5_sip-12.8.1.tar.gz
+                sha256: 30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd
       - name: pdfjs
         buildsystem: simple
         build-commands:
