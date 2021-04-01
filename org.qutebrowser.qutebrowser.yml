@@ -200,6 +200,8 @@ modules:
                 commands:
                   - echo '[tool.sip.bindings.QtGui]' >> pyproject.toml
                   - echo 'disabled-features = ["PyQt_Desktop_OpenGL"]' >> pyproject.toml
+                only-arches:
+                  - aarch64
             cleanup:
               - /lib/debug
               - /share/sip
