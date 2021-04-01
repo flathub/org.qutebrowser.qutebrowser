@@ -1,0 +1,19 @@
+{
+    "name": "python3-packaging",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"packaging\" --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz",
+            "sha256": "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz",
+            "sha256": "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+        }
+    ]
+}
