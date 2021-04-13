@@ -95,8 +95,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ArniDagur/python-adblock.git
-            #branch: master
-            commit: ccb00e70cd098d6500f422702a8a2e96a233f835
+            tag: '0.4.4'
+            commit: f55b6b5812eb457dbcb4b94fe3bba916634c1ebe
           - python-adblock-cargo-sources.json
         modules:
           - name: maturin
@@ -116,8 +116,8 @@ modules:
             sources:
               - maturin-cargo-sources.json
               - type: archive
-                url: https://github.com/PyO3/maturin/archive/v0.9.4.tar.gz
-                sha256: 130d39cc6ecae9b1cb5602d262c1a8a8230c8ddb3496d2397c49e565c0fc731a
+                url: https://github.com/PyO3/maturin/archive/refs/tags/v0.10.2.tar.gz
+                sha256: 30b3b9f1ccea4ce2da4cba2f85804e05e12f7bb5b7601bb57093458c5d54c8bb
             cleanup:
               - '*'
       - name: pyqt5-webengine
