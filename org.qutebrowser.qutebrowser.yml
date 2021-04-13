@@ -95,8 +95,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ArniDagur/python-adblock.git
-            #branch: master
-            commit: ccb00e70cd098d6500f422702a8a2e96a233f835
+            tag: '0.4.4'
+            commit: f55b6b5812eb457dbcb4b94fe3bba916634c1ebe
           - python-adblock-cargo-sources.json
         modules:
           - name: maturin
