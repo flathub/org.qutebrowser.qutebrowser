@@ -52,8 +52,8 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         #branch: v2.1.x
-        tag: v2.1.1
-        commit: 0ce3d58bb1aa9c4c48ecccac9aa1c1bdd3477060
+        tag: v2.2.0
+        commit: f67e1d663d61339a7fcb6e0bee0e62d8bba8a3f7
       - type: patch
         path: 0001-Remove-manpage-support.patch
     modules:
