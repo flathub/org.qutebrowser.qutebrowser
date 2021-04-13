@@ -1,5 +1,5 @@
 {
-    "name": "python3-tests-dependencies",
+    "name": "tests-python-dependencies",
     "buildsystem": "simple",
     "build-commands": [],
     "modules": [
@@ -7,7 +7,7 @@
             "name": "python3-apipkg",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"apipkg==1.5\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"apipkg==1.5\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -21,7 +21,7 @@
             "name": "python3-attrs",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"attrs==20.3.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"attrs==20.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -35,7 +35,7 @@
             "name": "python3-beautifulsoup4",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"beautifulsoup4==4.9.3\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"beautifulsoup4==4.9.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -54,7 +54,7 @@
             "name": "python3-certifi",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"certifi==2020.12.5\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"certifi==2020.12.5\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -68,7 +68,7 @@
             "name": "python3-chardet",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"chardet==4.0.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"chardet==4.0.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -82,7 +82,7 @@
             "name": "python3-cheroot",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cheroot==8.5.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cheroot==8.5.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -106,7 +106,7 @@
             "name": "python3-click",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"click==7.1.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"click==7.1.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -120,7 +120,7 @@
             "name": "python3-coverage",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"coverage==5.5\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"coverage==5.5\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -134,7 +134,7 @@
             "name": "python3-EasyProcess",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"EasyProcess==0.3\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"EasyProcess==0.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -148,7 +148,7 @@
             "name": "python3-execnet",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"execnet==1.8.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"execnet==1.8.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -167,7 +167,7 @@
             "name": "python3-filelock",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"filelock==3.0.12\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"filelock==3.0.12\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -181,7 +181,7 @@
             "name": "python3-Flask",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Flask==1.1.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Flask==1.1.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -220,7 +220,7 @@
             "name": "python3-glob2",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"glob2==0.7\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"glob2==0.7\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -234,13 +234,13 @@
             "name": "python3-hunter",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hunter==3.3.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hunter==3.3.2\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a0/8a/190d3bd722238391bf908b69c5694fb4439075b9a471cdfb893711cc1149/manhole-1.7.0.tar.gz",
-                    "sha256": "224985bf1dd032f2dc0ca4107f727835b6f50e1df6d78781d6c9f4cae8b585e2"
+                    "url": "https://files.pythonhosted.org/packages/88/ef/15efad9a56ddcc6bbd4b30040418f9a681ca161366a1c6ab2538831b012c/manhole-1.8.0.tar.gz",
+                    "sha256": "bada20a25b547b395d472e2e08928f0437df26bbdbda4797c55863198e29a21f"
                 },
                 {
                     "type": "file",
@@ -253,7 +253,7 @@
             "name": "python3-hypothesis",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hypothesis==6.8.3\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"hypothesis==6.9.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -268,8 +268,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/4f/2f/1c0e53d135420a2f1a9d3aec772e09b62b6b06443977fb67dede77c66170/hypothesis-6.8.3.tar.gz",
-                    "sha256": "c6dfff27150552a9156b0afaca4b96ad7ee4b669d947bab8185612e228eb0139"
+                    "url": "https://files.pythonhosted.org/packages/a4/73/09748401f26d7061399b3877cb794c74318421abc5d1966b5b27a63a2670/hypothesis-6.9.0.tar.gz",
+                    "sha256": "1b4262ea2f8a6dd782ab8e0c9ad98100e90c795c8383487b110a5df06d47a13a"
                 }
             ]
         },
@@ -277,7 +277,7 @@
             "name": "python3-icdiff",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"icdiff==1.9.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"icdiff==1.9.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -291,7 +291,7 @@
             "name": "python3-idna",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"idna==2.10\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"idna==2.10\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -305,7 +305,7 @@
             "name": "python3-iniconfig",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"iniconfig==1.1.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"iniconfig==1.1.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -319,7 +319,7 @@
             "name": "python3-itsdangerous",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"itsdangerous==1.1.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"itsdangerous==1.1.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -333,7 +333,7 @@
             "name": "python3-jaraco.functools",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jaraco.functools==3.3.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jaraco.functools==3.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -352,13 +352,13 @@
             "name": "python3-manhole",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"manhole==1.7.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"manhole==1.8.0\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a0/8a/190d3bd722238391bf908b69c5694fb4439075b9a471cdfb893711cc1149/manhole-1.7.0.tar.gz",
-                    "sha256": "224985bf1dd032f2dc0ca4107f727835b6f50e1df6d78781d6c9f4cae8b585e2"
+                    "url": "https://files.pythonhosted.org/packages/88/ef/15efad9a56ddcc6bbd4b30040418f9a681ca161366a1c6ab2538831b012c/manhole-1.8.0.tar.gz",
+                    "sha256": "bada20a25b547b395d472e2e08928f0437df26bbdbda4797c55863198e29a21f"
                 }
             ]
         },
@@ -366,7 +366,7 @@
             "name": "python3-more-itertools",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"more-itertools==8.7.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"more-itertools==8.7.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -380,7 +380,7 @@
             "name": "python3-packaging",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"packaging==20.9\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"packaging==20.9\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -399,7 +399,7 @@
             "name": "python3-parse",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"parse==1.19.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"parse==1.19.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -413,7 +413,7 @@
             "name": "python3-parse-type",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"parse-type==0.5.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"parse-type==0.5.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -432,7 +432,7 @@
             "name": "python3-pluggy",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pluggy==0.13.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pluggy==0.13.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -446,7 +446,7 @@
             "name": "python3-pprintpp",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pprintpp==0.4.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pprintpp==0.4.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -460,7 +460,7 @@
             "name": "python3-py",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"py==1.10.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"py==1.10.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -474,7 +474,7 @@
             "name": "python3-py-cpuinfo",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"py-cpuinfo==7.0.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"py-cpuinfo==7.0.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -488,7 +488,7 @@
             "name": "python3-pyparsing",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyparsing==2.4.7\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyparsing==2.4.7\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -502,7 +502,7 @@
             "name": "python3-pytest",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest==6.2.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest==6.2.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -542,8 +542,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 }
             ]
         },
@@ -551,7 +551,7 @@
             "name": "python3-pytest-bdd",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-bdd==4.0.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-bdd==4.0.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -611,8 +611,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -625,7 +625,7 @@
             "name": "python3-pytest-benchmark",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-benchmark==3.2.3\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-benchmark==3.2.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -670,8 +670,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -684,7 +684,7 @@
             "name": "python3-pytest-cov",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-cov==2.11.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-cov==2.11.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -724,8 +724,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -743,7 +743,7 @@
             "name": "python3-pytest-forked",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-forked==1.3.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-forked==1.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -783,8 +783,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -797,7 +797,7 @@
             "name": "python3-pytest-icdiff",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-icdiff==0.5\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-icdiff==0.5\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -837,8 +837,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -861,7 +861,7 @@
             "name": "python3-pytest-instafail",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-instafail==0.4.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-instafail==0.4.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -901,8 +901,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -915,7 +915,7 @@
             "name": "python3-pytest-mock",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-mock==3.5.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-mock==3.5.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -955,8 +955,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -969,7 +969,7 @@
             "name": "python3-pytest-qt",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-qt==3.3.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-qt==3.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1009,8 +1009,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -1023,7 +1023,7 @@
             "name": "python3-pytest-repeat",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-repeat==0.9.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-repeat==0.9.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1063,8 +1063,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -1077,7 +1077,7 @@
             "name": "python3-pytest-rerunfailures",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-rerunfailures==9.1.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-rerunfailures==9.1.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1117,8 +1117,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -1131,7 +1131,7 @@
             "name": "python3-pytest-xdist",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-xdist==2.2.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-xdist==2.2.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1176,8 +1176,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -1200,7 +1200,7 @@
             "name": "python3-pytest-xvfb",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-xvfb==2.0.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-xvfb==2.0.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1250,8 +1250,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz",
-                    "sha256": "9d1edf9e7d0b84d72ea3dbcdfd22b35fb543a5e8f2a60092dd578936bf63d7f9"
+                    "url": "https://files.pythonhosted.org/packages/9e/1f/226f5c2393701c87c315b6d6cdb65ec1cbc9008e7a9ccb1d31ab79e0c19b/pytest-6.2.3.tar.gz",
+                    "sha256": "671238a46e4df0f3498d1c3270e5deb9b32d25134c99b7d75370a68cfbe9b634"
                 },
                 {
                     "type": "file",
@@ -1264,7 +1264,7 @@
             "name": "python3-PyVirtualDisplay",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PyVirtualDisplay==2.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"PyVirtualDisplay==2.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1283,7 +1283,7 @@
             "name": "python3-requests",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"requests==2.25.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"requests==2.25.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1317,7 +1317,7 @@
             "name": "python3-requests-file",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"requests-file==1.5.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"requests-file==1.5.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1356,7 +1356,7 @@
             "name": "python3-sortedcontainers",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"sortedcontainers==2.3.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"sortedcontainers==2.3.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1370,7 +1370,7 @@
             "name": "python3-soupsieve",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"soupsieve==2.2.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"soupsieve==2.2.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1384,7 +1384,7 @@
             "name": "python3-tldextract",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"tldextract==3.1.0\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"tldextract==3.1.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1433,7 +1433,7 @@
             "name": "python3-toml",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"toml==0.10.2\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"toml==0.10.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1447,7 +1447,7 @@
             "name": "python3-urllib3",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3==1.26.4\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3==1.26.4\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1461,7 +1461,7 @@
             "name": "python3-vulture",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"vulture==2.3\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"vulture==2.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -1480,7 +1480,7 @@
             "name": "python3-Werkzeug",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=w --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Werkzeug==1.0.1\" --no-build-isolation"
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Werkzeug==1.0.1\" --no-build-isolation"
             ],
             "sources": [
                 {

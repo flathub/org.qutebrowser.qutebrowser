@@ -79,6 +79,6 @@
         }
       ]
     },
-    "python-tests-dependencies.json"
+    "tests-python-dependencies.json"
   ]
 }
