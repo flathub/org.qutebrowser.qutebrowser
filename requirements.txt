@@ -1,0 +1,32 @@
+# importlib-resources dependencies, they aren't being included by flatpak-pip-generator
+toml
+setuptools-scm
+
+# qutebrowser/requirements.txt
+colorama==0.4.4
+importlib-resources==5.1.2; python_version<"3.9"
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+PyYAML==5.4.1
+typing-extensions==3.7.4.3
+zipp==3.4.1
+
+# TODO: add nacl
+# userscripts/qute-keepassxc
+#nacl
+
+# userscripts/add-nextcloud-bookmarks
+requests
+# userscripts/openfeeds
+bs4
+# userscripts/{qute-bitwarden,qute-lastpass}
+tldextract
+# userscripts/qute-bitwarden
+pyperclip
+# userscripts/qute-keepass
+pykeepass
+# userscripts/readability
+breadability
+readability
+# userscripts/tor_identity
+stem

@@ -65,20 +65,25 @@ modules:
         cleanup:
           - '*.a'
           - '*.la'
-      # python3-importlib-resources dependency, is not being included by flatpak-pip-generator
-      - python3-toml.json
-      # python3-importlib-resources dependency, it is not being included by flatpak-pip-generator
-      - python3-setuptools-scm.json
+# TODO: add here pyperclip backends?
+# TODO: add here dependencies of pykeepass
       # generated with flatpak-pip-generator from requirements.txt
-      - python3-dependencies.json
+      - python-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
       #   when viewing source with ':view-source --pygments'
       #   is availble in the sdk but not in the runtime so it's not being included by flatpak-pip-generator
-      - python3-Pygments.json
-      - name: python3-adblock
+      - name: python-pygments
+        buildsystem: simple
+        build-commands:
+          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD --prefix=$FLATPAK_DEST Pygments --no-build-isolation
+        sources:
+          - type: file
+            url: https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz
+            sha256: 2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94
+      - name: python-adblock
         build-options:
           env:
-            - CARGO_HOME=/run/build/python3-adblock/cargo
+            - CARGO_HOME=/run/build/python-adblock/cargo
           prepend-path: /usr/lib/sdk/rust-stable/bin
         buildsystem: simple
         build-commands:
@@ -92,7 +97,7 @@ modules:
             url: https://github.com/ArniDagur/python-adblock.git
             #branch: master
             commit: ccb00e70cd098d6500f422702a8a2e96a233f835
-          - python3-adblock-cargo-sources.json
+          - python-adblock-cargo-sources.json
         modules:
           - name: maturin
             build-options:
@@ -218,8 +223,8 @@ modules:
           - find /app/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.7.570/pdfjs-2.7.570-dist.zip
-            sha256: 38b36ece129a418f9a9732f7015e200a2e3a5e0b6641f7301cf7f145ab2e2131
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.8.335/pdfjs-2.8.335-dist.zip
+            sha256: 36a7c1407c8a630a72977366037d544457477070b308c4e1f22f6adadeff0947
       # userscripts/password_fill secret backend
       - name: libsecret
         buildsystem: meson
