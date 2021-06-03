@@ -52,8 +52,8 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         #branch: v2.1.x
-        tag: v2.2.2
-        commit: f512a6769780b85571e4af2a4134b357be2ffd84
+        tag: v2.2.3
+        commit: f35f56ecaa6950bb7a384e328d5852d7dbce1984
       - type: patch
         path: 0001-Remove-manpage-support.patch
     modules:
@@ -116,8 +116,8 @@ modules:
             sources:
               - maturin-cargo-sources.json
               - type: archive
-                url: https://github.com/PyO3/maturin/archive/refs/tags/v0.10.2.tar.gz
-                sha256: 30b3b9f1ccea4ce2da4cba2f85804e05e12f7bb5b7601bb57093458c5d54c8bb
+                url: https://github.com/PyO3/maturin/archive/v0.10.6.tar.gz
+                sha256: e6a9a67cc62ffe248654e60e7ec211bf23319c4c936ad87022f7a1fd0997430d
             cleanup:
               - '*'
       - name: pyqt5-webengine
