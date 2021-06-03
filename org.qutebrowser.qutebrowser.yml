@@ -116,8 +116,8 @@ modules:
             sources:
               - maturin-cargo-sources.json
               - type: archive
-                url: https://github.com/PyO3/maturin/archive/refs/tags/v0.10.2.tar.gz
-                sha256: 30b3b9f1ccea4ce2da4cba2f85804e05e12f7bb5b7601bb57093458c5d54c8bb
+                url: https://github.com/PyO3/maturin/archive/v0.10.6.tar.gz
+                sha256: e6a9a67cc62ffe248654e60e7ec211bf23319c4c936ad87022f7a1fd0997430d
             cleanup:
               - '*'
       - name: pyqt5-webengine
