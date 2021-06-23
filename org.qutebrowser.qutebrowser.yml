@@ -4,6 +4,7 @@ runtime-version: '5.15'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node14
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
@@ -12,8 +13,8 @@ add-extensions:
     no-autodownload: true
 command: qutebrowser
 rename-icon: qutebrowser
-base: io.qt.qtwebengine.BaseApp
-base-version: '5.15'
+#base: io.qt.qtwebengine.BaseApp
+#base-version: '5.15'
 finish-args:
   - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
@@ -21,6 +22,7 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
+  - --filesystem=xdg-run/pipewire-0:ro
   - --own-name=org.kde.*
   - --own-name=org.mpris.MediaPlayer2.qutebrowser.*
   - --share=ipc
@@ -33,13 +35,18 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.kde.StatusNotifierWatcher
-cleanup-commands:
-  - /app/cleanup-BaseApp.sh
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - '*.a'
+  - '*.la'
+#cleanup-commands:
+#  - /app/cleanup-BaseApp.sh
 modules:
   - name: qutebrowser
     buildsystem: simple
     build-commands:
-      - python scripts/asciidoc2html.py
+      - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
       - mkdir -p /app/lib/ffmpeg
     run-tests: false
@@ -70,9 +77,6 @@ modules:
           - type: archive
             url: https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
             sha256: c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4
-        cleanup:
-          - '*.a'
-          - '*.la'
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
       # generated with flatpak-pip-generator from requirements.txt
@@ -153,9 +157,8 @@ modules:
               - processed=`sed -e 's|prefix|sysroot|' <<< $@`
               - python3 configure.py $processed
             dest-filename: configure
-        cleanup:
-          - /lib/debug
         modules:
+          - qt5-webengine.json
           - name: pyqt5
             config-opts:
               - --assume-shared
@@ -197,7 +200,6 @@ modules:
                 - python3 configure.py $processed
                 dest-filename: configure
             cleanup:
-              - /lib/debug
               - /share/sip
             modules:
               - name: sip
@@ -221,7 +223,6 @@ modules:
                     dest-filename: configure
                 cleanup:
                   - /bin
-                  - /include
       - name: pdfjs
         buildsystem: simple
         build-commands:
@@ -245,6 +246,4 @@ modules:
           - type: archive
             url: https://gitlab.gnome.org/GNOME/libsecret/-/archive/0.20.4/libsecret-0.20.4.tar.gz
             sha256: ca34e69b210df221ae5da6692c2cb15ef169bb4daf42e204442f24fdb0520d4b
-        cleanup:
-          - /include
 #     - tests-dependencies.json
