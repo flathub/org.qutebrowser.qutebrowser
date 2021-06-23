@@ -1,0 +1,13 @@
+diff --git a/src/core/web_engine_library_info.cpp b/src/core/web_engine_library_info.cpp
+index 56d31e46..28db02f6 100644
+--- a/src/core/web_engine_library_info.cpp
++++ b/src/core/web_engine_library_info.cpp
+@@ -280,7 +280,7 @@ QString resourcesDataPath()
+ #elif defined(OS_MAC)
+             QLibraryInfo::location(QLibraryInfo::DataPath) % QLatin1String("/Resources");
+ #else
+-            QLibraryInfo::location(QLibraryInfo::DataPath) % QLatin1String("/resources");
++            QLatin1String("/app/resources");
+ #endif
+     if (!initialized) {
+         initialized = true;
