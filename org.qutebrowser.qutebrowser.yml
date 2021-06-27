@@ -59,9 +59,16 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        #branch: v2.1.x
         tag: v2.2.3
         commit: f35f56ecaa6950bb7a384e328d5852d7dbce1984
+        # python-dependencies are also updated manually on qutebrowser version bump,
+        #   so disable this until we can update them automatically and to avoid conflicting with the bot
+        #x-checker-data:
+        #  type: json
+        #  url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
+        #  tag-query: '.tag_name'
+        #  version-query: '$tag'
+        #  timestamp-query: '.published_at'
       - type: patch
         path: 0001-Remove-manpage-support.patch
     modules:
@@ -70,6 +77,13 @@ modules:
           - type: archive
             url: https://github.com/asciidoc-py/asciidoc-py/releases/download/9.1.0/asciidoc-9.1.0.tar.gz
             sha256: fd499fcf51317b1aaf27336fb5e919c44c1f867f1ae6681ee197365d3065238b
+            x-checker-data:
+              # anitya actually wrong here and marking pre-releases as stable but since the url template only
+              #  correct for stable then it's not an issue.
+              type: anitya
+              project-id: 13262
+              stable-only: true
+              url-template: https://github.com/asciidoc-py/asciidoc-py/releases/download/$version/asciidoc-$version.tar.gz
         cleanup:
           - '*'
       - name: libyaml
@@ -77,9 +91,15 @@ modules:
           - type: archive
             url: https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
             sha256: c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4
+            x-checker-data:
+              type: anitya
+              project-id: 1800
+              stable-only: true
+              url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
       # generated with flatpak-pip-generator from requirements.txt
+      # TODO: f-e-d-c?
       - python-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
       #   when viewing source with ':view-source --pygments'
@@ -92,6 +112,9 @@ modules:
           - type: file
             url: https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz
             sha256: 2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94
+            x-checker-data:
+              type: pypi
+              name: Pygments
       - name: python-adblock
         build-options:
           env:
@@ -109,6 +132,13 @@ modules:
             url: https://github.com/ArniDagur/python-adblock.git
             tag: '0.5.0'
             commit: 06f0782a460edb4dec786842a9f52b9429a4d7e8
+            # disabled as it doesn't update cargo-sources.json
+#           x-checker-data:
+#             type: json
+#             url: https://api.github.com/repos/ArniDagur/python-adblock/releases/latest
+#             tag-query: '.tag_name'
+#             version-query: '$tag'
+#             timestamp-query: '.published_at'
           - python-adblock-cargo-sources.json
         modules:
           - name: maturin
@@ -126,10 +156,17 @@ modules:
               - install -Dm755 target/release/maturin -t /app/bin/
               - install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
             sources:
-              - maturin-cargo-sources.json
               - type: archive
                 url: https://github.com/PyO3/maturin/archive/v0.10.6.tar.gz
                 sha256: e6a9a67cc62ffe248654e60e7ec211bf23319c4c936ad87022f7a1fd0997430d
+                # disabled as it doesn't update cargo-sources.json
+#               x-checker-data:
+#                 type: json
+#                 url: https://api.github.com/repos/PyO3/maturin/releases/latest
+#                 tag-query: '.tag_name'
+#                 version-query: '$tag'
+#                 timestamp-query: '.published_at'
+              - maturin-cargo-sources.json
             cleanup:
               - '*'
       - name: pyqt5-webengine
@@ -152,6 +189,9 @@ modules:
           - type: archive
             url: https://pypi.python.org/packages/source/P/PyQtWebEngine/PyQtWebEngine-5.15.4.tar.gz
             sha256: cedc28f54165f4b8067652145aec7f732a17eadf6736835852868cf76119cc19
+            x-checker-data:
+              type: pypi
+              name: PyQtWebEngine
           - type: script
             commands:
               - processed=`sed -e 's|prefix|sysroot|' <<< $@`
@@ -194,6 +234,9 @@ modules:
               - type: archive
                 url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
                 sha256: 2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+                x-checker-data:
+                  type: pypi
+                  name: PyQt5
               - type: script
                 commands:
                 - processed=`sed -e 's|prefix|sysroot|' <<< $@`
@@ -216,6 +259,10 @@ modules:
                   - type: archive
                     url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
                     sha256: b39d93e937647807bac23579edbff25fe46d16213f708370072574ab1f1b4211
+                    # TODO: switch to sip6 and enable this
+                    #x-checker-data:
+                    #  type: pypi
+                    #  name: sip
                   - type: script
                     commands:
                       - processed=`sed -e 's|--prefix=/app||' <<< $@`
@@ -234,6 +281,11 @@ modules:
           - type: file
             url: https://github.com/mozilla/pdf.js/releases/download/v2.9.359/pdfjs-2.9.359-dist.zip
             sha256: b053fe9f4e467495b02909a078b055cf708de4ebffcfd8d6e7a348e711714958
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/mozilla/pdf.js/releases
+              version-query: '.[0] | .tag_name | sub("^v"; "")'
+              url-query: '.[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip") | .browser_download_url'
       # userscripts/password_fill secret backend
       - name: libsecret
         buildsystem: meson
@@ -246,4 +298,9 @@ modules:
           - type: archive
             url: https://gitlab.gnome.org/GNOME/libsecret/-/archive/0.20.4/libsecret-0.20.4.tar.gz
             sha256: ca34e69b210df221ae5da6692c2cb15ef169bb4daf42e204442f24fdb0520d4b
+            x-checker-data:
+              type: anitya
+              project-id: 13150
+              url-template: https://gitlab.gnome.org/GNOME/libsecret/-/archive/$version/libsecret-$version.tar.gz
+      # TODO: f-e-d-c?
 #     - tests-dependencies.json
