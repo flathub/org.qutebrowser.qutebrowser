@@ -52,10 +52,10 @@ modules:
     run-tests: false
     test-commands:
       - |
-          export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
-          export PYTHONPATH=.
-          # verbose output:  -v -s --no-qt-log
-          pytest --qute-bdd-webengine
+        export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+        export PYTHONPATH=.
+        # verbose output:  -v -s --no-qt-log
+        pytest --qute-bdd-webengine
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
@@ -107,11 +107,12 @@ modules:
       - name: python-pygments
         buildsystem: simple
         build-commands:
-          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD --prefix=$FLATPAK_DEST Pygments --no-build-isolation
+          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD
+            --prefix=$FLATPAK_DEST Pygments --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz
-            sha256: 2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94
+            url: https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz
+            sha256: a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f
             x-checker-data:
               type: pypi
               name: Pygments
@@ -125,12 +126,13 @@ modules:
           - cargo --offline fetch --manifest-path Cargo.toml --verbose
           - maturin build --release --strip --cargo-extra-args='--offline'
           #- cargo --offline build --release --locked --all-features --target-dir=target
-          - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} adblock --no-build-isolation
+          - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels
+            --prefix=${FLATPAK_DEST} adblock --no-build-isolation
           #- install -Dm755 target/release/libadblock.so -t /app/lib
         sources:
           - type: git
             url: https://github.com/ArniDagur/python-adblock.git
-            tag: '0.5.0'
+            tag: 0.5.0
             commit: 06f0782a460edb4dec786842a9f52b9429a4d7e8
             # disabled as it doesn't update cargo-sources.json
 #           x-checker-data:
@@ -187,7 +189,7 @@ modules:
           - QMAKE_INCDIR+=/app/include/QtWebEngineWidgets
         sources:
           - type: archive
-            url: https://pypi.python.org/packages/source/P/PyQtWebEngine/PyQtWebEngine-5.15.4.tar.gz
+            url: https://files.pythonhosted.org/packages/fb/5d/4c5bb7adca4f2436545a391fe311dcb4ccc711f1ce2ab7adb87475ec566e/PyQtWebEngine-5.15.4.tar.gz
             sha256: cedc28f54165f4b8067652145aec7f732a17eadf6736835852868cf76119cc19
             x-checker-data:
               type: pypi
@@ -228,19 +230,19 @@ modules:
             build-options:
               arch:
                 aarch64:
-                 config-opts:
-                   - --disable-feature=PyQt_Desktop_OpenGL
+                  config-opts:
+                    - --disable-feature=PyQt_Desktop_OpenGL
             sources:
               - type: archive
-                url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
+                url: https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz
                 sha256: 2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
                 x-checker-data:
                   type: pypi
                   name: PyQt5
               - type: script
                 commands:
-                - processed=`sed -e 's|prefix|sysroot|' <<< $@`
-                - python3 configure.py $processed
+                  - processed=`sed -e 's|prefix|sysroot|' <<< $@`
+                  - python3 configure.py $processed
                 dest-filename: configure
             cleanup:
               - /share/sip
@@ -284,8 +286,9 @@ modules:
             x-checker-data:
               type: json
               url: https://api.github.com/repos/mozilla/pdf.js/releases
-              version-query: '.[0] | .tag_name | sub("^v"; "")'
-              url-query: '.[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip") | .browser_download_url'
+              version-query: .[0] | .tag_name | sub("^v"; "")
+              url-query: .[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip")
+                | .browser_download_url
       # userscripts/password_fill secret backend
       - name: libsecret
         buildsystem: meson
