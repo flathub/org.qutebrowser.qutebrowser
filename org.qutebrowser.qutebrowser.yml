@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        tag: v2.2.3
-        commit: f35f56ecaa6950bb7a384e328d5852d7dbce1984
+        tag: v2.3.0
+        commit: a55355eaa6c9dcd23e682d231d37bf27befc3504
         # python-dependencies are also updated manually on qutebrowser version bump,
         #   so disable this until we can update them automatically and to avoid conflicting with the bot
         #x-checker-data:
