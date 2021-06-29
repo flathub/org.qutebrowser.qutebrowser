@@ -63,12 +63,12 @@ modules:
         commit: a55355eaa6c9dcd23e682d231d37bf27befc3504
         # python-dependencies are also updated manually on qutebrowser version bump,
         #   so disable this until we can update them automatically and to avoid conflicting with the bot
-        #x-checker-data:
-        #  type: json
-        #  url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
-        #  tag-query: '.tag_name'
-        #  version-query: '$tag'
-        #  timestamp-query: '.published_at'
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
+          tag-query: '.tag_name'
+          version-query: '$tag'
+          timestamp-query: '.published_at'
       - type: patch
         path: 0001-Remove-manpage-support.patch
     modules:
