@@ -69,8 +69,6 @@ modules:
           tag-query: '.tag_name'
           version-query: '$tag'
           timestamp-query: '.published_at'
-      - type: patch
-        path: 0001-Remove-manpage-support.patch
     modules:
       - name: asciidoc
         sources:
