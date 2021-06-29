@@ -75,8 +75,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/7e/6c/2077c481c94e7a75e0678a41cb4e2a7916ac215e7a7677c5839513122d24/importlib_resources-5.1.4.tar.gz",
-                    "sha256": "54161657e8ffc76596c4ede7080ca68cb02962a2e074a2586b695a93a925d36e",
+                    "url": "https://files.pythonhosted.org/packages/ac/94/30b82b3a3a7c4f7fd7be1082047cc9a135a10c1bcb0158a2aec20d8fec57/importlib_resources-5.2.0.tar.gz",
+                    "sha256": "22a2c42d8c6a1d30aa8a0e1f57293725bfd5c013d562585e46aff469e0ff78b3",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "importlib_resources"
@@ -201,8 +201,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz",
-                    "sha256": "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6",
+                    "url": "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz",
+                    "sha256": "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "idna"
@@ -300,8 +300,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz",
-                    "sha256": "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6",
+                    "url": "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz",
+                    "sha256": "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "idna"
@@ -426,8 +426,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/74/fd/d78e003a79c453e8454197092fce9d1c6099445b7e7da0b04eb4fe1dbab7/argon2-cffi-20.1.0.tar.gz",
-                    "sha256": "d8029b2d3e4b4cea770e9e5a0104dd8fa185c1724a0f01528ae4826a6d25f97d",
+                    "url": "https://files.pythonhosted.org/packages/5c/55/94605d5bfa140601fde256f548ed1733a5327f2d7d159b60a727e8613170/argon2-0.1.10.tar.gz",
+                    "sha256": "523a3d3b88f3a46244b4976a6ca81994705848538bbe9e41426ea54ccb75eb90",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "argon2"
@@ -444,8 +444,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/30/2f/e2e6bad1b80f744cf5c2a6d622e3dee698b43e6c040f980ae0ac0edd5e54/construct-2.10.54.tar.gz",
-                    "sha256": "3c130a67f05610557dd1b27e062a7165f92b517f9ed50db880ebe068696fd712",
+                    "url": "https://files.pythonhosted.org/packages/39/2b/c68eaf8294f01ea534f39b8b4ec1d7308b5195e08570c276b104bccd24ff/construct-2.10.67.tar.gz",
+                    "sha256": "730235fedf4f2fee5cfadda1d14b83ef1bf23790fb1cc579073e10f70a050883",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "construct"
