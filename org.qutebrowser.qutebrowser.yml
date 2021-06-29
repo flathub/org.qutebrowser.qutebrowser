@@ -13,8 +13,8 @@ add-extensions:
     no-autodownload: true
 command: qutebrowser
 rename-icon: qutebrowser
-#base: io.qt.qtwebengine.BaseApp
-#base-version: '5.15'
+base: io.qt.qtwebengine.BaseApp
+base-version: '5.15'
 finish-args:
   - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
@@ -40,8 +40,8 @@ cleanup:
   - /lib/pkgconfig
   - '*.a'
   - '*.la'
-#cleanup-commands:
-#  - /app/cleanup-BaseApp.sh
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 modules:
   - name: qutebrowser
     buildsystem: simple
@@ -200,7 +200,6 @@ modules:
               - python3 configure.py $processed
             dest-filename: configure
         modules:
-          - qt5-webengine.json
           - name: pyqt5
             config-opts:
               - --assume-shared
