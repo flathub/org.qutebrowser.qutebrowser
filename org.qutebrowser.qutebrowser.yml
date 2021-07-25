@@ -66,9 +66,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
-          tag-query: '.tag_name'
-          version-query: '$tag'
-          timestamp-query: '.published_at'
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
     modules:
       - name: asciidoc
         sources:
@@ -278,8 +278,8 @@ modules:
           - find /app/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.9.359/pdfjs-2.9.359-dist.zip
-            sha256: b053fe9f4e467495b02909a078b055cf708de4ebffcfd8d6e7a348e711714958
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.10.377/pdfjs-2.10.377-dist.zip
+            sha256: c74b010aa0e646a279299cb1a8939d0e8460d6e760ef090b349e97c084def077
             x-checker-data:
               type: json
               url: https://api.github.com/repos/mozilla/pdf.js/releases
