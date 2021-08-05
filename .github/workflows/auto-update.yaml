@@ -37,13 +37,35 @@ jobs:
               flatpak update --assumeyes --noninteractive
         continue-on-error: true
 
+#     - name: Fetch cached changes
+#       id: download-artifacts
+#       uses: dawidd6/action-download-artifact@v2
+#       with:
+#         workflow: auto-update.yaml
+#         name: cached-changes
+#       continue-on-error: true
+
       - name: Fetch cached changes
         id: download-artifacts
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: auto-update.yaml
-          name: cached-changes
+        run: |
+              workrun=$(curl \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/repos/flathub/org.qutebrowser.qutebrowser/actions/runs | \
+                jq --raw-output \
+                '.workflow_runs | map(select(.status=="completed" and .conclusion=="success")) | .[0].id')
+
+              artifact_url=$(curl \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/repos/flathub/org.qutebrowser.qutebrowser/actions/runs/${workrun}/artifacts | \
+                jq --raw-output \
+                '.artifacts | map(select(.name=="cached-changes")) | .[0].archive_download_url')
+
+              curl \
+                -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                -L "$artifact_url" | \
+                bsdtar -xf - changes.patch
         continue-on-error: true
+
 
       - name: Create an empty cached changes file
         if: steps.download-artifacts.outcome != 'success'
