@@ -1,0 +1,26 @@
+{
+    "name": "python-adblock",
+    "build-options": {
+        "env": [
+            "CARGO_HOME=/run/build/python-adblock/cargo"
+        ],
+        "prepend-path": "/usr/lib/sdk/rust-stable/bin"
+    },
+    "buildsystem": "simple",
+    "build-commands": [
+        "cargo --offline fetch --manifest-path Cargo.toml --verbose",
+        "maturin build --release --strip --cargo-extra-args='--offline'",
+        "pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} adblock --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/ArniDagur/python-adblock/archive/0.5.0.tar.gz",
+            "sha256": "35ab20170bcfe447efee4d988508d99477cc23b95a901383bf606ca2960148a3"
+        },
+        "python-adblock-cargo-sources.json"
+    ],
+    "modules": [
+        "../maturin/maturin.json"
+    ]
+}

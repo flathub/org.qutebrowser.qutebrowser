@@ -1,2 +1,5 @@
+*-fedc.json
 *cargo.lock
+changes.patch*
 tests-requirements.txt
+version
