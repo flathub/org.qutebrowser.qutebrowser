@@ -114,61 +114,7 @@ modules:
             x-checker-data:
               type: pypi
               name: Pygments
-      - name: python-adblock
-        build-options:
-          env:
-            - CARGO_HOME=/run/build/python-adblock/cargo
-          prepend-path: /usr/lib/sdk/rust-stable/bin
-        buildsystem: simple
-        build-commands:
-          - cargo --offline fetch --manifest-path Cargo.toml --verbose
-          - maturin build --release --strip --cargo-extra-args='--offline'
-          #- cargo --offline build --release --locked --all-features --target-dir=target
-          - pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels
-            --prefix=${FLATPAK_DEST} adblock --no-build-isolation
-          #- install -Dm755 target/release/libadblock.so -t /app/lib
-        sources:
-          - type: git
-            url: https://github.com/ArniDagur/python-adblock.git
-            tag: 0.5.0
-            commit: 06f0782a460edb4dec786842a9f52b9429a4d7e8
-            # disabled as it doesn't update cargo-sources.json
-#           x-checker-data:
-#             type: json
-#             url: https://api.github.com/repos/ArniDagur/python-adblock/releases/latest
-#             tag-query: '.tag_name'
-#             version-query: '$tag'
-#             timestamp-query: '.published_at'
-          - python-adblock-cargo-sources.json
-        modules:
-          - name: maturin
-            build-options:
-              env:
-                - CARGO_HOME=/run/build/maturin/cargo
-              prepend-path: /usr/lib/sdk/rust-stable/bin
-            buildsystem: simple
-            build-commands:
-              - cargo --offline fetch --manifest-path Cargo.toml --verbose
-              - cargo --offline build --release --verbose
-              #- target/release/maturin build --release --strip --cargo-extra-args='--offline'
-              #- pip3 install --exists-action=i --no-index --find-links=file://${PWD}/target/wheels --prefix=${FLATPAK_DEST} maturin --no-build-isolation
-              # install manually and don't waste resources on re-compilation with maturin, it adds at least extra 6min on aarch64
-              - install -Dm755 target/release/maturin -t /app/bin/
-              - install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
-            sources:
-              - type: archive
-                url: https://github.com/PyO3/maturin/archive/v0.10.6.tar.gz
-                sha256: e6a9a67cc62ffe248654e60e7ec211bf23319c4c936ad87022f7a1fd0997430d
-                # disabled as it doesn't update cargo-sources.json
-#               x-checker-data:
-#                 type: json
-#                 url: https://api.github.com/repos/PyO3/maturin/releases/latest
-#                 tag-query: '.tag_name'
-#                 version-query: '$tag'
-#                 timestamp-query: '.published_at'
-              - maturin-cargo-sources.json
-            cleanup:
-              - '*'
+      - python-adblock/python-adblock.json
       - name: pyqt5-webengine
         build-options:
           env:
@@ -303,4 +249,4 @@ modules:
               project-id: 13150
               url-template: https://gitlab.gnome.org/GNOME/libsecret/-/archive/$version/libsecret-$version.tar.gz
       # TODO: f-e-d-c?
-#     - tests-dependencies.json
+#     - tests/tests-dependencies.json
