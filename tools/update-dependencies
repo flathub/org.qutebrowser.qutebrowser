@@ -1,0 +1,14 @@
+#!/bin/bash
+
+tools/pip-updater python-dependencies
+
+pushd maturin
+../tools/pip-cargo-updater maturin
+popd
+
+pushd python-adblock
+../tools/pip-cargo-updater python-adblock
+popd
+
+#tools/pip-updater tests-python-dependencies tests-requirements.txt
+# TODO: also update the tests module
