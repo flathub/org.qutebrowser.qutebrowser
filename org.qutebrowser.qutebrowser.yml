@@ -61,8 +61,6 @@ modules:
         url: https://github.com/qutebrowser/qutebrowser.git
         tag: v2.3.1
         commit: 55bfe82b0f474fe9720e23eb2e97e50c6eb353b9
-        # python-dependencies are also updated manually on qutebrowser version bump,
-        #   so disable this until we can update them automatically and to avoid conflicting with the bot
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
@@ -97,7 +95,6 @@ modules:
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
       # generated with flatpak-pip-generator from requirements.txt
-      # TODO: f-e-d-c?
       - python-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
       #   when viewing source with ':view-source --pygments'
@@ -204,10 +201,6 @@ modules:
                   - type: archive
                     url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
                     sha256: b39d93e937647807bac23579edbff25fe46d16213f708370072574ab1f1b4211
-                    # TODO: switch to sip6 and enable this
-                    #x-checker-data:
-                    #  type: pypi
-                    #  name: sip
                   - type: script
                     commands:
                       - processed=`sed -e 's|--prefix=/app||' <<< $@`
@@ -248,5 +241,5 @@ modules:
               type: anitya
               project-id: 13150
               url-template: https://gitlab.gnome.org/GNOME/libsecret/-/archive/$version/libsecret-$version.tar.gz
-      # TODO: f-e-d-c?
+      # TODO: f-e-d-c
 #     - tests/tests-dependencies.json
