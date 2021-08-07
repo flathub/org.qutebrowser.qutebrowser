@@ -1,0 +1,114 @@
+{
+    "name": "pyqt5",
+    "config-opts": [
+        "--concatenate=1",
+        "--confirm-license",
+        "--debug",
+        "--enable=QtCore",
+        "--enable=QtDBus",
+        "--enable=QtGui",
+        "--enable=QtNetwork",
+        "--enable=QtOpenGL",
+        "--enable=QtPrintSupport",
+        "--enable=QtQml",
+        "--enable=QtQuick",
+        "--enable=QtSql",
+        "--enable=QtTest",
+        "--enable=QtWebChannel",
+        "--enable=QtWidgets",
+        "--no-designer-plugin",
+        "--no-docstrings",
+        "--no-make",
+        "--no-qml-plugin",
+        "--no-tools",
+        "--verbose",
+        "--api-dir=/app/share/qt/qsci/api/python",
+        "--qmake-setting=QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.8/'",
+        "--qmake-setting=QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.8/'",
+        "--qt-shared"
+    ],
+    "make-args": [
+        "--directory=build"
+    ],
+    "make-install-args": [
+        "--directory=build"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz",
+            "sha256": "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "PyQt5"
+            }
+        },
+        {
+            "type": "script",
+            "commands": [
+                "processed=`sed -e 's|prefix=/app|target-dir=/app/lib/python3.8/site-packages|' <<< $@`",
+                "sip-build $processed",
+                "echo 'trick flatpak-builder into running make' > Makefile"
+            ],
+            "dest-filename": "configure"
+        },
+        {
+            "type": "shell",
+            "commands": [
+                "echo '[tool.sip.bindings.QtGui]' >> pyproject.toml",
+                "echo 'disabled-features = [\"PyQt_Desktop_OpenGL\"]' >> pyproject.toml"
+            ],
+            "only-arches": [
+                "aarch64"
+            ]
+        }
+    ],
+    "cleanup": [
+        "/share/qt"
+    ],
+    "modules": [
+        "python-opengl.json",
+        "sip.json",
+        {
+            "name": "pyqt-builder",
+            "buildsystem": "simple",
+            "build-commands": [
+                "python setup.py build",
+                "python setup.py install --skip-build --prefix=$FLATPAK_DEST --root=/ --optimize=1"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/27/c2/9fcaf0f4eb96dc06dc38ca66e4f1bb890b9852f62b93069b81646f7bff65/PyQt-builder-1.10.3.tar.gz",
+                    "sha256": "6ade47445b7d8c08eb96e91ebda5f8b3494b3e7a9da2be343b9d0704419cb5c7",
+                    "x-checker-data": {
+                        "type": "pypi",
+                        "name": "PyQt-builder"
+                    }
+                }
+            ],
+            "cleanup": [
+                "*"
+            ]
+        },
+        {
+            "name": "pyqt5-sip",
+            "buildsystem": "simple",
+            "build-commands": [
+                "python setup.py build",
+                "python setup.py install --skip-build --prefix=$FLATPAK_DEST --root=/ --optimize=1"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz",
+                    "sha256": "d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32",
+                    "x-checker-data": {
+                        "type": "pypi",
+                        "name": "PyQt5-sip"
+                    }
+                }
+            ]
+        }
+    ]
+}
