@@ -6,7 +6,7 @@ _mod=$1
 
 # add fedc
 #jq '.sources[0] += { "x-checker-data": { "type": "json", "url": "https://api.github.com/repos/user/repo/releases/latest", "tag-query": ".tag_name", "version-query": "$tag", "timestamp-query": ".published_at" } }' ${_mod}.json
-jq --indent 4 --argjson fedc "$(<fedc.json)" '.sources[0] += $fedc' ${_mod}.json > ${_mod}-fedc.json
+jq --indent 4 --join-output --argjson fedc "$(<fedc.json)" '.sources[0] += $fedc' ${_mod}.json > ${_mod}-fedc.json
 
 # look for an update
 flatpak run \
@@ -15,7 +15,7 @@ flatpak run \
   --edit-only ${_mod}-fedc.json
 
 # disable fedc
-jq --indent 4 'del(.sources[0]."x-checker-data")' ${_mod}-fedc.json > ${_mod}.json
+jq --indent 4 --join-output 'del(.sources[0]."x-checker-data")' ${_mod}-fedc.json > ${_mod}.json
 rm ${_mod}-fedc.json
 
 # TODO: test if ${_mod}.json is still valid
