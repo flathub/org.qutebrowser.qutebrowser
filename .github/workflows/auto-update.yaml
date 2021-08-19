@@ -51,13 +51,13 @@ jobs:
               workrun=$(curl \
                 -H "Accept: application/vnd.github.v3+json" \
                 https://api.github.com/repos/flathub/org.qutebrowser.qutebrowser/actions/runs | \
-                jq --join-output \
+                jq --raw-output \
                 '.workflow_runs | map(select(.status=="completed" and .conclusion=="success")) | .[0].id')
 
               artifact_url=$(curl \
                 -H "Accept: application/vnd.github.v3+json" \
                 https://api.github.com/repos/flathub/org.qutebrowser.qutebrowser/actions/runs/${workrun}/artifacts | \
-                jq --join-output \
+                jq --raw-output \
                 '.artifacts | map(select(.name=="cached-changes")) | .[0].archive_download_url')
 
               curl \
