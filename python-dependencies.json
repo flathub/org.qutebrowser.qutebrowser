@@ -120,8 +120,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz",
-                    "sha256": "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
+                    "url": "https://files.pythonhosted.org/packages/a5/50/6fbfb5a45d4d8024222849f0731f8d8ddc5c7fe657a8f799bd4c605e93e0/typing_extensions-3.10.0.1.tar.gz",
+                    "sha256": "83af6730a045fda60f46510f7f1f094776d90321caa4d97d20ef38871bef4bd3"
                 }
             ]
         },
@@ -294,8 +294,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/74/fd/d78e003a79c453e8454197092fce9d1c6099445b7e7da0b04eb4fe1dbab7/argon2-cffi-20.1.0.tar.gz",
-                    "sha256": "d8029b2d3e4b4cea770e9e5a0104dd8fa185c1724a0f01528ae4826a6d25f97d"
+                    "url": "https://files.pythonhosted.org/packages/7b/39/a26aaef5c3f0c6cfd67c80599b5b40a794fdab46f4ee3be925d71e2f9596/argon2-cffi-21.1.0.tar.gz",
+                    "sha256": "f710b61103d1a1f692ca3ecbd1373e28aa5e545ac625ba067ff2feca1b2bb870"
                 },
                 {
                     "type": "file",
