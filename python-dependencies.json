@@ -241,8 +241,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ed/8e/719a8f4c5450c49450dd771d527e198238e1dd26c28b955ec438b16f3c26/tldextract-3.1.1.tar.gz",
-                    "sha256": "1d5883c496da3a8aa71d1f4da4862ce374dc7ccf45e4bb67deb2016ec34f8d33"
+                    "url": "https://files.pythonhosted.org/packages/6c/aa/ddf3d8f064887d5b4ae2c0ba7c688baa6cb48717db001abd340b72350069/tldextract-3.1.2.tar.gz",
+                    "sha256": "d2034c3558651f7d8fdadea83fb681050b2d662dc67a00d950326dc902029444"
                 }
             ]
         },
