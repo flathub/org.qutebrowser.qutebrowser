@@ -1,4 +1,5 @@
 # importlib-resources dependencies, they aren't being included by flatpak-pip-generator
+flit-core
 toml
 setuptools-scm
 
