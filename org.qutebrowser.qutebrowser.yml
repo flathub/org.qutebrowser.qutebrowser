@@ -1,6 +1,6 @@
 app-id: org.qutebrowser.qutebrowser
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -8,13 +8,13 @@ sdk-extensions:
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: '20.08'
+    version: '21.08'
     add-ld-path: .
     no-autodownload: true
 command: qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
-base-version: '5.15'
+base-version: 5.15-21.08
 finish-args:
   - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess

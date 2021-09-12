@@ -1,11 +1,9 @@
-# importlib-resources dependencies, they aren't being included by flatpak-pip-generator
+# tldextract
 flit-core
-toml
 setuptools-scm
 
 # qutebrowser/requirements.txt
 colorama
-importlib-resources; python_version<"3.9"
 Jinja2
 MarkupSafe
 PyYAML
