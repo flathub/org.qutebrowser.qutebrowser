@@ -29,12 +29,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz",
+                    "url": "https://sourceforge.net/projects/freeglut/files/freeglut/3.2.1/freeglut-3.2.1.tar.gz",
                     "sha256": "d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 846,
-                        "url-template": "https://downloads.sourceforge.net/freeglut/freeglut-$version.tar.gz"
+                        "url-template": "https://sourceforge.net/projects/freeglut/files/freeglut/$version/freeglut-$version.tar.gz"
                     }
                 }
             ],
