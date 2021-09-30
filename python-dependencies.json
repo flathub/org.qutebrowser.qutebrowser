@@ -88,8 +88,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz",
-                    "sha256": "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
+                    "url": "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz",
+                    "sha256": "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
                 },
                 {
                     "type": "file",
@@ -168,8 +168,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz",
-                    "sha256": "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
+                    "url": "https://files.pythonhosted.org/packages/02/bf/0d03dbdedb83afec081fefe86cae3a2447250ef1a81ac601a9a56e785401/zipp-3.6.0.tar.gz",
+                    "sha256": "71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"
                 }
             ]
         },
@@ -270,8 +270,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/40/6e/75062649204602805de42a1faa614e16a57ee3d3331302a1de2d7c4db4e3/filelock-3.1.0.tar.gz",
-                    "sha256": "78925788ce8c8945fac28a68c1d05cf33a6a6c4fba14fe02835122c53268ceef"
+                    "url": "https://files.pythonhosted.org/packages/18/3d/82769bc929807a11e455265a402c9012a31dacd72a1b85795f337bb0c3fe/filelock-3.2.0.tar.gz",
+                    "sha256": "85ecb30757aa19d06bfcdad29cc332b9a3e4851bf59976aea1e8dadcbd9ef883"
                 },
                 {
                     "type": "file",
