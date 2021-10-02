@@ -122,8 +122,8 @@ modules:
           - find /app/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.10.377/pdfjs-2.10.377-dist.zip
-            sha256: c74b010aa0e646a279299cb1a8939d0e8460d6e760ef090b349e97c084def077
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.11.338/pdfjs-2.11.338-dist.zip
+            sha256: 0bb254d6aa0c7242720a5ae0ddf165ba95dcd0636d8feb718c0a26310038285e
             x-checker-data:
               type: json
               url: https://api.github.com/repos/mozilla/pdf.js/releases
