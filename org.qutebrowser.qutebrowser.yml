@@ -109,6 +109,8 @@ modules:
               project-id: 63514
               stable-only: true
               url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
+      # https://github.com/hukkin/tomli/issues/130
+      - python-tomli-dependencies.json
       # generated with flatpak-pip-generator from requirements.txt
       - python-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
