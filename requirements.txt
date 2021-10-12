@@ -8,7 +8,7 @@ Jinja2
 MarkupSafe
 PyYAML
 typing-extensions
-zipp
+#zipp
 
 # TODO: add nacl
 # userscripts/qute-keepassxc

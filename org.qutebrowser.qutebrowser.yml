@@ -94,6 +94,21 @@ modules:
               url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
+      # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
+      - name: python-zipp
+        buildsystem: simple
+        build-commands:
+          - python setup.py build
+          - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
+        sources:
+          - type: archive
+            url: https://github.com/jaraco/zipp/archive/v3.6.0/zipp-3.6.0.tar.gz
+            sha256: fd1af7ebc49a73dd0cd35f31d44a28022566e5114bdef64129fab0d9dc524486
+            x-checker-data:
+              type: anitya
+              project-id: 63514
+              stable-only: true
+              url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
       # generated with flatpak-pip-generator from requirements.txt
       - python-dependencies.json
       # pygments is an optional dependecy. with the webengine backend is only used
