@@ -17,7 +17,7 @@ jobs:
     name: Auto update job
     runs-on: ubuntu-latest
     container:
-      image: tinywrkb/flatpak-tools:kde-5.15
+      image: tinywrkb/flatpak-tools:kde-5.15-21.08
       options: --privileged
     if: github.repository_owner == 'flathub'
     env:

@@ -6,4 +6,4 @@ cargo --offline build --release --verbose
 
 #install manually and don't waste resources on re-compilation with maturin, it adds at least extra 6min on aarch64
 install -Dm755 target/release/maturin -t /app/bin/
-install -Dm644 maturin/__init__.py -t /app/lib/python3.8/site-packages/maturin/
+install -Dm644 maturin/__init__.py -t /app/lib/python$(python -c 'import sys; print(\"%s.%s\" %sys.version_info[0:2])')/site-packages/maturin/

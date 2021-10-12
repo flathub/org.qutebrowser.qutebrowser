@@ -46,7 +46,7 @@ if [ $retval -eq 1 ] ; then
   flatpak run \
     --filesystem=$PWD \
     --command=flatpak-cargo-generator.py \
-    --runtime=org.kde.Sdk//5.15 \
+    --runtime=org.kde.Sdk//5.15-21.08 \
     io.github.flatpak.flatpak-builder-tools \
     ${_mod}-cargo.lock \
     -o ${_mod}-cargo-sources.json
