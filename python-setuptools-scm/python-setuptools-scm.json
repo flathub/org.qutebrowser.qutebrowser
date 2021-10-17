@@ -13,7 +13,6 @@
     ],
     "modules": [
         "../python-packaging/python-packaging.json",
-        "../python-pyparsing/python-pyparsing.json",
         {
             "name": "python-flit-core",
             "buildsystem": "simple",
