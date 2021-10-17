@@ -1,13 +1,13 @@
 # tldextract
-flit-core
-setuptools-scm
+#flit-core
+#setuptools-scm
 
 # qutebrowser/requirements.txt
-colorama
-Jinja2
-MarkupSafe
-PyYAML
-typing-extensions
+#colorama
+#Jinja2
+#MarkupSafe
+#PyYAML
+#typing-extensions
 #zipp
 
 # TODO: add nacl

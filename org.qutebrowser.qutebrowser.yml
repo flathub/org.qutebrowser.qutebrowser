@@ -69,18 +69,10 @@ modules:
           timestamp-query: .published_at
     modules:
       - asciidoc/asciidoc.json
-      - name: libyaml
-        sources:
-          - type: archive
-            url: https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
-            sha256: c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4
-            x-checker-data:
-              type: anitya
-              project-id: 1800
-              stable-only: true
-              url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
+      # https://github.com/hukkin/tomli/issues/130
+      - python-setuptools-scm/python-setuptools-scm.json
       # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
       - name: python-zipp
         buildsystem: simple
@@ -96,59 +88,21 @@ modules:
               project-id: 63514
               stable-only: true
               url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
-      # https://github.com/hukkin/tomli/issues/130
-      - python-tomli-dependencies.json
       # generated with flatpak-pip-generator from requirements.txt
-      - python-dependencies.json
+      - python-colorama/python-colorama.json
+      - python-jinja/python-jinja.json
       # pygments is an optional dependecy. with the webengine backend is only used
       #   when viewing source with ':view-source --pygments'
       #   is availble in the sdk but not in the runtime so it's not being included by flatpak-pip-generator
-      - name: python-pygments
-        buildsystem: simple
-        build-commands:
-          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD
-            --prefix=$FLATPAK_DEST Pygments --no-build-isolation
-        sources:
-          - type: file
-            url: https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz
-            sha256: f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6
-            x-checker-data:
-              type: pypi
-              name: Pygments
+      - python-pygments/python-pygments.json
+      - python-pyyaml/python-pyyaml.json
+      - python-typing_extensions/python-typing_extensions.json
+        # only extensions dependencies
+      - python-dependencies.json
       - python-adblock/python-adblock.json
       - pyqt5/pyqt5-webengine.json
-      - name: pdfjs
-        buildsystem: simple
-        build-commands:
-          - unzip pdfjs-*.zip
-          - mkdir /app/share/pdf.js
-          - cp -R {LICENSE,build,web} /app/share/pdf.js
-          - find /app/share/pdf.js -type f -exec chmod 644 {} \;
-        sources:
-          - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.11.338/pdfjs-2.11.338-dist.zip
-            sha256: 0bb254d6aa0c7242720a5ae0ddf165ba95dcd0636d8feb718c0a26310038285e
-            x-checker-data:
-              type: json
-              url: https://api.github.com/repos/mozilla/pdf.js/releases
-              version-query: .[0] | .tag_name | sub("^v"; "")
-              url-query: .[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip")
-                | .browser_download_url
+      - pdfjs/pdfjs.json
       # userscripts/password_fill secret backend
-      - name: libsecret
-        buildsystem: meson
-        config-opts:
-          - -Dmanpage=false
-          - -Dvapi=false
-          - -Dgtk_doc=false
-          - -Dintrospection=false
-        sources:
-          - type: archive
-            url: https://gitlab.gnome.org/GNOME/libsecret/-/archive/0.20.4/libsecret-0.20.4.tar.gz
-            sha256: ca34e69b210df221ae5da6692c2cb15ef169bb4daf42e204442f24fdb0520d4b
-            x-checker-data:
-              type: anitya
-              project-id: 13150
-              url-template: https://gitlab.gnome.org/GNOME/libsecret/-/archive/$version/libsecret-$version.tar.gz
-      # TODO: f-e-d-c
+      - libsecret/libsecret.json
+      # TODO: f-e-d-c for tests
 #     - tests/tests-dependencies.json
