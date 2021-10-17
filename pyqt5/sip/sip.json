@@ -14,10 +14,5 @@
     ],
     "cleanup": [
         "/bin"
-    ],
-    "modules": [
-        "python-pyparsing/python-pyparsing.json",
-        "python-packaging/python-packaging.json",
-        "python-toml/python-toml.json"
     ]
 }
