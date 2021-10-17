@@ -71,8 +71,8 @@ modules:
       - name: asciidoc
         sources:
           - type: archive
-            url: https://github.com/asciidoc-py/asciidoc-py/releases/download/9.1.1/asciidoc-9.1.1.tar.gz
-            sha256: ea39760ac2739496c14002902571592dc2ae2fa673296ec141a9e491d9c11fca
+            url: https://github.com/asciidoc-py/asciidoc-py/releases/download/10.0.0/asciidoc-10.0.0.tar.gz
+            sha256: 0a9b57ec39847762eb22df7ac9afe67e1128e06ae30531be1170f4f1b2d6be9b
             x-checker-data:
               # anitya actually wrong here and marking pre-releases as stable but since the url template only
               #  correct for stable then it's not an issue.
