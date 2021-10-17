@@ -8,8 +8,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://files.pythonhosted.org/packages/6b/26/d2828867b366b73fc55b5ed51d7ad369195cc51d6293875ac152aa4b1742/asciidoc-10.0.0.tar.gz",
-            "sha256": "709e46e5fe528f9cf52272ec782a571e59c2f3776f6f67d49dd727351f669fdd"
+            "url": "https://github.com/asciidoc-py/asciidoc-py/archive/10.0.0/asciidoc-10.0.0.tar.gz",
+            "sha256": "9a0007de3bc2142e691706b2dbc729dc5958a3290478cf1ffec7cf33d396cb92"
         }
     ],
     "cleanup": [
