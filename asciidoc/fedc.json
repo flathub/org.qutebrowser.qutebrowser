@@ -1,8 +1,6 @@
 {
     "x-checker-data": {
-        "type": "anitya",
-        "project-id": 13262,
-        "stable-only": true,
-        "url-template": "https://github.com/asciidoc-py/asciidoc-py/archive/$version/asciidoc-$version.tar.gz"
+        "type": "pypi",
+        "name": "asciidoc"
     }
 }
