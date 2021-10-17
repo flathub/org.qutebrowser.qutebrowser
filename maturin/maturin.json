@@ -19,7 +19,7 @@
             "url": "https://github.com/PyO3/maturin/archive/v0.11.4.tar.gz",
             "sha256": "9d4fa5f0b556bd05204f27d465771573a0ff54262b118df0151cd3f13c3ec219"
         },
-        "maturin-cargo-sources.json"
+        "cargo-sources.json"
     ],
     "cleanup": [
         "*"
