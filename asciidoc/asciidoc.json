@@ -3,7 +3,8 @@
     "buildsystem": "simple",
     "build-commands": [
         "python setup.py build",
-        "python setup.py install --prefix=/app --root=/ --optimize=1"
+        "python setup.py install --prefix=/app --root=/ --optimize=1",
+        "_pyver=$(python -c 'import sys; print(\"%s.%s\" %sys.version_info[0:2])'); install asciidoc/resources/docbook-xsl/*.xsl -t ${FLATPAK_DEST}/lib/python${_pyver}/site-packages/asciidoc/resources/docbook-xsl"
     ],
     "sources": [
         {
