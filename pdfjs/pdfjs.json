@@ -1,0 +1,23 @@
+{
+    "name": "pdfjs",
+    "buildsystem": "simple",
+    "build-commands": [
+        "unzip pdfjs-*.zip",
+        "mkdir /app/share/pdf.js",
+        "cp -R {LICENSE,build,web} /app/share/pdf.js",
+        "find /app/share/pdf.js -type f -exec chmod 644 {} \\;"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://github.com/mozilla/pdf.js/releases/download/v2.11.338/pdfjs-2.11.338-dist.zip",
+            "sha256": "0bb254d6aa0c7242720a5ae0ddf165ba95dcd0636d8feb718c0a26310038285e",
+            "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/mozilla/pdf.js/releases",
+                "version-query": ".[0] | .tag_name | sub(\"^v\"; \"\")",
+                "url-query": ".[0] | .assets[] | select(.name==\"pdfjs-\" + $version + \"-dist.zip\") | .browser_download_url"
+            }
+        }
+    ]
+}

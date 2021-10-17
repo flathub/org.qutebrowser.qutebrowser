@@ -1,5 +1,5 @@
 *-fedc.json
-*cargo.lock
+Cargo.lock
 changes.patch*
 tests-requirements.txt
 version
