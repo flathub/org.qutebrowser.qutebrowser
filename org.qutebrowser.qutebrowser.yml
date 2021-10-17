@@ -68,20 +68,7 @@ modules:
           version-query: $tag
           timestamp-query: .published_at
     modules:
-      - name: asciidoc
-        sources:
-          - type: archive
-            url: https://github.com/asciidoc-py/asciidoc-py/releases/download/9.1.1/asciidoc-9.1.1.tar.gz
-            sha256: ea39760ac2739496c14002902571592dc2ae2fa673296ec141a9e491d9c11fca
-            x-checker-data:
-              # anitya actually wrong here and marking pre-releases as stable but since the url template only
-              #  correct for stable then it's not an issue.
-              type: anitya
-              project-id: 13262
-              stable-only: true
-              url-template: https://github.com/asciidoc-py/asciidoc-py/releases/download/$version/asciidoc-$version.tar.gz
-        cleanup:
-          - '*'
+      - asciidoc/asciidoc.json
       - name: libyaml
         sources:
           - type: archive

@@ -1,0 +1,15 @@
+{
+    "name": "pyqt5-sip",
+    "buildsystem": "simple",
+    "build-commands": [
+        "python setup.py build",
+        "python setup.py install --skip-build --prefix=$FLATPAK_DEST --root=/ --optimize=1"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz",
+            "sha256": "d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32"
+        }
+    ]
+}
