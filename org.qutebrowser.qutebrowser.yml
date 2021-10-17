@@ -71,10 +71,9 @@ modules:
       - asciidoc/asciidoc.json
 # TODO: add here pyperclip backends?
 # TODO: add here dependencies of pykeepass
-      # https://github.com/hukkin/tomli/issues/130
-      - python-setuptools-scm/python-setuptools-scm.json
-      # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
       - name: python-zipp
+        # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
+        # need to be before python-setuptools-scm
         buildsystem: simple
         build-commands:
           - python setup.py build
@@ -88,6 +87,8 @@ modules:
               project-id: 63514
               stable-only: true
               url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
+      # https://github.com/hukkin/tomli/issues/130
+      - python-setuptools-scm/python-setuptools-scm.json
       # generated with flatpak-pip-generator from requirements.txt
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
