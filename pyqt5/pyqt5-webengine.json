@@ -26,8 +26,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://files.pythonhosted.org/packages/fb/5d/4c5bb7adca4f2436545a391fe311dcb4ccc711f1ce2ab7adb87475ec566e/PyQtWebEngine-5.15.4.tar.gz",
-            "sha256": "cedc28f54165f4b8067652145aec7f732a17eadf6736835852868cf76119cc19",
+            "url": "https://files.pythonhosted.org/packages/60/66/56e118abb4cddd8e4bea6f89bdec834069b52479fb991748f1b21950811e/PyQtWebEngine-5.15.5.tar.gz",
+            "sha256": "ab47608dccf2b5e4b950d5a3cc704b17711af035024d07a9b71ad29fc103b941",
             "x-checker-data": {
                 "type": "pypi",
                 "name": "PyQtWebEngine"
