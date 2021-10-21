@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        tag: v2.3.1
-        commit: 55bfe82b0f474fe9720e23eb2e97e50c6eb353b9
+        tag: v2.4.0
+        commit: 36ffff2f6b3b77f900cd503b86ec9cfd9497e983
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
