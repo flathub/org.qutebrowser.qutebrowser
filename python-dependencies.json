@@ -17,8 +17,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz",
-                    "sha256": "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+                    "url": "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz",
+                    "sha256": "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
                 },
                 {
                     "type": "file",
@@ -80,8 +80,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz",
-                    "sha256": "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
+                    "url": "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz",
+                    "sha256": "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
                 },
                 {
                     "type": "file",
@@ -100,8 +100,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/fd/6e/665a6cb363bee26e40954ee812e4e733fd7cafd84c06e0c7c2357641abd6/filelock-3.3.0.tar.gz",
-                    "sha256": "8c7eab13dc442dc249e95158bcc12dec724465919bdc9831fdbf0660f03d1785"
+                    "url": "https://files.pythonhosted.org/packages/8f/eb/6faad9294c8a8d59b7599a8a7c669c0e4c317fa5012bc36f1c8b379972a5/filelock-3.3.1.tar.gz",
+                    "sha256": "34a9f35f95c441e7b38209775d6e0337f9a3759f3565f6c5798f19618527c76f"
                 },
                 {
                     "type": "file",
@@ -153,8 +153,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz",
-                    "sha256": "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+                    "url": "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz",
+                    "sha256": "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
                 },
                 {
                     "type": "file",
