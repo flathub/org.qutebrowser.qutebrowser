@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/asciidoc-py/asciidoc-py/archive/10.0.0/asciidoc-10.0.0.tar.gz",
-            "sha256": "9a0007de3bc2142e691706b2dbc729dc5958a3290478cf1ffec7cf33d396cb92"
+            "url": "https://github.com/asciidoc-py/asciidoc-py/archive/10.0.2/asciidoc-10.0.2.tar.gz",
+            "sha256": "d4648762f36de0cfbf5dd4194996fb70a4cb1607f90a6d0fa84ae505377a214b"
         }
     ],
     "cleanup": [
