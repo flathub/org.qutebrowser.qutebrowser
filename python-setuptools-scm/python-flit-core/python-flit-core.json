@@ -1,0 +1,32 @@
+{
+    "name": "python-flit-core",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --verbose --ignore-installed --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"flit-core\" --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/32/56/f3e180eea51e3e085b1da06233f6e6aa9adb04000d19ba91c29e44823bf7/flit_core-3.5.1-py3-none-any.whl",
+            "sha256": "42d144fa25df9493bfb655036279c4a4ed323e2e3db178b757e898af5aba0334",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "flit_core",
+                "packagetype": "bdist_wheel"
+            }
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/6d/6c/9908d4db66488217c665a9a5744319406e41f3c46fa5929a8886f2fe1090/tomli-1.2.2-py3-none-any.whl",
+            "sha256": "f04066f68f5554911363063a30b108d2b5a5b1a010aa8b6132af78489fe3aade",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "tomli",
+                "packagetype": "bdist_wheel"
+            }
+        }
+    ],
+    "modules": [
+        "python-tomli-dependencies.json"
+    ]
+}
