@@ -14,5 +14,8 @@
     ],
     "cleanup": [
         "/bin"
+    ],
+    "modules": [
+        "../../python-toml/python-toml.json"
     ]
 }
