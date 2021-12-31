@@ -80,8 +80,8 @@ modules:
           - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
         sources:
           - type: archive
-            url: https://github.com/jaraco/zipp/archive/v3.6.0/zipp-3.6.0.tar.gz
-            sha256: fd1af7ebc49a73dd0cd35f31d44a28022566e5114bdef64129fab0d9dc524486
+            url: https://github.com/jaraco/zipp/archive/v3.7.0/zipp-3.7.0.tar.gz
+            sha256: acea738e563c002fcc2df6068ce466f7599ac39700e36a96de1e3dc8adb94c05
             x-checker-data:
               type: anitya
               project-id: 63514
