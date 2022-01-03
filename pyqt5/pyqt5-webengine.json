@@ -12,9 +12,6 @@
         "--verbose",
         "--qmake-setting=QMAKE_CFLAGS_RELEASE='-I/usr/include/python_pyver/'",
         "--qmake-setting=QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python_pyver/'",
-        "--qmake-setting=QMAKE_INCDIR+=/app/include/QtWebEngine",
-        "--qmake-setting=QMAKE_INCDIR+=/app/include/QtWebEngineCore",
-        "--qmake-setting=QMAKE_INCDIR+=/app/include/QtWebEngineWidgets",
         "--target-dir=/app/lib/python_pyver/site-packages"
     ],
     "make-args": [
