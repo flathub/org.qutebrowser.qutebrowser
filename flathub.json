@@ -1,3 +1,4 @@
 {
-    "automerge-flathubbot-prs": false
+    "automerge-flathubbot-prs": false,
+    "publish-delay-hours": 1
 }
