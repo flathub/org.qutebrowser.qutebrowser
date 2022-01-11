@@ -68,6 +68,8 @@ modules:
           tag-query: .tag_name
           version-query: $tag
           timestamp-query: .published_at
+      - type: patch
+        path: flatpak-system_data.patch
     modules:
       - asciidoc/asciidoc.json
 # TODO: add here pyperclip backends?
