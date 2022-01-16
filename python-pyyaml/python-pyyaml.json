@@ -14,5 +14,8 @@
                 "name": "PyYAML"
             }
         }
+    ],
+    "modules": [
+        "libyaml/libyaml.json"
     ]
 }
