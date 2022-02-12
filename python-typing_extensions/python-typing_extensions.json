@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz",
-            "sha256": "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e",
+            "url": "https://files.pythonhosted.org/packages/0b/61/f231a1297068b3c0544577c997e558cbfafe49e750cc7fcb503224df23c4/typing_extensions-4.1.0.tar.gz",
+            "sha256": "ba97c5143e5bb067b57793c726dd857b1671d4b02ced273ca0538e71ff009095",
             "x-checker-data": {
                 "type": "pypi",
                 "name": "typing_extensions"
