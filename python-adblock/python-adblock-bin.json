@@ -1,0 +1,37 @@
+{
+    "name": "python-adblock-bin",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} adblock --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://github.com/ArniDagur/python-adblock/releases/download/0.5.1/adblock-0.5.0-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "sha256": "4ebcd6a422f0d6282906c46b3de978b4bb791ee1c525960880b52c9429181d8f",
+            "only-arches": [
+                "aarch64"
+            ],
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 96221,
+                "stable-only": true,
+                "url-template": "https://github.com/ArniDagur/python-adblock/releases/download/$version/adblock-$version-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+            }
+        },
+        {
+            "type": "file",
+            "url": "https://github.com/ArniDagur/python-adblock/releases/download/0.5.1/adblock-0.5.1-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+            "sha256": "085e62de51d4a7609521620f3b2fdb118227e268c07de90fb196827dd987cd4e",
+            "only-arches": [
+                "x86_64"
+            ],
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 96221,
+                "stable-only": true,
+                "url-template": "https://github.com/ArniDagur/python-adblock/releases/download/$version/adblock-$version-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl"
+            }
+        }
+    ]
+}

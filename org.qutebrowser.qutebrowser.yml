@@ -99,6 +99,8 @@ modules:
       - python-pyyaml/python-pyyaml.json
       - python-typing_extensions/python-typing_extensions.json
       - python-adblock/python-adblock.json
+      # faster local rebuilds with pre-build python-adblock module
+      #- python-adblock/python-adblock-bin.json
       - pyqt5/pyqt5-webengine.json
       - pdfjs/pdfjs.json
       - userscripts-dependencies/userscripts-dependencies.yaml
