@@ -1,25 +1,38 @@
 # implicitly added python modules:
 #  - chardet (readability-lxml), optional for bs4
+#  - cffi (pynacl,pykeepass), required by cryptography
 #  - lxml (readability-lxml), required by qute-code-hint, optional for bs4
 #  - requests (tldextract, pocket-api), required by multiple userscripts
 name: userscripts-dependencies
 modules:
   # bundled userscripts dependencies
+  - argon2/argon2.json # python-argon2-cffi-bindings (python-pykeepass) and opendht dependency
   - jq/jq.json # format_json
   - libsecret/libsecret.json # password_fill
+  - libsodium/libsodium.json # python-pynacl dependency
   - wl-clipboard/wl-clipboard.json # python-pyperclip dependency
   - xclip/xclip.json # python-pyperclip dependency
+    # TODO: figure out if these optional modules are needed
+# - python-cssselect/python-cssselect.json # optional for lxml
+# - python-html5lib/python-html5lib.json # optional for lxml
   - python-bs4/python-bs4.json # openfeeds, qb-scripts, cryzed/qutebrowser-userscripts
   - python-pykeepass/python-pykeepass.json # qute-keepass
+  - python-pynacl/python-pynacl.json # qute-keepassxc, also python-stem dependency
   - python-pyperclip/python-pyperclip.json # qute-bitwarden, qute-code-hint
   - python-readability-lxml/python-readability-lxml.json # readability
+    # TODO: check if this is working correctly, as it looks for instances with ps, see stem/util/system.py
+  - python-stem/python-stem.json # tor_identity
   - python-tldextract/python-tldextract.json # qute-bitwarden, qute-lastpass, qute-pass, bitwarden-rofi
 
   # external userscripts dependencies only
   - iproute2/iproute2.json # localhost (ss)
   - libnotify/libnotify.json # bitwarden-rofi (notify-send)
+  - opendht/opendht.json # qurlshare
   - xdotool/xdotool.json # bitwarden-rofi
+  - zsh/zsh.json # instapaper.zsh, pinboard.zsh
   - python-docopt/python-docopt.json # bitwarden-rofi
+  - python-msgpack/python-msgpack.json # qurlshare
   - python-pocket-api/python-pocket-api.json # qutepocket
+  - python-pycryptodome/python-pycryptodome.json # qurlshare
   - python-pyorgmode/python-pyorgmode.json # qute-capture
   - python-xerox/python-xerox.json # cryzed/qutebrowser-userscripts

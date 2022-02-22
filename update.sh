@@ -12,14 +12,21 @@ flatpak run \
   org.flathub.flatpak-external-data-checker \
   --edit-only ${_FPID}.yml
 
-for _mod in maturin python-adblock; do
-  pushd $_mod
-  ${_TOOLSDIR}/cargo-updater $(basename $_mod)
+for _mod in maturin python-adblock userscripts-dependencies/python-stem/python-cryptography:src/rust/Cargo.lock; do
+  pushd ${_mod%:*}
+  case $_mod in
+    *:*Cargo.lock)
+      ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*} ${_mod#*:})
+      ;;
+    *)
+      ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*})
+      ;;
+  esac
   popd
 done
 
 # python modules with multiple dependencies and have a requirements.txt file
-for _mod in userscripts-dependencies/python-{bs4,pocket-api,pykeepass,readability-lxml,tldextract}; do
+for _mod in userscripts-dependencies/python-{bs4,pocket-api,pykeepass,pynacl,readability-lxml,stem/python-cryptography/python-setuptools-rust,tldextract}; do
   pushd $_mod
   ${_TOOLSDIR}/pip-updater $(basename $_mod)
   popd
