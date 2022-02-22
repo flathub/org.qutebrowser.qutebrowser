@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/c8/e8/920a6b202831b9d0e21113dd5b7e78d094ca830c9dc4404e70367ff8b2eb/flit_core-3.6.0-py3-none-any.whl",
-            "sha256": "7661029dedadd456c1d94e0a4765222447f00808bb1fcc767e4270a883ba8b4c",
+            "url": "https://files.pythonhosted.org/packages/df/43/7a33eaead4ca25a163d951f43246a59af15eebc7511ad1e5b7cb470a2970/flit_core-3.7.0-py3-none-any.whl",
+            "sha256": "339a6e5ea8369ed3f5374157994716cefbc26874a40a93c45c89a5643c4226e5",
             "x-checker-data": {
                 "type": "pypi",
                 "name": "flit_core",

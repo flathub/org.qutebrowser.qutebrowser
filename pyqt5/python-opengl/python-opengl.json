@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/b8/73/31c8177f3d236e9a5424f7267659c70ccea604dab0585bfcd55828397746/PyOpenGL-3.1.5.tar.gz",
-            "sha256": "4107ba0d0390da5766a08c242cf0cf3404c377ed293c5f6d701e457c57ba3424",
+            "url": "https://files.pythonhosted.org/packages/5b/01/f8fd986bc7f456f1a925ee0239f0391838ade92cdb6e5b674ffb8b86cfd6/PyOpenGL-3.1.6.tar.gz",
+            "sha256": "8ea6c8773927eda7405bffc6f5bb93be81569a7b05c8cac50cd94e969dce5e27",
             "x-checker-data": {
                 "type": "pypi",
                 "name": "PyOpenGL"
