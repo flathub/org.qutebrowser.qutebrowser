@@ -11,12 +11,13 @@ add-extensions:
     version: '21.08'
     add-ld-path: .
     no-autodownload: true
-command: qutebrowser
+command: /app/bin/qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
 base-version: 5.15-21.08
 finish-args:
   - --device=dri
+  - --env=PATH=/app/bin:/usr/bin:/var/data/bin:/var/data/python/bin
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
   - --filesystem=xdg-music
@@ -50,6 +51,7 @@ modules:
       - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
       - mkdir -p /app/lib/ffmpeg
+      - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
     run-tests: false
     test-commands:
       - |
