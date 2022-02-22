@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/PyO3/maturin/archive/v0.12.6.tar.gz",
-            "sha256": "8642e6a64bd088930e666e930102db57b13bc652cc3498f5c2ddebd6359d059a"
+            "url": "https://github.com/PyO3/maturin/archive/v0.12.9.tar.gz",
+            "sha256": "26b094c20c9939cc9df5632b4b8d8921c4086b27a4867b439297e616f5781716"
         },
         "cargo-sources.json"
     ],

@@ -1,0 +1,20 @@
+{
+    "name": "iproute2",
+    "no-make-install": true,
+    "build-commands": [
+        "install -Dm755 misc/ss -t ${FLATPAK_DEST}/bin/"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-5.16.0.tar.xz",
+            "sha256": "c064b66f6b001c2a35aa5224b5b1ac8aa4bee104d7dce30d6f10a84cb8b01e2f",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 1392,
+                "stable-only": true,
+                "url-template": "https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-$version.tar.xz"
+            }
+        }
+    ]
+}

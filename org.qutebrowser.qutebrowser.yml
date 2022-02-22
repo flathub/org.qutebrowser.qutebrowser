@@ -11,12 +11,13 @@ add-extensions:
     version: '21.08'
     add-ld-path: .
     no-autodownload: true
-command: qutebrowser
+command: /app/bin/qutebrowser
 rename-icon: qutebrowser
 base: io.qt.qtwebengine.BaseApp
 base-version: 5.15-21.08
 finish-args:
   - --device=dri
+  - --env=PATH=/app/bin:/usr/bin:/var/data/bin:/var/data/python/bin
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
   - --filesystem=xdg-music
@@ -50,6 +51,7 @@ modules:
       - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
       - mkdir -p /app/lib/ffmpeg
+      - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
     run-tests: false
     test-commands:
       - |
@@ -68,10 +70,10 @@ modules:
           tag-query: .tag_name
           version-query: $tag
           timestamp-query: .published_at
+      - type: patch
+        path: flatpak-system_data.patch
     modules:
       - asciidoc/asciidoc.json
-# TODO: add here pyperclip backends?
-# TODO: add here dependencies of pykeepass
       - name: python-zipp
         # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
         # need to be before python-setuptools-scm
@@ -88,23 +90,19 @@ modules:
               project-id: 63514
               stable-only: true
               url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
-      # https://github.com/hukkin/tomli/issues/130
-      - python-setuptools-scm/python-setuptools-scm.json
-      # generated with flatpak-pip-generator from requirements.txt
+      - python-setuptools-scm/python-setuptools-scm.json # https://github.com/hukkin/tomli/issues/130
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
-      # pygments is an optional dependecy. with the webengine backend is only used
-      #   when viewing source with ':view-source --pygments'
-      #   is availble in the sdk but not in the runtime so it's not being included by flatpak-pip-generator
+      # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',
+      #   available in the sdk but not in the runtime
       - python-pygments/python-pygments.json
       - python-pyyaml/python-pyyaml.json
       - python-typing_extensions/python-typing_extensions.json
-        # only extensions dependencies
-      - python-dependencies.json
       - python-adblock/python-adblock.json
+      # faster local rebuilds with pre-build python-adblock module
+      #- python-adblock/python-adblock-bin.json
       - pyqt5/pyqt5-webengine.json
       - pdfjs/pdfjs.json
-      # userscripts/password_fill secret backend
-      - libsecret/libsecret.json
+      - userscripts-dependencies/userscripts-dependencies.yaml
       # TODO: f-e-d-c for tests
-#     - tests/tests-dependencies.json
+      #- tests/tests-dependencies.json
