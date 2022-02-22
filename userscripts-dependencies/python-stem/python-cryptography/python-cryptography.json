@@ -1,0 +1,25 @@
+{
+    "name": "python-cryptography",
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": [
+            "CARGO_HOME=/run/build/python-cryptography/cargo"
+        ]
+    },
+    "buildsystem": "simple",
+    "build-commands": [
+        "python setup.py build",
+        "python setup.py install --skip-build --prefix=${FLATPAK_DEST} --root=/ --optimize=1"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/pyca/cryptography/archive/36.0.1.tar.gz",
+            "sha256": "7a0c701b95b07817468d9203c61a4129fa3d483e4a0cae157d0750ffcbe54a50"
+        },
+        "cargo-sources.json"
+    ],
+    "modules": [
+        "python-setuptools-rust/python-setuptools-rust.json"
+    ]
+}
