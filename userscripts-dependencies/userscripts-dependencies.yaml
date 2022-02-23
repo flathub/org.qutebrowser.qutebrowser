@@ -24,7 +24,7 @@ modules:
   - python-tldextract/python-tldextract.json # required by qute-bitwarden,[us] qute-lastpass[us], qute-pass[us], bitwarden-rofi[us]
 
   # dependencies of non-bundled userscripts
-  - iproute2/iproute2.json # required by localhost[us] (needs ss)
+  - iproute2-ss/iproute2-ss.json # required by localhost[us]
   - libnotify/libnotify.json # required by bitwarden-rofi[us] (notify-send)
   - xdotool/xdotool.json # required by bitwarden-rofi[us]
   - python-docopt/python-docopt.json # required by bitwarden-rofi[us]

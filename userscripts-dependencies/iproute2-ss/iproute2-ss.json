@@ -1,5 +1,5 @@
 {
-    "name": "iproute2",
+    "name": "iproute2-ss",
     "no-make-install": true,
     "build-commands": [
         "install -Dm755 misc/ss -t ${FLATPAK_DEST}/bin/"
