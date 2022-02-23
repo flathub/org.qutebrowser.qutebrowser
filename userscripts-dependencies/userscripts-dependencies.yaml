@@ -14,6 +14,7 @@ name: userscripts-dependencies
 modules:
   # dependencies of bundled userscripts
   - jq/jq.json # required by format_json[us]
+  - keyutils/keyutils.json # required by qute-bitwarden[us]
   - libsecret/libsecret.json # required by password_fill[us]
   - wl-clipboard/wl-clipboard.json # required by python-pyperclip[mod]
   - xclip/xclip.json # required by python-pyperclip[mod]
