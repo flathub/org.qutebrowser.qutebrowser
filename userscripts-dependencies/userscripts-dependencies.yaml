@@ -1,25 +1,34 @@
-# implicitly added python modules:
-#  - chardet (readability-lxml), optional for bs4
-#  - lxml (readability-lxml), required by qute-code-hint, optional for bs4
-#  - requests (tldextract, pocket-api), required by multiple userscripts
+# implicitly added modules
+#   - python-chardet
+#     added by python-readability-lxml[mod]
+#     optional for python-bs4[mod]
+#   - python-lxml
+#     added by python-readability-lxml[mod]
+#     required by qute-code-hint[us]
+#     optional for python-bs4[mod]
+#   - python-requests
+#     added by python-tldextract[mod], python-pocket-api[mod]
+#     required by add-nextcloud-{bookmarks,cookbook}[us], getbib[us], ripbang[us], cryzed/qutebrowser-userscripts[us], qute-zotero[us], qb-scripts[us]
+
 name: userscripts-dependencies
 modules:
-  # bundled userscripts dependencies
-  - jq/jq.json # format_json
-  - libsecret/libsecret.json # password_fill
-  - wl-clipboard/wl-clipboard.json # python-pyperclip dependency
-  - xclip/xclip.json # python-pyperclip dependency
-  - python-bs4/python-bs4.json # openfeeds, qb-scripts, cryzed/qutebrowser-userscripts
-  - python-pykeepass/python-pykeepass.json # qute-keepass
-  - python-pyperclip/python-pyperclip.json # qute-bitwarden, qute-code-hint
-  - python-readability-lxml/python-readability-lxml.json # readability
-  - python-tldextract/python-tldextract.json # qute-bitwarden, qute-lastpass, qute-pass, bitwarden-rofi
+  # dependencies of bundled userscripts
+  - jq/jq.json # required by format_json[us]
+  - keyutils/keyutils.json # required by qute-bitwarden[us]
+  - libsecret/libsecret.json # required by password_fill[us]
+  - wl-clipboard/wl-clipboard.json # required by python-pyperclip[mod]
+  - xclip/xclip.json # required by python-pyperclip[mod]
+  - python-bs4/python-bs4.json # required by openfeeds[us], qb-scripts[us], cryzed/qutebrowser-userscripts[us]
+  - python-pykeepass/python-pykeepass.json # required by qute-keepass[us]
+  - python-pyperclip/python-pyperclip.json # required by qute-bitwarden[us], qute-code-hint[us]
+  - python-readability-lxml/python-readability-lxml.json # required by readability[us]
+  - python-tldextract/python-tldextract.json # required by qute-bitwarden,[us] qute-lastpass[us], qute-pass[us], bitwarden-rofi[us]
 
-  # external userscripts dependencies only
-  - iproute2/iproute2.json # localhost (ss)
-  - libnotify/libnotify.json # bitwarden-rofi (notify-send)
-  - xdotool/xdotool.json # bitwarden-rofi
-  - python-docopt/python-docopt.json # bitwarden-rofi
-  - python-pocket-api/python-pocket-api.json # qutepocket
-  - python-pyorgmode/python-pyorgmode.json # qute-capture
-  - python-xerox/python-xerox.json # cryzed/qutebrowser-userscripts
+  # dependencies of non-bundled userscripts
+  - iproute2-ss/iproute2-ss.json # required by localhost[us]
+  - libnotify/libnotify.json # required by bitwarden-rofi[us] (notify-send)
+  - xdotool/xdotool.json # required by bitwarden-rofi[us]
+  - python-docopt/python-docopt.json # required by bitwarden-rofi[us]
+  - python-pocket-api/python-pocket-api.json # required by qutepocket[us]
+  - python-pyorgmode/python-pyorgmode.json # required by qute-capture[us]
+  - python-xerox/python-xerox.json # required by cryzed/qutebrowser-userscripts[us]

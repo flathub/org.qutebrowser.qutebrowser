@@ -1,0 +1,122 @@
+#!/bin/bash
+
+die(){
+  default_err_msg="Something went wrong!"
+  err_msg="${@:-$default_err_msg}"
+  print_err "$err_msg"
+  exit 1
+}
+
+print_err(){
+  1>&2 echo "flatpak-spawn-wrapper: $@"
+}
+
+is_host_accessible(){
+  gdbus introspect --session --dest org.freedesktop.Flatpak --object-path /org/freedesktop/Flatpak/Development &>/dev/null
+  return $?
+}
+
+set_found_host_app(){
+  found_host_app=yes
+}
+
+is_found_host_app(){
+  [ "$found_host_app" = yes ] && return 0
+  return 1
+}
+
+try_exec(){
+  if flatpak-spawn --host which $executable &>/dev/null; then
+    set_found_host_app
+    exec flatpak-spawn --host $executable "$@"
+    print_err "Failed launching host executable: $app_id"
+  fi
+  return 1
+}
+
+is_flatpak_app_installed(){
+  # flatpak info is costly, so try first see if executable is in PATH
+  if flatpak-spawn --host which $app_id &>/dev/null ||
+    flatpak-spawn --host flatpak info $app_id &>/dev/null; then
+    return 0
+  fi
+  return 1
+}
+
+try_exec_flatpak_app(){
+  if is_flatpak_app_installed; then
+    set_found_host_app
+    exec flatpak-spawn --host flatpak run $app_id "$@"
+    print_err "Failed launching Flatpak app $app_id"
+  fi
+  return 1
+}
+
+try_exec_flatpak_command(){
+  if is_flatpak_app_installed; then
+    set_found_host_app
+    exec flatpak-spawn --host flatpak run --command=$app_command $app_id "$@"
+    print_err "Failed launching Flatpak app $app_id with command $app_command"
+  fi
+  return 1
+}
+
+try_exec_flatpak(){
+  if [ -n "$app_ids" ]; then
+    for app_id in ${app_ids/:/ }; do
+      case $app_id in
+        *@*)
+          app_command=${app_id#*@}
+          app_id=${app_id%@*}
+          try_exec_flatpak_command "$@"
+          ;;
+        *)
+          try_exec_flatpak_app "$@"
+          ;;
+      esac
+    done
+  fi
+  return 1
+}
+
+prefer_executable(){
+  fsw_exec="FSW_${executable}"
+  if [ "${!fsw_exec}" = "exec" ]; then
+    return 0
+  fi
+  return 1
+}
+
+prefer_flatpak(){
+  fsw_exec="FSW_${executable}"
+  if [ "${!fsw_exec}" = "flatpak" ]; then
+    return 0
+  fi
+  return 1
+}
+
+unset found_host_app
+declare -A apps
+source /app/lib/flatpak-spawn-wrapper/apps.conf ||
+  die "Failed loading config file"
+
+executable=$(basename $0)
+app_ids="${apps[$executable]}"
+
+is_host_accessible ||
+  die "Please enable host access. For more details visit https://github.com/flathub/org.qutebrowser.qutebrowser/wiki"
+
+# allow the user to override the default behavior of prefering a host application
+if prefer_flatpak; then
+  try_exec_flatpak "$@"
+  try_exec "$@"
+else
+  try_exec "$@"
+  try_exec_flatpak "$@"
+fi
+
+if is_found_host_app; then
+  die "Failed running flatpak-spawn"
+else
+  die "Couldn't found a host executable '$executable' or suitable Flatpak app"
+fi

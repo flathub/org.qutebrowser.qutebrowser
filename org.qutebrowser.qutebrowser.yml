@@ -104,5 +104,6 @@ modules:
       - pyqt5/pyqt5-webengine.json
       - pdfjs/pdfjs.json
       - userscripts-dependencies/userscripts-dependencies.yaml
+      - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
       #- tests/tests-dependencies.json
