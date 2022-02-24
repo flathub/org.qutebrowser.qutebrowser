@@ -1,0 +1,7 @@
+{
+    "x-checker-data": {
+        "type": "pypi",
+        "name": "pep517",
+        "packagetype": "bdist_wheel"
+    }
+}

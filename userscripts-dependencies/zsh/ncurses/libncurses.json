@@ -1,0 +1,41 @@
+{
+    "name": "libncurses",
+    "config-opts": [
+        "--disable-db-install",
+        "--enable-pc-files",
+        "--enable-widec",
+        "--with-cxx-binding",
+        "--with-cxx-shared",
+        "--with-default-terminfo-dir=/usr/share/terminfo",
+        "--with-normal",
+        "--with-pkg-config-libdir=/app/lib/pkgconfig",
+        "--with-shared",
+        "--without-ada",
+        "--without-manpages",
+        "--without-progs"
+    ],
+    "post-install": [
+        "./curses-compat.sh"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.3.tar.gz",
+            "sha256": "97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 234776,
+                "stable-only": true,
+                "url-template": "https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$version.tar.gz"
+            }
+        },
+        {
+            "type": "file",
+            "path": "curses-compat.sh"
+        }
+    ],
+    "cleanup": [
+        "/bin",
+        "*.a"
+    ]
+}

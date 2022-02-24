@@ -1,0 +1,16 @@
+{
+    "name": "asio",
+    "sources": [
+        {
+            "type": "archive",
+            "url": "http://downloads.sourceforge.net/asio/asio-1.21.0.tar.bz2",
+            "sha256": "d15e4be2322534620c2e0a7657ac62ba12bdce2d912416e114efb10048a7cb7c",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 117,
+                "stable-only": true,
+                "url-template": "http://downloads.sourceforge.net/asio/asio-$version.tar.bz2"
+            }
+        }
+    ]
+}

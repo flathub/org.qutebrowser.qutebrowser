@@ -16,6 +16,6 @@
         "/bin"
     ],
     "modules": [
-        "../../python-toml/python-toml.json"
+        "../python-toml/python-toml.json"
     ]
 }

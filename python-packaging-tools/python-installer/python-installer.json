@@ -1,0 +1,14 @@
+{
+    "name": "python-installer",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} installer --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/e1/38/3dcf9c57182cc9aa6c4187a593a94b54995553d77e039e2b2bc6039be8cf/installer-0.5.0-py3-none-any.whl",
+            "sha256": "ce16a9bbd96d9659cb7e88ceb885d912c5b74c93588352d1695fd5896504a298"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "x-checker-data": {
+        "type": "pypi",
+        "name": "pyparsing",
+        "packagetype": "bdist_wheel"
+    }
+}
