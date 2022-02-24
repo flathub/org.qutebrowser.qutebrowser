@@ -1,4 +1,9 @@
-# implicitly added modules
+# legend
+#   [us] userscript
+#   [mod] module
+#   [imod] implicitly added python module
+#
+# implicitly added python modules
 #   - python-cffi
 #     added by python-pynacl[mod], python-pykeepass[mod]
 #     required by cryptography[mod]
