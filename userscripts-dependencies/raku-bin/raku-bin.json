@@ -1,5 +1,8 @@
 {
     "name": "raku-bin",
+    "only-arches": [
+        "x86_64"
+    ],
     "buildsystem": "simple",
     "build-commands": [
         "cp -r bin lib share ${FLATPAK_DEST}/"
