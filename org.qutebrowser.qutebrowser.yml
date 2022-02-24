@@ -97,7 +97,6 @@ modules:
       #   available in the sdk but not in the runtime
       - python-pygments/python-pygments.json
       - python-pyyaml/python-pyyaml.json
-      - python-typing_extensions/python-typing_extensions.json
       - python-adblock/python-adblock.json
       # faster local rebuilds with pre-build python-adblock module
       #- python-adblock/python-adblock-bin.json
