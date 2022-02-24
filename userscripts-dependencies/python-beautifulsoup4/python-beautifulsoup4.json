@@ -1,8 +1,8 @@
 {
-    "name": "python-beautifulsoup4",
+    "name": "python3-beautifulsoup4",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"bs4\" --no-build-isolation"
+        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"beautifulsoup4\" --no-build-isolation"
     ],
     "sources": [
         {
@@ -14,11 +14,6 @@
             "type": "file",
             "url": "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz",
             "sha256": "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/10/ed/7e8b97591f6f456174139ec089c769f89a94a1a4025fe967691de971f314/bs4-0.0.1.tar.gz",
-            "sha256": "36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"
         }
     ]
 }
