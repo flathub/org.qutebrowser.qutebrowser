@@ -26,7 +26,7 @@ for _mod in maturin python-adblock userscripts-dependencies/python-stem/python-c
 done
 
 # python modules with multiple dependencies and have a requirements.txt file
-for _mod in userscripts-dependencies/python-{bs4,pocket-api,pykeepass,pynacl,readability-lxml,stem/python-cryptography/python-setuptools-rust,tldextract}; do
+for _mod in userscripts-dependencies/python-{beautifulsoup4,pocket-api,pykeepass,pynacl,readability-lxml,stem/python-cryptography/python-setuptools-rust,tldextract}; do
   pushd $_mod
   ${_TOOLSDIR}/pip-updater $(basename $_mod)
   popd

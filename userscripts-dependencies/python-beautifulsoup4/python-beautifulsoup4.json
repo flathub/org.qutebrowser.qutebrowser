@@ -1,5 +1,5 @@
 {
-    "name": "python3-bs4",
+    "name": "python-beautifulsoup4",
     "buildsystem": "simple",
     "build-commands": [
         "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"bs4\" --no-build-isolation"

@@ -4,11 +4,11 @@
 #     required by cryptography[mod]
 #   - python-chardet
 #     added by python-readability-lxml[mod]
-#     optional for python-bs4[mod]
+#     optional for python-beautifulsoup4[mod]
 #   - python-lxml
 #     added by python-readability-lxml[mod]
 #     required by qute-code-hint[us]
-#     optional for python-bs4[mod]
+#     optional for python-beautifulsoup4[mod]
 #   - python-requests
 #     added by python-tldextract[mod], python-pocket-api[mod]
 #     required by add-nextcloud-{bookmarks,cookbook}[us], getbib[us], ripbang[us], cryzed/qutebrowser-userscripts[us], qute-zotero[us], qb-scripts[us]
@@ -26,7 +26,7 @@ modules:
     # TODO: figure out if these optional modules are needed
 # - python-cssselect/python-cssselect.json # optional for python-lxml
 # - python-html5lib/python-html5lib.json # optional for python-lxml
-  - python-bs4/python-bs4.json # required by openfeeds[us], qb-scripts[us], cryzed/qutebrowser-userscripts[us]
+  - python-beautifulsoup4/python-beautifulsoup4.json # required by openfeeds[us], qb-scripts[us], cryzed/qutebrowser-userscripts[us]
   - python-pykeepass/python-pykeepass.json # required by qute-keepass[us]
     # TODO: consider switching to binary release when python3.9 release will be available
   - python-pynacl/python-pynacl.json # required by qute-keepassxc[us], python-stem[mod]
