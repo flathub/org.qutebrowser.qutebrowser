@@ -5,15 +5,21 @@
 #
 # implicitly added python modules
 #   - python-cffi
-#     added by python-pynacl[mod], python-pykeepass[mod]
+#     added by python-pykeepass[mod],python-pynacl[imod]
 #     required by cryptography[mod]
 #   - python-chardet
 #     added by python-readability-lxml[mod]
 #     optional for python-beautifulsoup4[mod]
+#   - python-pycryptodome
+#     added by python-pykeepass[mod]
+#     required by qurlshare[us]
 #   - python-lxml
 #     added by python-readability-lxml[mod]
 #     required by qute-code-hint[us]
 #     optional for python-beautifulsoup4[mod]
+#   - python-pynacl
+#     added by python-pykeepass[mod]
+#     required by qute-keepassxc[us], python-stem[mod]
 #   - python-requests
 #     added by python-tldextract[mod], python-pocket-api[mod]
 #     required by add-nextcloud-{bookmarks,cookbook}[us], getbib[us], ripbang[us], cryzed/qutebrowser-userscripts[us], qute-zotero[us], qb-scripts[us]
@@ -32,8 +38,6 @@ modules:
   - python-cssselect/python-cssselect.json # optional for python-lxml[imod]
   - python-html5lib/python-html5lib.json # optional for python-lxml[imod]
   - python-pykeepass/python-pykeepass.json # required by qute-keepass[us]
-    # TODO: consider switching to binary release when python3.9 release will be available
-  - python-pynacl/python-pynacl.json # required by qute-keepassxc[us], python-stem[mod]
   - python-pyperclip/python-pyperclip.json # required by qute-bitwarden[us], qute-code-hint[us]
   - python-readability-lxml/python-readability-lxml.json # required by readability[us]
     # TODO: check if this is working correctly, as it looks for instances with ps, see stem/util/system.py
@@ -52,6 +56,5 @@ modules:
   - python-docopt/python-docopt.json # required by bitwarden-rofi[us]
   - python-msgpack/python-msgpack.json # required by qurlshare[us]
   - python-pocket-api/python-pocket-api.json # required by qutepocket[us]
-  - python-pycryptodome/python-pycryptodome.json # required by qurlshare[us]
   - python-pyorgmode/python-pyorgmode.json # required by qute-capture[us]
   - python-xerox/python-xerox.json # required by cryzed/qutebrowser-userscripts[us]
