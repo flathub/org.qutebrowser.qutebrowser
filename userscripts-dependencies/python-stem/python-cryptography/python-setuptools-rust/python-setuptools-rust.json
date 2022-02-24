@@ -1,24 +1,18 @@
 {
-    "name": "python3-setuptools-rust",
+    "name": "python-setuptools-rust",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"setuptools-rust\" --no-build-isolation"
+        "pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} setuptools-rust --no-build-isolation"
     ],
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz",
-            "sha256": "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/cb/56/4aa487b46d09646eb1863faa7026551d8309ece2281794bf13b20f28ab94/semantic_version-2.9.0.tar.gz",
-            "sha256": "abf54873553e5e07a6fd4d5f653b781f5ae41297a493666b59dcf214006a12b2"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/67/08/e1aa2c582c62ac76e4d60f8e454bd3bba933781a06a88b4e38797445822a/setuptools-rust-1.1.2.tar.gz",
-            "sha256": "a0adb9b503c0ffc4e8fe80b7c617898cefa78049983aaaea7f747e153a3e65d1"
+            "url": "https://files.pythonhosted.org/packages/66/ca/66bdf8f326977098eff28c314c8f825bc28d6986944c590e40ad0f74c5f0/setuptools_rust-1.1.2-py3-none-any.whl",
+            "sha256": "72288a34cbb2efc436227f61548a453e91b2b3de1ca5846ab5d6bbcb859595c7"
         }
+    ],
+    "modules": [
+        "python-semantic-version/python-semantic-version.json",
+        "python-typing-extensions/python-typing-extensions.json"
     ]
 }
