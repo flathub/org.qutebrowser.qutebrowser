@@ -72,6 +72,8 @@ modules:
           timestamp-query: .published_at
       - type: patch
         path: flatpak-system_data.patch
+      - type: patch
+        path: userscripts-open_download-flatpak-compat.patch
     modules:
       - asciidoc/asciidoc.json
       - python-packaging-tools/python-packaging-tools.json
