@@ -41,8 +41,8 @@ modules:
   - iproute2-ss/iproute2-ss.json # required by localhost[us]
   - libnotify/libnotify.json # required by bitwarden-rofi[us] (notify-send)
   - opendht/opendht.json # required by qurlshare[us]
-    # TODO: consider switching to binary release when aarch64 build will be available
-  - raku/raku.json # required by ciavash/qutebrowser-userscripts[us]
+    #- raku/raku.json # required by ciavash/qutebrowser-userscripts[us]
+  - raku-bin/raku-bin.json # required by ciavash/qutebrowser-userscripts[us]
   - xdotool/xdotool.json # required by bitwarden-rofi[us]
   - zsh/zsh.json # required by instapaper.zsh[us], pinboard.zsh[us]
   - python-docopt/python-docopt.json # required by bitwarden-rofi[us]
