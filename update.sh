@@ -33,6 +33,6 @@ for _mod in userscripts-dependencies/python-{beautifulsoup4,pocket-api,pykeepass
 done
 
 # make only modules
-for _mod in asciidoc pyqt5/{pyqt-builder,pyqt5-sip,sip} python-packaging{,/python-pyparsing} python-toml; do
+for _mod in asciidoc pyqt5/{pyqt-builder,pyqt5-sip,python-toml,sip} python-packaging{,/python-pyparsing}; do
   ${_TOOLSDIR}/fedc-merge-updater $_mod
 done
