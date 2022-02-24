@@ -74,22 +74,6 @@ modules:
         path: flatpak-system_data.patch
     modules:
       - asciidoc/asciidoc.json
-      - name: python-zipp
-        # added here as since 3.6.0 pip fails and complains about mismatch of version in metadata with filename version
-        # need to be before python-setuptools-scm
-        buildsystem: simple
-        build-commands:
-          - python setup.py build
-          - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
-        sources:
-          - type: archive
-            url: https://github.com/jaraco/zipp/archive/v3.7.0/zipp-3.7.0.tar.gz
-            sha256: acea738e563c002fcc2df6068ce466f7599ac39700e36a96de1e3dc8adb94c05
-            x-checker-data:
-              type: anitya
-              project-id: 63514
-              stable-only: true
-              url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
       - python-packaging-tools/python-packaging-tools.json
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
@@ -97,6 +81,7 @@ modules:
       #   available in the sdk but not in the runtime
       - python-pygments/python-pygments.json
       - python-pyyaml/python-pyyaml.json
+      - python-zipp/python-zipp.json
       - python-adblock/python-adblock.json
       # faster local rebuilds with pre-build python-adblock module
       #- python-adblock/python-adblock-bin.json
