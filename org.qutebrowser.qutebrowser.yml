@@ -90,7 +90,7 @@ modules:
               project-id: 63514
               stable-only: true
               url-template: https://github.com/jaraco/zipp/archive/v$version/zipp-$version.tar.gz
-      - python-setuptools-scm/python-setuptools-scm.json # https://github.com/hukkin/tomli/issues/130
+      - python-packaging-tools/python-packaging-tools.json
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
       # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',

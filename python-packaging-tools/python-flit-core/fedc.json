@@ -1,0 +1,7 @@
+{
+    "x-checker-data": {
+        "type": "pypi",
+        "name": "flit_core",
+        "packagetype": "bdist_wheel"
+    }
+}
