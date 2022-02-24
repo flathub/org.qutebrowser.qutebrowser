@@ -17,7 +17,7 @@ base: io.qt.qtwebengine.BaseApp
 base-version: 5.15-21.08
 finish-args:
   - --device=dri
-  - --env=PATH=/app/bin:/usr/bin:/var/data/bin:/var/data/python/bin
+  - --env=PATH=/app/bin:/usr/bin:/app/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
   - --filesystem=xdg-music

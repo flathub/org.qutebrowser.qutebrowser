@@ -28,10 +28,12 @@ modules:
 # - python-html5lib/python-html5lib.json # optional for python-lxml
   - python-bs4/python-bs4.json # required by openfeeds[us], qb-scripts[us], cryzed/qutebrowser-userscripts[us]
   - python-pykeepass/python-pykeepass.json # required by qute-keepass[us]
+    # TODO: consider switching to binary release
   - python-pynacl/python-pynacl.json # required by qute-keepassxc[us], python-stem[mod]
   - python-pyperclip/python-pyperclip.json # required by qute-bitwarden[us], qute-code-hint[us]
   - python-readability-lxml/python-readability-lxml.json # required by readability[us]
     # TODO: check if this is working correctly, as it looks for instances with ps, see stem/util/system.py
+    # TODO: consider switching to binary release of python-cryptography
   - python-stem/python-stem.json # required by tor_identity[us]
   - python-tldextract/python-tldextract.json # required by qute-bitwarden,[us] qute-lastpass[us], qute-pass[us], bitwarden-rofi[us]
 
@@ -39,6 +41,8 @@ modules:
   - iproute2-ss/iproute2-ss.json # required by localhost[us]
   - libnotify/libnotify.json # required by bitwarden-rofi[us] (notify-send)
   - opendht/opendht.json # required by qurlshare[us]
+    # TODO: consider switching to binary release when aarch64 build will be available
+  - raku/raku.json # required by ciavash/qutebrowser-userscripts[us]
   - xdotool/xdotool.json # required by bitwarden-rofi[us]
   - zsh/zsh.json # required by instapaper.zsh[us], pinboard.zsh[us]
   - python-docopt/python-docopt.json # required by bitwarden-rofi[us]

@@ -1,0 +1,23 @@
+{
+    "name": "raku-bin",
+    "buildsystem": "simple",
+    "build-commands": [
+        "cp -r bin lib share ${FLATPAK_DEST}/"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://rakudo.org/dl/rakudo/rakudo-moar-2022.02-01-linux-x86_64-gcc.tar.gz",
+            "sha256": "bd195489355b6ade31d21880896829763001c5fc7b22790744fe98c1a077f0e8",
+            "only-arches": [
+                "x86_64"
+            ],
+            "x-checker-data": {
+                "type": "html",
+                "url": "https://rakudo.org/downloads/rakudo",
+                "version-pattern": "rakudo-([\\d\\.-]+).tar.gz",
+                "url-template": "https://rakudo.org/dl/rakudo/rakudo-moar-$version-01-linux-x86_64-gcc.tar.gz"
+            }
+        }
+    ]
+}
