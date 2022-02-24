@@ -28,10 +28,9 @@ modules:
   - libsodium/libsodium.json # required by python-pynacl[mod]
   - wl-clipboard/wl-clipboard.json # required by python-pyperclip[mod]
   - xclip/xclip.json # required by python-pyperclip[mod]
-    # TODO: figure out if these optional modules are needed
-# - python-cssselect/python-cssselect.json # optional for python-lxml
-# - python-html5lib/python-html5lib.json # optional for python-lxml
   - python-beautifulsoup4/python-beautifulsoup4.json # required by openfeeds[us], qb-scripts[us], cryzed/qutebrowser-userscripts[us]
+  - python-cssselect/python-cssselect.json # optional for python-lxml[imod]
+  - python-html5lib/python-html5lib.json # optional for python-lxml[imod]
   - python-pykeepass/python-pykeepass.json # required by qute-keepass[us]
     # TODO: consider switching to binary release when python3.9 release will be available
   - python-pynacl/python-pynacl.json # required by qute-keepassxc[us], python-stem[mod]
