@@ -75,8 +75,9 @@ modules:
       - type: patch
         path: userscripts-open_download-flatpak-compat.patch
     modules:
-      - asciidoc/asciidoc.json
       - python-packaging-tools/python-packaging-tools.json
+      - pyqt5/pyqt5-webengine.json
+      - asciidoc/asciidoc.json
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
       # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',
@@ -87,7 +88,6 @@ modules:
       - python-adblock/python-adblock.json
       # faster local rebuilds with pre-build python-adblock module
       #- python-adblock/python-adblock-bin.json
-      - pyqt5/pyqt5-webengine.json
       - pdfjs/pdfjs.json
       - userscripts-dependencies/userscripts-dependencies.yaml
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
