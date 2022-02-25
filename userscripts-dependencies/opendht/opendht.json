@@ -16,12 +16,15 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/savoirfairelinux/opendht/archive/2.3.2/opendht-2.3.2.tar.gz",
-            "sha256": "5a646e494ad9130f94beed18dc310242e896822cb9c6ffa9f2f06b9ef5c7fe8d",
+            "url": "https://github.com/savoirfairelinux/opendht/archive/c2415f38fa7d099414c1e3fc073d29419fc15ebb.tar.gz",
+            "sha256": "aa1105b7a0fd4c76838cde64f207cda2f82c621f96461d0d0fd5eb7ff50350c0",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 12935,
                 "stable-only": true,
+                "versions": {
+                    ">": "2.3.2"
+                },
                 "url-template": "https://github.com/savoirfairelinux/opendht/archive/$version/opendht-$version.tar.gz"
             }
         },
