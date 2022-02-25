@@ -1,7 +1,0 @@
-{
-    "x-checker-data": {
-        "type": "pypi",
-        "name": "tomli",
-        "packagetype": "bdist_wheel"
-    }
-}
