@@ -6,7 +6,6 @@
         "-DOPENDHT_LOG=OFF",
         "-DOPENDHT_PYTHON=ON",
         "-DOPENDHT_TOOLS=OFF",
-        "-DDOPENDHT_LTO=ON",
         "-DOPENDHT_PROXY_SERVER=ON",
         "-DOPENDHT_PUSH_NOTIFICATIONS=ON",
         "-DOPENDHT_PROXY_CLIENT=ON",
@@ -25,6 +24,10 @@
                 "stable-only": true,
                 "url-template": "https://github.com/savoirfairelinux/opendht/archive/$version/opendht-$version.tar.gz"
             }
+        },
+        {
+            "type": "patch",
+            "path": "opendht-python-install.patch"
         }
     ],
     "modules": [
