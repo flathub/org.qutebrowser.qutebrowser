@@ -1,5 +1,11 @@
 {
     "name": "asio",
+    "config-opts": [
+        "--with-boost=no"
+    ],
+    "make-args": [
+        "STANDALONE=1"
+    ],
     "sources": [
         {
             "type": "archive",

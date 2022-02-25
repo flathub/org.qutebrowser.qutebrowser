@@ -5,8 +5,9 @@
         "-DCMAKE_BUILD_TYPE=Release",
         "-DBUILD_SHARED_LIBS=ON",
         "-DMSGPACK_CXX17=ON",
-        "-DMSGPACK_BUILD_EXAMPLES=OFF",
-        "-DMSGPACK_BUILD_TESTS=OFF"
+        "-DMSGPACK_USE_BOOST=OFF",
+        "-DMSGPACK_BUILD_TESTS=OFF",
+        "-DMSGPACK_BUILD_EXAMPLES=OFF"
     ],
     "sources": [
         {
