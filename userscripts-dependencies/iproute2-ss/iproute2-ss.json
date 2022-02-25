@@ -15,6 +15,13 @@
                 "stable-only": true,
                 "url-template": "https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-$version.tar.xz"
             }
+        },
+        {
+            "type": "shell",
+            "commands": [
+              "sed -i 's/^SUBDIRS.*=.*/SUBDIRS=lib misc/' Makefile",
+              "sed -i 's/^TARGETS.*=.*/TARGETS=ss/' misc/Makefile"
+            ]
         }
     ]
 }
