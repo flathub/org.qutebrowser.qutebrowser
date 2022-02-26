@@ -1,9 +1,6 @@
 {
     "name": "opendht",
     "buildsystem": "cmake",
-    "build-options": {
-        "cxxflags": "-DMSGPACK_NO_BOOST"
-    },
     "config-opts": [
         "-DOPENDHT_STATIC=OFF",
         "-DOPENDHT_LOG=OFF",
