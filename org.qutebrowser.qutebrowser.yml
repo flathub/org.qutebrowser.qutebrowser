@@ -50,7 +50,7 @@ modules:
     build-commands:
       - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
-      - mkdir -p /app/lib/ffmpeg
+      - install -dm755 /app/lib/ffmpeg
       - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
     run-tests: false
     test-commands:
