@@ -1,5 +1,9 @@
 {
     "name": "libyaml",
+    "config-opts": [
+        "--enable-static=no",
+        "DOXYGEN=false"
+    ],
     "sources": [
         {
             "type": "archive",

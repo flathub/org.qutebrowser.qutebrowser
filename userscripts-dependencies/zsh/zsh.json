@@ -13,8 +13,7 @@
         "--enable-zsh-secure-free",
         "--enable-zshenv=/app/etc/zsh/zshenv",
         "--enable-zshrc=/app/etc/zsh/zshrc",
-        "--with-tcsetpgrp",
-        "--with-term-lib=ncursesw"
+        "--with-tcsetpgrp"
     ],
     "sources": [
         {
@@ -31,8 +30,5 @@
     ],
     "cleanup": [
         "/share/man"
-    ],
-    "modules": [
-        "ncurses/libncurses.json"
     ]
 }

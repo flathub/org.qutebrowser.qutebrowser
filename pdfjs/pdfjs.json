@@ -3,7 +3,7 @@
     "buildsystem": "simple",
     "build-commands": [
         "unzip pdfjs-*.zip",
-        "mkdir /app/share/pdf.js",
+        "install -dm755 /app/share/pdf.js",
         "cp -R {LICENSE,build,web} /app/share/pdf.js",
         "find /app/share/pdf.js -type f -exec chmod 644 {} \\;"
     ],

@@ -1,0 +1,20 @@
+{
+    "name": "maturin-bin-x86_64",
+    "only-arches": [
+        "x86_64"
+    ],
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} maturin --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.12.9-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl",
+            "sha256": "4d498f2d34a7061db4ae4595d793c4e3b8fba41e3686b0bb3b0922c777911194"
+        }
+    ],
+    "cleanup": [
+        "*"
+    ]
+}
