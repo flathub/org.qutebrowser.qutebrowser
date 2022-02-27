@@ -1,9 +1,6 @@
 {
     "name": "opendht",
     "buildsystem": "cmake",
-    "build-options": {
-        "cxxflags": "-DMSGPACK_NO_BOOST"
-    },
     "config-opts": [
         "-DOPENDHT_STATIC=OFF",
         "-DOPENDHT_LOG=OFF",
@@ -19,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/savoirfairelinux/opendht/archive/2.3.2/opendht-2.3.2.tar.gz",
-            "sha256": "5a646e494ad9130f94beed18dc310242e896822cb9c6ffa9f2f06b9ef5c7fe8d",
+            "url": "https://github.com/savoirfairelinux/opendht/archive/2.3.3/opendht-2.3.3.tar.gz",
+            "sha256": "dd02cac14f0acd2eb57be648d2790c8508610fdc768a6fd625d4dfd5d818b221",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 12935,
