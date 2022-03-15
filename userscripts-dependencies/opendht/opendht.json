@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/savoirfairelinux/opendht/archive/2.3.3/opendht-2.3.3.tar.gz",
-            "sha256": "dd02cac14f0acd2eb57be648d2790c8508610fdc768a6fd625d4dfd5d818b221",
+            "url": "https://github.com/savoirfairelinux/opendht/archive/2.3.5/opendht-2.3.5.tar.gz",
+            "sha256": "fd762832ec82094f9b95a21a6ee54b082db2c81a5860dd24cf0599810df8b1a3",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 12935,
