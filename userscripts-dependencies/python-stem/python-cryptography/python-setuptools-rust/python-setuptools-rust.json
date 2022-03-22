@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/66/ca/66bdf8f326977098eff28c314c8f825bc28d6986944c590e40ad0f74c5f0/setuptools_rust-1.1.2-py3-none-any.whl",
-            "sha256": "72288a34cbb2efc436227f61548a453e91b2b3de1ca5846ab5d6bbcb859595c7"
+            "url": "https://files.pythonhosted.org/packages/3e/92/7d8e368c14284ff7dc7df5bf55883f0841a1f7cbcae5517417379c46718f/setuptools_rust-1.2.0-py3-none-any.whl",
+            "sha256": "decc6bdf4aef0ff3c323ba85e2fcabed8c77044443cd239ea01b67ca9b1d777e"
         }
     ],
     "modules": [
