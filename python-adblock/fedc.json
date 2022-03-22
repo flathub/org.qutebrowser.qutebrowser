@@ -3,6 +3,6 @@
         "type": "anitya",
         "project-id": 96221,
         "stable-only": true,
-        "url-template": "https://github.com/ArniDagur/python-adblock/archive/$version.tar.gz"
+        "url-template": "https://github.com/ArniDagur/python-adblock/releases/download/$version/adblock-$version.tar.gz"
     }
 }
