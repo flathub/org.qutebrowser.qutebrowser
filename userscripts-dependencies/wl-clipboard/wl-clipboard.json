@@ -1,6 +1,10 @@
 {
     "name": "wl-clipboard",
     "buildsystem": "meson",
+    "config-opts": [
+        "-Dzshcompletiondir=no",
+        "-Dfishcompletiondir=no"
+    ],
     "sources": [
         {
             "type": "archive",
