@@ -17,7 +17,7 @@ for _mod in maturin python-adblock userscripts-dependencies/python-stem/python-c
     cd ${_mod%:*}
     case $_mod in
       *:*Cargo.lock)
-        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*} ${_mod#*:})
+        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*}) ${_mod#*:}
         ;;
       *)
         ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*})
