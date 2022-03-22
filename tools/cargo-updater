@@ -3,7 +3,14 @@
 get_modver(){
   case $_modtype in
     archive)
-      version="$(jq --raw-output '.sources[0].url' ${_mod}.json | sed 's#.*/##;s#\.tar\..*##')"
+      srcurl="$(jq --raw-output '.sources[0].url' ${_mod}.json)"
+      if [[ "$srcurl" == *"/releases/download/"* ]]; then
+        version="$( echo "$srcurl" | sed 's#^http[s]*://\([^/]\+/\)\{3\}releases/download/\([^/]\+\)/.\+#\2#')"
+      elif [[ "$srcurl" == *"/archive/"*"/"* ]]; then
+        version="$(echo "$srcurl" | sed 's#^http[s]*://\([^/]\+/\)\{3\}archive/\([^/]\+\)/.\+#\2#')"
+      else
+        version="$(echo "$srcurl" | sed 's#.*/##;s#\.tar\..*##')"
+      fi
       ;;
     git)
       version="$(jq --raw-output '.sources[0].tag' ${_mod}.json)"
@@ -21,7 +28,7 @@ _lockpath=${2:-Cargo.lock}
 _modtype=$(jq --raw-output '.sources[0].type' ${_mod}.json)
 
 if [ "$_modtype" != "archive" ] && [ "$_modtype" != "git" ]; then
-    echo 'cargo-updater: Unknown moddule type. Exiting...'
+    echo 'cargo-updater: Unknown module type. Exiting...'
     exit 1
 fi
 
@@ -54,7 +61,7 @@ if [ "$_modver" != "$_modver_new" ]; then
 
   case $_modtype in
     archive)
-      _modurl=$(jq --raw-output '.sources[0].url' ${_mod}.json | sed 's#/archive/.*$##')
+      _modurl=$(jq --raw-output '.sources[0].url' ${_mod}.json | sed 's#^\(http[s]*://[^/]*/[^/]*/[^/]*\)/.*#\1#')
       ;;
     git)
       _modurl=$(jq --raw-output '.sources[0].url' ${_mod}.json | sed 's/\.git$//')
