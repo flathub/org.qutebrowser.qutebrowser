@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "http://downloads.sourceforge.net/asio/asio-1.22.0.tar.bz2",
-            "sha256": "1e0737d43fa192938c77c16d80809e5b40630549de44d649a1371a07c39d4550",
+            "url": "http://downloads.sourceforge.net/asio/asio-1.22.1.tar.bz2",
+            "sha256": "6874d81a863d800ee53456b1cafcdd1abf38bbbf54ecf295056b053c0d7115ce",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 117,

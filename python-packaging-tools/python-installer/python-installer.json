@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/e1/38/3dcf9c57182cc9aa6c4187a593a94b54995553d77e039e2b2bc6039be8cf/installer-0.5.0-py3-none-any.whl",
-            "sha256": "ce16a9bbd96d9659cb7e88ceb885d912c5b74c93588352d1695fd5896504a298"
+            "url": "https://files.pythonhosted.org/packages/1b/21/3e6ebd12d8dccc55bcb7338db462c75ac86dbd0ac7439ac114616b21667b/installer-0.5.1-py3-none-any.whl",
+            "sha256": "1d6c8d916ed82771945b9c813699e6f57424ded970c9d8bf16bbc23e1e826ed3"
         }
     ]
 }
