@@ -37,7 +37,10 @@ try_exec(){
 is_flatpak_app_installed(){
   # flatpak info is costly, so try first see if executable is in PATH
   if flatpak-spawn --host which $app_id &>/dev/null ||
-    flatpak-spawn --host flatpak info $app_id &>/dev/null; then
+    flatpak-spawn --host flatpak info $app_id &>/dev/null ||
+    # flatpak info will fail if different branches of the app are available in the same flatpak installation (user/system)
+    # but the flatpak list command is even more constly
+    flatpak-spawn --host flatpak list --app --columns=application | egrep '^'$app_id'$' &>/dev/null; then
     return 0
   fi
   return 1
