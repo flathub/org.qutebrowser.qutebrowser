@@ -35,9 +35,7 @@ for _mod in userscripts-dependencies/python-{beautifulsoup4,pocket-api,pykeepass
 done
 
 # make only modules
-for _mod in asciidoc pyqt5/{pyqt-builder,pyqt5-sip,python-toml,sip} \
-  maturin-bin/maturin-bin-{aarch64,x86_64} \
-  python-packaging-tools/python-{build,flit-core,installer,packaging,pep517,pyparsing,setuptools-scm,tomli} \
+for _mod in asciidoc maturin-bin/maturin-bin-{aarch64,x86_64} \
   userscripts-dependencies/python-stem/python-cryptography/python-setuptools-rust{,/python-{semantic-version,typing-extensions}}; do
   ${_TOOLSDIR}/fedc-merge-updater $_mod
 done

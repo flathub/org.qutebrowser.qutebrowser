@@ -1,7 +1,0 @@
-{
-    "x-checker-data": {
-        "type": "pypi",
-        "name": "build",
-        "packagetype": "bdist_wheel"
-    }
-}

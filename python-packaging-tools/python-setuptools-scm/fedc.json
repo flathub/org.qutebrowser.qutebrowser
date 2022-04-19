@@ -1,7 +1,0 @@
-{
-    "x-checker-data": {
-        "type": "pypi",
-        "name": "setuptools_scm",
-        "packagetype": "bdist_wheel"
-    }
-}
