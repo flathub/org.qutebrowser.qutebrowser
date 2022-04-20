@@ -37,7 +37,7 @@ finish-args:
   - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=/run/.heim_org.h5l.kcm-socket
   - --own-name=org.kde.*
-  - --own-name=org.mpris.MediaPlayer2.qutebrowser.*
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
