@@ -11,6 +11,11 @@ add-extensions:
     version: '21.08'
     add-ld-path: .
     no-autodownload: true
+  org.qutebrowser.qutebrowser.Userscripts:
+    directory: userscripts
+    version: 5.15-21.08
+    add-ld-path: lib
+    no-autodownload: true
 command: /app/bin/qutebrowser
 rename-icon: qutebrowser
 base: com.riverbankcomputing.PyQt.BaseApp
@@ -50,7 +55,7 @@ modules:
     build-commands:
       - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
-      - install -dm755 /app/lib/ffmpeg
+      - install -dm755 /app/{lib/ffmpeg,userscripts}
       - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
     run-tests: false
     test-commands:
