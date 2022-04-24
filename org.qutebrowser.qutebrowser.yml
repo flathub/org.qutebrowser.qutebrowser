@@ -88,7 +88,6 @@ modules:
       # faster local rebuilds with pre-build python-adblock module
       #- python-adblock/python-adblock-bin.json
       - pdfjs/pdfjs.json
-      - userscripts-dependencies/userscripts-dependencies.yaml
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
       #- tests/tests-dependencies.json

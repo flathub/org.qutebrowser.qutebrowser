@@ -1,7 +1,0 @@
-{
-    "name": "raku",
-    "modules": [
-        "rakudo/rakudo.json",
-        "zef/zef.json"
-    ]
-}
