@@ -12,9 +12,9 @@
             "url": "https://github.com/asciidoc-py/asciidoc-py/archive/10.1.4/asciidoc-10.1.4.tar.gz",
             "sha256": "f70c0e833a0108c7bd5f6601212e27b0f072fe358858169bc93d2ada9d9512e5",
             "x-checker-data": {
-                "type": "anitya",
-                "project-id": 13262,
-                "stable-only": true,
+                "type": "html",
+                "url": "https://asciidoc-py.github.io/",
+                "version-pattern": "AsciiDoc ([\\d\\.-]+) Released",
                 "url-template": "https://github.com/asciidoc-py/asciidoc-py/archive/$version/asciidoc-$version.tar.gz"
             }
         }
