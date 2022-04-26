@@ -50,6 +50,17 @@ cleanup:
   - '*.la'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
+  # avoid dependency of python modules from extension on module from the app
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/packaging
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/packaging-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/ply
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/ply-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/pyparsing
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/pyparsing-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/toml
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/toml-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli-*.dist-info
 modules:
   - name: qutebrowser
     buildsystem: simple
