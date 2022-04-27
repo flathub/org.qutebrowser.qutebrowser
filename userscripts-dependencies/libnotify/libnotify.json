@@ -11,8 +11,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://gitlab.gnome.org/GNOME/libnotify/-/archive/0.7.9/libnotify-0.7.9.tar.gz",
-            "sha256": "9bd4f5fa911d27567e7cc2d2d09d69356c16703c4e8d22c0b49a5c45651f3af0",
+            "url": "https://gitlab.gnome.org/GNOME/libnotify/-/archive/0.7.10/libnotify-0.7.10.tar.gz",
+            "sha256": "502422d8ce4a4f08a98aa495131851c639960e27922c167cc697fee6633ba45d",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 13149,
