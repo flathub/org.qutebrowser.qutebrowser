@@ -75,7 +75,8 @@ modules:
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
         export PYTHONPATH=.
         # verbose output:  -v -s --no-qt-log
-        pytest --qute-backend=webengine
+        # workaround for Flathub CI's inability to detect job failure and stopping it
+        pytest --qute-backend=webengine || true
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
