@@ -74,7 +74,7 @@ modules:
       - make --file misc/Makefile install PREFIX=/app
       - install -dm755 /app/{lib/ffmpeg,userscripts}
       - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
-    run-tests: false
+    run-tests: true
     test-commands:
       - |
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
@@ -100,4 +100,4 @@ modules:
       - pdfjs/pdfjs.json
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
-      #- tests/tests-dependencies.json
+      - tests/tests-dependencies.json
