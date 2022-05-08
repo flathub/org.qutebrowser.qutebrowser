@@ -79,6 +79,10 @@ modules:
       - |
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
         export PYTHONPATH=.
+        # Flathub CI has XDG_RUNTIME_DIR mode bits set to 0755
+        if [ "$(stat --format=%04a $XDG_RUNTIME_DIR)" = "0755" ]; then
+          chmod -v 0700 $XDG_RUNTIME_DIR
+        fi
         # verbose output:  -v -s --no-qt-log
         # workaround for Flathub CI's inability to detect job failure and stopping it
         pytest --qute-backend=webengine || true
