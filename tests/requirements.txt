@@ -39,7 +39,7 @@ pprintpp
 py
 py-cpuinfo
 pytest
-pytest-bdd
+pytest-bdd<=4.1.0
 pytest-benchmark
 pytest-cov
 pytest-forked

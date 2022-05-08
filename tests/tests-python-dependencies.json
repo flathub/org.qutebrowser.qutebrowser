@@ -651,8 +651,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/5b/d5/7b8d530ac19445c30a978022772455ff9ce9618cffa442cdf5d268c59713/pytest-bdd-5.0.0.tar.gz",
-                    "sha256": "fab7093ed3d5e51ee0c68de093c90e4f40de345bd9a54a188b2991ce2a2a39cf"
+                    "url": "https://files.pythonhosted.org/packages/ce/51/9f7e7cf00ef4a22f7d9e00d243d763fc4b8cf7d0f47a5648f7889ca3600b/pytest-bdd-4.1.0.tar.gz",
+                    "sha256": "304cd2b09923b838d0c2f08331d1f4236a14ef3594efa94e3bdae0f384d3fa5d"
                 }
             ]
         },
