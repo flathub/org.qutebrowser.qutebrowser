@@ -6,11 +6,7 @@ _FPID=org.qutebrowser.qutebrowser
 
 _TOOLSDIR=$PWD/tools
 
-flatpak run \
-  --runtime=org.freedesktop.Sdk//21.08 \
-  --filesystem=$PWD \
-  org.flathub.flatpak-external-data-checker \
-  --edit-only ${_FPID}.yml
+flatpak-external-data-checker --edit-only ${_FPID}.yml
 
 for _mod in maturin python-adblock userscripts-dependencies/python-stem/python-cryptography:src/rust/Cargo.lock; do
   (

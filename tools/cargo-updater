@@ -39,11 +39,7 @@ _modver="$(get_modver)"
 jq --indent 4 --join-output --argjson fedc "$(<fedc.json)" '.sources[0] += $fedc' ${_mod}.json > ${_mod}-fedc.json
 
 # look for an update
-flatpak run \
-  --runtime=org.freedesktop.Sdk//21.08 \
-  --filesystem=$PWD \
-  org.flathub.flatpak-external-data-checker \
-  --edit-only ${_mod}-fedc.json
+flatpak-external-data-checker --edit-only ${_mod}-fedc.json
 
 # disable fedc
 jq --indent 4 --join-output 'del(.sources[0]."x-checker-data")' ${_mod}-fedc.json > ${_mod}.json
@@ -73,13 +69,7 @@ if [ "$_modver" != "$_modver_new" ]; then
   curl -L ${_modurl}/raw/${_modver}/${_lockpath} --output Cargo.lock || exit 1
 
   echo "cargo-updater: Updating cargo-sources.json"
-  flatpak run \
-    --filesystem=$PWD \
-    --command=flatpak-cargo-generator.py \
-    --runtime=org.freedesktop.Sdk//21.08 \
-    io.github.flatpak.flatpak-builder-tools \
-    Cargo.lock \
-    -o cargo-sources.json
+  flatpak-cargo-generator.py Cargo.lock -o cargo-sources.json
 else
   echo 'cargo-updater: No update was found'
 fi
