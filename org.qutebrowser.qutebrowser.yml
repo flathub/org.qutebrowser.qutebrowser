@@ -75,7 +75,7 @@ modules:
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
         export PYTHONPATH=.
         # verbose output:  -v -s --no-qt-log
-        pytest --qute-bdd-webengine
+        pytest --qute-backend=webengine
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
