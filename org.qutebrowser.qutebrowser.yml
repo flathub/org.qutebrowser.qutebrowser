@@ -97,7 +97,7 @@ modules:
       - python-pyyaml/python-pyyaml.json
       - python-adblock/python-adblock.json
       # faster local rebuilds with pre-build python-adblock module
-      #- python-adblock/python-adblock-bin.json
+      #- python-adblock-bin/python-adblock-bin.json
       - pdfjs/pdfjs.json
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
