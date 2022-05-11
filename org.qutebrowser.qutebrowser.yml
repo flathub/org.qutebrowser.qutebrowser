@@ -15,7 +15,7 @@ add-extensions:
     directory: userscripts
     version: '6.2'
     add-ld-path: lib
-    no-autodownload: false
+    no-autodownload: true
 command: /app/bin/qutebrowser
 rename-icon: qutebrowser
 base: com.riverbankcomputing.PyQt.BaseApp
