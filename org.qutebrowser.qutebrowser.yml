@@ -13,7 +13,7 @@ add-extensions:
     no-autodownload: true
   org.qutebrowser.qutebrowser.Userscripts:
     directory: userscripts
-    version: 5.15-21.08
+    version: '6.2'
     add-ld-path: lib
     no-autodownload: false
 command: /app/bin/qutebrowser
