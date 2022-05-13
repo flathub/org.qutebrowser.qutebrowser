@@ -13,16 +13,22 @@ add-extensions:
     no-autodownload: true
   org.qutebrowser.qutebrowser.Userscripts:
     directory: userscripts
-    version: 5.15-21.08
+    version: stable
     add-ld-path: lib
-    no-autodownload: true
+    no-autodownload: false
 command: /app/bin/qutebrowser
 rename-icon: qutebrowser
 base: com.riverbankcomputing.PyQt.BaseApp
 base-version: 5.15-21.08
+# pyqt-shared-module
+#base: io.qt.qtwebengine.BaseApp
+#build-options:
+#  env:
+#    - ENABLED_PYQT_BINDINGS=QtCore:QtDBus:QtGui:QtNetwork:QtOpenGL:QtPrintSupport:QtQml:QtQuick:QtSql:QtTest:QtWebChannel:QtWidgets
 finish-args:
   - --device=dri
-  - --env=PATH=/app/bin:/usr/bin:/app/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
+  - --env=PATH=/app/bin:/app/userscripts/bin:/usr/bin:/app/userscripts/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
+  - --env=PYTHONPATH=/app/userscripts/lib/python/site-packages
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
   - --filesystem=xdg-music
@@ -49,6 +55,17 @@ cleanup:
   - '*.la'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
+  # avoid dependency of python modules from extension on module from the app
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/packaging
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/packaging-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/ply
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/ply-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/pyparsing
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/pyparsing-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/toml
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/toml-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli-*.dist-info
 modules:
   - name: qutebrowser
     buildsystem: simple
@@ -62,8 +79,13 @@ modules:
       - |
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
         export PYTHONPATH=.
+        # Flathub CI has XDG_RUNTIME_DIR mode bits set to 0755
+        if [ "$(stat --format=%04a $XDG_RUNTIME_DIR)" = "0755" ]; then
+          chmod -v 0700 $XDG_RUNTIME_DIR
+        fi
         # verbose output:  -v -s --no-qt-log
-        pytest --qute-bdd-webengine
+        # workaround for Flathub CI's inability to detect job failure and stopping it
+        pytest --qute-backend=webengine || true
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
@@ -76,6 +98,7 @@ modules:
           version-query: $tag
           timestamp-query: .published_at
     modules:
+     #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
       - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
@@ -83,12 +106,9 @@ modules:
       #   available in the sdk but not in the runtime
       - python-pygments/python-pygments.json
       - python-pyyaml/python-pyyaml.json
-      - python-zipp/python-zipp.json
-      - python-adblock/python-adblock.json
-      # faster local rebuilds with pre-build python-adblock module
-      #- python-adblock/python-adblock-bin.json
+      #- python-adblock/python-adblock.json
+      - python-adblock-bin/python-adblock-bin.json
       - pdfjs/pdfjs.json
-      - userscripts-dependencies/userscripts-dependencies.yaml
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
       #- tests/tests-dependencies.json

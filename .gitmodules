@@ -1,0 +1,3 @@
+[submodule "pyqt-shared-module"]
+	path = pyqt-shared-module
+	url = https://github.com/flathub/com.riverbankcomputing.PyQt.BaseApp.git
