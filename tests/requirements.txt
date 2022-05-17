@@ -24,7 +24,6 @@ Flask
 glob2
 hunter
 hypothesis
-icdiff
 idna
 importlib-metadata
 iniconfig
@@ -35,7 +34,6 @@ manhole
 more-itertools
 parse
 parse-type
-pprintpp
 py
 py-cpuinfo
 pytest
@@ -43,7 +41,6 @@ pytest-bdd<=4.1.0
 pytest-benchmark
 pytest-cov
 pytest-forked
-pytest-icdiff
 pytest-instafail
 pytest-mock
 pytest-qt
