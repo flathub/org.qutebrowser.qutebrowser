@@ -8,19 +8,19 @@ _TOOLSDIR=$PWD/tools
 
 flatpak-external-data-checker --edit-only ${_FPID}.yml
 
-#for _mod in python-adblock; do
-#  (
-#    cd ${_mod%:*}
-#    case $_mod in
-#      *:*Cargo.lock)
-#        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*}) ${_mod#*:}
-#        ;;
-#      *)
-#        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*})
-#        ;;
-#    esac
-#  )
-#done
+for _mod in python-adblock; do
+  (
+    cd ${_mod%:*}
+    case $_mod in
+      *:*Cargo.lock)
+        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*}) ${_mod#*:}
+        ;;
+      *)
+        ${_TOOLSDIR}/cargo-updater $(basename ${_mod%:*})
+        ;;
+    esac
+  )
+done
 
 # python modules with multiple dependencies and have a requirements.txt file
 #for _mod in tests; do
