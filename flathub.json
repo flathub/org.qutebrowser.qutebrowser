@@ -1,5 +1,5 @@
 {
     "automerge-flathubbot-prs": false,
-    "disable-external-data-checker": true,
+    "disable-external-data-checker": false,
     "publish-delay-hours": 1
 }
