@@ -106,8 +106,8 @@ modules:
       #   available in the sdk but not in the runtime
       - python-pygments/python-pygments.json
       - python-pyyaml/python-pyyaml.json
-      #- python-adblock/python-adblock.json
-      - python-adblock-bin/python-adblock-bin.json
+      - python-adblock/python-adblock.json
+      #- python-adblock-bin/python-adblock-bin.json
       - pdfjs/pdfjs.json
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
