@@ -10,8 +10,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.12.16-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
-            "sha256": "97756ad5ff113478de237b029add91def0a40af0dc5e120c25e1595addd9c151",
+            "url": "https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.12.17-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "sha256": "28256bfe4312c14e05f500694ae537ddbaaecdad1c4fd5d3bff02047e2034202",
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 42653,
