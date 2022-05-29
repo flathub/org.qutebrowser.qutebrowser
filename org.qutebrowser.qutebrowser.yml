@@ -100,7 +100,6 @@ modules:
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
-      - python-colorama/python-colorama.json
       - python-jinja/python-jinja.json
       # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',
       #   available in the sdk but not in the runtime
