@@ -90,6 +90,10 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         branch: qt6-v2
+      - type: shell
+        commands:
+          # revert sandboxing test workaround
+          - git revert --no-commit 8fbb01660cf901f29cbcd70368908363069a7899
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
