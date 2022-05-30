@@ -74,7 +74,7 @@ modules:
       - make --file misc/Makefile install PREFIX=/app
       - install -dm755 /app/{lib/ffmpeg,userscripts}
       - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
-    run-tests: false
+    run-tests: true
     test-commands:
       - |
         export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
@@ -90,7 +90,10 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         branch: qt6-v2
-        commit: 64e8c713239275fb24f949b013e51cfb4d9c77a3
+      - type: shell
+        commands:
+          # revert sandboxing test workaround
+          - git revert --no-commit 8fbb01660cf901f29cbcd70368908363069a7899
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
@@ -104,4 +107,4 @@ modules:
       - pdfjs/pdfjs.json
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
       # TODO: f-e-d-c for tests
-      #- tests/tests-dependencies.json
+      - tests/tests-dependencies.json
