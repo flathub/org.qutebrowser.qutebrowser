@@ -70,6 +70,8 @@ modules:
   - name: qutebrowser
     buildsystem: simple
     build-commands:
+      # avoid installing as zip file
+      - sed -i '/zip_safe=/ s/True/False/' setup.py
       - python3 scripts/asciidoc2html.py
       - make --file misc/Makefile install PREFIX=/app
       - install -dm755 /app/{lib/ffmpeg,userscripts}
