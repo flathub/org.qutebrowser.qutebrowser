@@ -92,7 +92,7 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         branch: qt6-v2
-        commit: c23a542816dd914193b588973bac50840f39b3a9
+        commit: a6c9d46c7ea70ea32ce9335d4e6aa7321a69ae4b
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
