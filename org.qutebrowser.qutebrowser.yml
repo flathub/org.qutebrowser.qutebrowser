@@ -66,6 +66,8 @@ cleanup-commands:
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/toml-*.dist-info
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/typing_extensions-*.dist-info
+  - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/typing_extensions.py
 modules:
   - name: qutebrowser
     buildsystem: simple
