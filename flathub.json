@@ -1,5 +1,6 @@
 {
     "automerge-flathubbot-prs": false,
     "disable-external-data-checker": false,
-    "publish-delay-hours": 1
+    "publish-delay-hours": 1,
+    "require-important-update": true
 }
