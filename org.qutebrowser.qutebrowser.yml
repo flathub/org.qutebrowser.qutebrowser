@@ -94,6 +94,7 @@ modules:
         tag: v2.5.2
         commit: 951a14a66bb39dee089887642ac4c2b6dcb3b612
         x-checker-data:
+          is-main-source: true
           type: json
           url: https://api.github.com/repos/qutebrowser/qutebrowser/releases/latest
           tag-query: .tag_name
