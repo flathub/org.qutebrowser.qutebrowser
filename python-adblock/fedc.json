@@ -1,5 +1,6 @@
 {
     "x-checker-data": {
+        "is-important": true,
         "type": "anitya",
         "project-id": 96221,
         "stable-only": true,
