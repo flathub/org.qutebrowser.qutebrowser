@@ -73,13 +73,13 @@ modules:
       # avoid installing as zip file
       - sed -i '/zip_safe=/ s/True/False/' setup.py
       - python3 scripts/asciidoc2html.py
-      - make --file misc/Makefile install PREFIX=/app
-      - install -dm755 /app/{lib/ffmpeg,userscripts}
-      - sed -i '/^Exec=qutebrowser/ s@=@=/app/bin/@' /app/share/applications/${FLATPAK_ID}.desktop
+      - make --file misc/Makefile install PREFIX=${FLATPAK_DEST}
+      - install -dm755 ${FLATPAK_DEST}/{lib/ffmpeg,userscripts}
+      - sed -i '/^Exec=qutebrowser/ s@=@='${FLATPAK_DEST}'/bin/@' ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
     run-tests: false
     test-commands:
       - |
-        export QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+        export QTWEBENGINEPROCESS_PATH=${FLATPAK_DEST}/bin/QtWebEngineProcess
         export PYTHONPATH=.
         # Flathub CI has XDG_RUNTIME_DIR mode bits set to 0755
         if [ "$(stat --format=%04a $XDG_RUNTIME_DIR)" = "0755" ]; then
