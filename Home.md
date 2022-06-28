@@ -5,6 +5,8 @@ and the possible workarounds.
 
 **For any other information about qutebrowser, please visit the [official website](https://qutebrowser.org/).**
 
+To help improving this documentation, open a pull request against the
+[wiki branch](https://github.com/flathub/org.qutebrowser.qutebrowser/tree/wiki).
 
 ## Sandbox and challenges
 
