@@ -1,0 +1,21 @@
+{
+    "name": "re2",
+    "no-autogen": true,
+    "install-rule": "shared-install",
+    "make-install-args": [
+        "prefix=${FLATPAK_DEST}"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/google/re2/archive/2022-06-01/re2-2022-06-01.tar.gz",
+            "sha256": "f89c61410a072e5cbcf8c27e3a778da7d6fd2f2b5b1445cd4f4508bee946ab0f",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 10500,
+                "stable-only": true,
+                "url-template": "https://github.com/google/re2/archive/$version/re2-$version.tar.gz"
+            }
+        }
+    ]
+}

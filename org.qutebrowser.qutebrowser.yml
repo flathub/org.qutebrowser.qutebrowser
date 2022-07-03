@@ -3,6 +3,7 @@ runtime: org.kde.Platform
 runtime-version: '6.3'
 sdk: org.kde.Sdk
 sdk-extensions:
+  - org.kde.Sdk.Locale
   - org.freedesktop.Sdk.Extension.rust-stable
   - org.freedesktop.Sdk.Extension.node14
 add-extensions:
@@ -104,6 +105,7 @@ modules:
           version-query: .[].sha[0:8]
           timestamp-query: .[].commit.committer.date
     modules:
+      - qtwebengine/qtwebengine.json
       - pyqt-shared-module.json
       - asciidoc/asciidoc.json
       - python-jinja/python-jinja.json

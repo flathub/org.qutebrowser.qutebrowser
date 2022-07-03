@@ -1,0 +1,40 @@
+{
+    "name": "pciutils",
+    "no-autogen": true,
+    "make-args": [
+        "SHARED=yes",
+        "ZLIB=no"
+    ],
+    "make-install-args": [
+        "SHAREDIR=${FLATPAK_DEST}/share/hwdata",
+        "MANDIR=${FLATPAK_DEST}/share/man",
+        "SBINDIR=${FLATPAK_DEST}/bin"
+    ],
+    "post-install": [
+        "make install-lib"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://mj.ucw.cz/download/linux/pci/pciutils-3.8.0.tar.gz",
+            "sha256": "3f398d983aab42f3872e4e0ee9ecb1f0fd68f028e00246aa2ca7c3a7408d6fab",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 2605,
+                "stable-only": true,
+                "url-template": "https://mj.ucw.cz/download/linux/pci/pciutils-$version.tar.gz"
+            }
+        },
+        {
+            "type": "shell",
+            "commands": [
+                "sed -i 's@PREFIX=/usr/local@PREFIX='${FLATPAK_DEST}'@' Makefile",
+                "sed -i '/^CFLAGS.*=/d' Makefile"
+            ]
+        }
+    ],
+    "cleanup": [
+        "/bin",
+        "/share"
+    ]
+}
