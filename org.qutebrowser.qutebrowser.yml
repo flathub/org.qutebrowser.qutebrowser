@@ -93,8 +93,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        branch: qt6-v2
+        #branch: qt6-v2
         commit: 5a4a2efe5cee66be3161a1df839af6b6623219dc
+        x-checker-data:
+          is-main-source: true
+          type: json
+          url: https://api.github.com/repos/qutebrowser/qutebrowser/commits?sha=qt6-v2&per_page=1
+          commit-query: .[].sha
+          version-query: .[].sha[0:8]
+          timestamp-query: .[].commit.committer.date
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
