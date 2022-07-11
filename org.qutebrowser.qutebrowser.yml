@@ -29,6 +29,7 @@ finish-args:
   - --device=dri
   - --env=PATH=/app/bin:/app/userscripts/bin:/usr/bin:/app/userscripts/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
   - --env=PYTHONPATH=/app/userscripts/lib/python/site-packages
+  - --env=PYTHONUSERBASE=/var/data/python
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --filesystem=xdg-download
   - --filesystem=xdg-music
