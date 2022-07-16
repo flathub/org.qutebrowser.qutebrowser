@@ -1,11 +1,11 @@
 # qutebrowser Flatpak documentation
 
-The documnetation here focuses on the challenges presented to the user when running qutebrowser in a Flatpak sandbox,
+The documentation here focuses on the challenges presented to the user when running qutebrowser in a Flatpak sandbox,
 and the possible workarounds.
 
 **For any other information about qutebrowser, please visit the [official website](https://qutebrowser.org/).**
 
-To help improving this documentation, open a pull request against the
+To help to improve this documentation, open a pull request against the
 [wiki branch](https://github.com/flathub/org.qutebrowser.qutebrowser/tree/wiki).
 
 ## Sandbox and challenges
@@ -32,7 +32,7 @@ Thankfully, the Flatpak runtime includes `flatpak-spawn`, which given the permis
 outside of the sandbox, and even connect the standard streams from the spawned application to its own process, which
 runs inside the sandbox.
 
-It's should be noted that environment of the spawned host or Flatpak applications is not inherited from the qutebrowser
+It should be noted that the environment of the spawned host or Flatpak applications is not inherited from the qutebrowser
 Flatpak instance, nor from the process that started the qutebrowser app.  
 Instead, the environment inherited from the systemd user unit `flatpak-session-helper.service`.
 
@@ -48,7 +48,7 @@ While it's possible to install Python modules into a different location than `/u
 libraries and utilities is not an acceptable solution.
 
 To solve this, the Flatpak extension [org.qutebrowser.qutebrowser.Userscripts](https://github.com/flathub/org.qutebrowser.qutebrowser.Userscripts)
-packages dependencies for all the offical userscripts, and for most popular userscripts.
+packages dependencies for all the official userscripts, and for most popular userscripts.
 
 
 ## Userscripts: Make them work
@@ -94,7 +94,7 @@ The environment of host and Flatpak applications that were started by `flatpak-s
 environment of the system user unit `flatpak-session-helper.service`.
 
 Some of these environment variables are user defined.  
-Others are important for the current running graphical session, and application might not be started correctly without
+Others are important for the current running graphical session, and the application might not be started correctly without
 them. Like `DISPLAY`, `WAYLAND_DISPLAY`, `XDG_SESSION_TYPE`, `DBUS_SESSION_BUS_ADDRESS`.
 
 User defined environment variables should be set by the desktop environment (e.g. Gnome) in the system user session
@@ -181,10 +181,10 @@ $ flatpak run --command=pip org.qutebrowser.qutebrowser install --upgrade <pytho
 
 ## Better video playback: The full FFmpeg extension
 
-Some Linux distributions and organizations are more strict with regrads to non-free or potentially patented software
+Some Linux distributions and organizations are stricter in regard to non-free or potentially patented software
 or intellectual property.  
 To comply with these restriction and have this Flatpak included in repositories of such distros, the full FFmpeg
-extension `org.freedesktop.Platform.ffmpeg-full` has been made optional, even though it have more and better decoders.
+extension `org.freedesktop.Platform.ffmpeg-full` has been made optional, even though it has more and better decoders.
 
 You might already have the extension install. This can be easily confirmed by checking if the extension was mounted
 onto `/app/lib/ffmpeg`.
@@ -195,7 +195,7 @@ libavcodec.so
 libavcodec.so.58
 ...
 ```
-If it's missing then check the needed version of the extension.
+If it's missing, then check the needed version of the extension.
 ```
 $ flatpak info --show-metadata org.qutebrowser.qutebrowser
 ...
