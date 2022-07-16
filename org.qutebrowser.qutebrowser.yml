@@ -103,6 +103,8 @@ modules:
           commit-query: .[].sha
           version-query: .[].sha[0:8]
           timestamp-query: .[].commit.committer.date
+      - type: patch
+        path: qutebrowser-appdata-wiki.patch
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
