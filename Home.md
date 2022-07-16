@@ -12,44 +12,40 @@ To help to improve this documentation, open a pull request against the
 
 ### Filesystem access
 
-Flatpak set user namespaces as part of the sandbox creation.  
-In particular, a mount namespace is created for each application instance, and by default, very limited host resources
-are bind mounted into this mount namespace.  
-Flatpak provided a way to access host files and folders using the [Document Portal](https://flatpak.github.io/xdg-desktop-portal/#gdbus-org.freedesktop.portal.Documents),
+Flatpak sets user namespaces as part of the sandbox creation.  
+In particular, a mount namespace is created for each application instance, and by default, and very limited host
+resources are bind mounted into this mount namespace.  
+Flatpak provides a way to access host files and folders using the [Document Portal](https://flatpak.github.io/xdg-desktop-portal/#gdbus-org.freedesktop.portal.Documents),
 which the user usually interacts with through the [FileChooser Portal](https://flatpak.github.io/xdg-desktop-portal/#gdbus-org.freedesktop.portal.FileChooser)
 that runs on the host system.  
-qutebrowser has its own filechooser dialog, which cannot use the `Document Portal`, as it's in the same sandboxed process.
+qutebrowser has its own file chooser dialog, which cannot use the `Document Portal`, as it runs in the same sandboxed
+process.
 
-This means that any host resource (files, folders) that needs to be access by qutebrowser will needed to be bind mounted
+This means that any host resource (files and folders) that needs to be accessed by qutebrowser will need to be bind mounted
 into the sandbox.  
-A few XDG dirs are already set to be accessible in the sandbox, and the user can add others (or remove) by adding a
-`filesystem` override.
+A few XDG dirs (e.g. `XDG_DOWNLOAD_DIR`) are already set to be accessible in the sandbox, and the user can add others
+(or remove) by adding a `filesystem` override.
 
 ### Running external applications
 
-It's not possible to directly run host or Flatpak applications from the sandbox without some ugly workarounds.  
-Thankfully, the Flatpak runtime includes `flatpak-spawn`, which given the permission needed, can run applications
-outside of the sandbox, and even connect the standard streams from the spawned application to its own process, which
-runs inside the sandbox.
+Flatpak provides a way to launch host and Flatpak applications from a Flatpak sandbox with the help of `flatpak-spawn`,
+and connect standard streams from the spawned application to `flatpak-spawn`'s process that runs inside the sandbox.
 
-It should be noted that the environment of the spawned host or Flatpak applications is not inherited from the qutebrowser
-Flatpak instance, nor from the process that started the qutebrowser app.  
-Instead, the environment inherited from the systemd user unit `flatpak-session-helper.service`.
+The spawned host or Flatpak application will run outside of qutebrowser's Flatpak sandbox, and the environment of this
+spawned application is not inherited from qutebrowser's Flatpak instance, nor from the process that launched qutebrowser.  
+Instead, the environment inherited from the environment of the systemd user unit `flatpak-session-helper.service`, which
+in turn inherited from the systemd user session environment.
 
-A `flatpak-spwan` wrapper is packaged with the qutebrowser Flatpak to help using host applications and other Flatpak
-apps with qutebrowser and userscripts.
+A `flatpak-spwan` wrapper is bundled with this qutebrowser Flatpak to help launch host and Flatpak applications from the
+qutebrowser's Flatpak sandbox, and use these applications with userscripts.
 
 ### Adding userscripts dependencies
 
-Official and popular userscripts require Python modules with their shared libraries requirements, and different
-utilities.  
-These needs to be accessible to the sandbox, and depending on runtime or app provided libraries and modules.  
-While it's possible to install Python modules into a different location than `/usr`, instructing users to compile shared
-libraries and utilities is not an acceptable solution.
-
-To solve this, the Flatpak extension [org.qutebrowser.qutebrowser.Userscripts](https://github.com/flathub/org.qutebrowser.qutebrowser.Userscripts)
-packages dependencies for all the official userscripts, and for most popular userscripts.
-
+Some qutebrowser userscripts depend on Python modules with their shared libraries requirements and utilities that need
+to be accessible in the sandbox to qutebrowser.  
+The Flatpak extension [org.qutebrowser.qutebrowser.Userscripts](https://github.com/flathub/org.qutebrowser.qutebrowser.Userscripts)
+packages dependencies for the bundled official userscripts and for some of the popular ones,
+to help the user avoid installing Python modules, or compile shared libraries and utilities.
 
 ## Userscripts: Make them work
 
@@ -58,7 +54,7 @@ Depending on the specific userscript, one or more of the following is needed in 
 * Install the Userscripts extension
 * Enable host access for flatpak-spwan
 * Add filesystem access
-* Setting environment of spawned applications
+* Set the environment of spawned applications
 * Install Python modules inside the sandbox
 
 ### Install the Userscripts extension
@@ -88,7 +84,7 @@ Userscripts that share files or sockets with applications will likely use `/tmp`
 $ flatpak override --user --filesystem=/tmp org.qutebrowser.qutebrowser
 ```
 
-### Setting environment of spawned applications
+### Set the environment of spawned applications
 
 The environment of host and Flatpak applications that were started by `flatpak-spawn` will be derived from the
 environment of the system user unit `flatpak-session-helper.service`.
@@ -119,65 +115,83 @@ $ systemd restart --user flatpak-session-helper.service
 
 ### Install Python modules inside the sandbox
 
-Yes, it's actually possible, though it will require maintenance after a runtime update that bumps Python version,
-which only happens once a year.  
+Yes, it's actually possible to add Python modules that would be available inside the sandbox, and that by using the
+`user scheme` for installation.  
+This will require manual intervention after a runtime update that bumps the minor Python version, something that only
+happens once a year, so you probably want to write down the explicitly installed Python modules.  
 You might not need this, as the Userscripts extension provides already a good number of Python modules.
 
 **Important facts**
 
-* The default Python user scheme installation is `XDG_DATA_HOME/python`
+* The default Python `user scheme` installation is `XDG_DATA_HOME/python`
 * `XDG_DATA_HOME=$HOME/.var/app/org.qutebrowser.qutebrowser/data`
 * `XDG_DATA_HOME` is mounted on `/var/data`
 * `PATH` includes `/var/data/python/bin`
 
 #### Initial setup
 
-We need first to install the Flatpak SDK, as the Platform runtime is missing `pip`.
+You likely want to first install the Userscripts extension (see above), as it provides updated `pip` and `wheel` modules,
+other Python modules, shared libraries, and utilities.
+
+If you expect that `pip` will need compile libraries to native code, then you will need to install the Flatpak SDK,
+which include the GNU toolchain, and also offer access to Flatpak SDK extension.
+
+* Install the Flatpak SDK of the KDE runtime used by our qutebrowser Flatpak
 ```
 $ flatpak install flathub $(flatpak info --show-sdk org.qutebrowser.qutebrowser)
 ```
-The next step is to install `pip` and `wheel` in the user Python installation.  
-Notice the `--devel` option that instructs Flatpak to mount the SDK as runtime.
+
+If for some reason, you want to avoid the Userscript extension, then it's possible use `pip` from the SDK to install
+modules. Note that the executable in the SDK is `pip3`.  
+For example, to install updated `pip` and `wheel` modules in the `user scheme` installation.  
 ```
 $ flatpak run --devel --command=pip3 org.qutebrowser.qutebrowser install --user --ignore-installed pip wheel
-```
-Now it's safe to remove the SDK.
-```
-$ flatpak uninstall flathub $(flatpak info --show-sdk org.qutebrowser.qutebrowser)
 ```
 
 #### Installing modules
 
-You can run `pip` now without `--user` option, as there's only the one from the user installation.
+Run `pip` by using Flatpak `--command` option.
 ```
-$ flatpak run --command=pip org.qutebrowser.qutebrowser install <python-module> ...
+$ flatpak run --command=pip org.qutebrowser.qutebrowser install --user [pip-options] <python-module> ...
 ```
-Or if you choose, you can enter the sandbox, and then run the pip.
+Or if you choose, you can enter the sandbox, and then run `pip`.
 ```
 $ flatpak run --command=bash org.qutebrowser.qutebrowser
-$ pip install <python-module> ...
+$ pip install --user [pip-options] <python-module> ...
+```
+Important to note here that we run the `pip` executable, which is the updated module provided by the Userscripts
+extension. The `pip3` executable is from the SDK runtime, which is possibly outdated, and not even be available if
+don't use the SDK.  
+The `--user` `pip` option is used here to avoid the non-writable warning, and you can drop it, as the `user scheme`
+will be used anyway.
+
+##### Installing modules with the SDK runtime
+
+In a similar fashion, to install modules with the SDK runtime, run `pip` by using Flatpak `--command` option.
+```
+$ flatpak run --devel --command=pip org.qutebrowser.qutebrowser install --user [pip-options] <python-module> ...
+```
+Notice that given `--devel` Flatpak option that instructs Flatpak to mount the SDK as the runtime on top `/usr`.
+
+And again, you can first enter the sandbox, and then run `pip`.
+```
+$ flatpak run --devel --command=bash org.qutebrowser.qutebrowser
+$ pip install --user [pip-options] <python-module> ...
+```
+Entering the sandbox before running `pip` make it easier to enable required SDK extensions required by `pip`.
+For example, to enable the [rust-stable](https://github.com/flathub/org.freedesktop.Sdk.Extension.rust-stable) SDK extension.
+```
+$ source /usr/lib/sdk/rust-stable/enable.sh
 ```
 
 #### Upgrading
 
-The upgrade process is very similar to the initial setup.
-
-Install the SDK after the application was updated and switched to the new runtime.
+If you written down the explicitly installed Python modules, and didn't need to use the Flatpak SDK, then the upgrade
+process is very simple.
 ```
-$ flatpak install flathub $(flatpak info --show-sdk org.qutebrowser.qutebrowser)
+$ flatpak run --command=pip org.qutebrowser.qutebrowser install --user --upgrade <python-module> ...
 ```
-Upgrade `pip` and `wheel` in the user Python installation.
-```
-$ flatpak run --devel --command=pip3 org.qutebrowser.qutebrowser install --user --ignore-installed --upgrade pip wheel
-```
-Now it's safe to remove the SDK.
-```
-$ flatpak uninstall flathub $(flatpak info --show-sdk org.qutebrowser.qutebrowser)
-```
-Upgrade the rest of the installed Python modules.
-```
-$ flatpak run --command=pip org.qutebrowser.qutebrowser install --upgrade <python-module> ...
-```
+If the SDK runtime was needed for installation of Python modules, then you'll need to follow the same steps.
 
 ## Better video playback: The full FFmpeg extension
 
