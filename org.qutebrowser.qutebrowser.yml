@@ -101,6 +101,8 @@ modules:
           tag-query: .tag_name
           version-query: $tag
           timestamp-query: .published_at
+      - type: patch
+        path: qutebrowser-appdata-wiki.patch
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
