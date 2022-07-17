@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/ArniDagur/python-adblock/releases/download/0.5.2/adblock-0.5.2.tar.gz",
-            "sha256": "449d4724769d4a8bc96bf0256b40e57eafe91d69e24503c27ceb9de0e5e5fe03"
+            "url": "https://github.com/ArniDagur/python-adblock/releases/download/0.6.0/adblock-0.6.0.tar.gz",
+            "sha256": "27c6ce104c0e793d329b35ea6680ff10af7d83c84620413f90f92676305e54f5"
         },
         "cargo-sources.json"
     ],
