@@ -95,7 +95,7 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         #branch: qt6-v2
-        commit: 181183a0c4fa61d5f39e64c5d0299df706a16cb3
+        commit: dfde9798074eb5ed192ff8ba074032e8a42b219a
         x-checker-data:
           is-main-source: true
           type: json
@@ -103,6 +103,8 @@ modules:
           commit-query: .[].sha
           version-query: .[].sha[0:8]
           timestamp-query: .[].commit.committer.date
+      - type: patch
+        path: qutebrowser-appdata-wiki.patch
     modules:
      #- pyqt-shared-module.json
       - asciidoc/asciidoc.json
