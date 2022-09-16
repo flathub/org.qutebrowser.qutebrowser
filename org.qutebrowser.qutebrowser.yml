@@ -95,7 +95,7 @@ modules:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
         #branch: qt6-v2
-        commit: 8decafefbe94c111c1cd1b59aeb0b314cb4de5c9
+        commit: 5e11e6c7d413cf5c77056ba871a545aae1cfd66a
         x-checker-data:
           is-main-source: true
           type: json
