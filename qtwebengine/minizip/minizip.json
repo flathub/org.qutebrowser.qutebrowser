@@ -1,0 +1,32 @@
+{
+    "name": "minizip",
+    "subdir": "contrib/minizip",
+    "config-opts": [
+        "--disable-static"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://zlib.net/zlib-1.2.12.tar.gz",
+            "sha256": "91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9",
+            "x-checker-data": {
+                "type": "anitya",
+                "project-id": 5303,
+                "stable-only": true,
+                "url-template": "https://zlib.net/zlib-$version.tar.gz"
+            }
+        },
+        {
+            "type": "shell",
+            "commands": [
+                "GLOBIGNORE=contrib && rm -rf *",
+                "GLOBIGNORE=contrib/minizip && rm -rf contrib/*",
+                "rm -f contrib/minizip/Makefile",
+                "autoreconf -fiv contrib/minizip"
+            ]
+        }
+    ],
+    "cleanup": [
+        "*.la"
+    ]
+}

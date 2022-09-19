@@ -3,6 +3,7 @@ runtime: org.kde.Platform
 runtime-version: '6.3'
 sdk: org.kde.Sdk
 sdk-extensions:
+  - org.kde.Sdk.Locale
   - org.freedesktop.Sdk.Extension.rust-stable
   - org.freedesktop.Sdk.Extension.node14
 add-extensions:
@@ -18,13 +19,13 @@ add-extensions:
     no-autodownload: true
 command: /app/bin/qutebrowser
 rename-icon: qutebrowser
-base: com.riverbankcomputing.PyQt.BaseApp
-base-version: '6.3'
+#base: com.riverbankcomputing.PyQt.BaseApp
+#base-version: '6.3'
 # pyqt-shared-module
 #base: io.qt.qtwebengine.BaseApp
-#build-options:
-#  env:
-#    - ENABLED_PYQT_BINDINGS=QtCore:QtDBus:QtGui:QtNetwork:QtOpenGL:QtPrintSupport:QtQml:QtQuick:QtSql:QtTest:QtWebChannel:QtWidgets
+build-options:
+  env:
+    - ENABLED_PYQT_BINDINGS=QtCore:QtDBus:QtGui:QtNetwork:QtOpenGL:QtPrintSupport:QtQml:QtQuick:QtSql:QtTest:QtWebChannel:QtWidgets
 finish-args:
   - --device=dri
   - --env=PATH=/app/bin:/app/userscripts/bin:/usr/bin:/app/userscripts/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
@@ -106,7 +107,8 @@ modules:
       - type: patch
         path: qutebrowser-appdata-wiki.patch
     modules:
-     #- pyqt-shared-module.json
+      - qtwebengine/qtwebengine.json
+      - pyqt-shared-module.json
       - asciidoc/asciidoc.json
       - python-jinja/python-jinja.json
       # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',
