@@ -1,7 +1,0 @@
-{
-    "name": "maturin-bin",
-    "modules": [
-        "maturin-bin-aarch64/maturin-bin-aarch64.json",
-        "maturin-bin-x86_64/maturin-bin-x86_64.json"
-    ]
-}
