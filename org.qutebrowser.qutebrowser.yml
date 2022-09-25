@@ -224,7 +224,6 @@ modules:
                   url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
 
       - python-adblock/python-adblock.json
-      #- python-adblock-bin/python-adblock-bin.json
 
       - name: pdfjs
         buildsystem: simple
