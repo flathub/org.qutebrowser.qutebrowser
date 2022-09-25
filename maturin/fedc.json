@@ -1,7 +1,0 @@
-{
-    "x-checker-data": {
-        "type": "anitya",
-        "project-id": 42653,
-        "url-template": "https://github.com/PyO3/maturin/archive/v$version.tar.gz"
-    }
-}
