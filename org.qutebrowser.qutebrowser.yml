@@ -114,7 +114,7 @@ modules:
         path: qutebrowser-appdata-wiki.patch
 
     modules:
-      - name: sccache
+      - name: sccache-bin
         buildsystem: simple
         build-commands:
           - install -Dm755 sccache -t ${FLATPAK_DEST}/bin/
