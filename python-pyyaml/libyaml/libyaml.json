@@ -12,7 +12,6 @@
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 1800,
-                "stable-only": true,
                 "url-template": "https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz"
             }
         }

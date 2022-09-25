@@ -16,7 +16,6 @@
                 "is-important": true,
                 "type": "anitya",
                 "project-id": 96221,
-                "stable-only": true,
                 "url-template": "https://github.com/ArniDagur/python-adblock/releases/download/$version/adblock-$version-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
             }
         },
@@ -30,7 +29,6 @@
             "x-checker-data": {
                 "type": "anitya",
                 "project-id": 96221,
-                "stable-only": true,
                 "url-template": "https://github.com/ArniDagur/python-adblock/releases/download/$version/adblock-$version-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl"
             }
         }

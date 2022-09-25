@@ -125,7 +125,6 @@ modules:
             x-checker-data:
               type: anitya
               project-id: 227267
-              stable-only: true
               url-template: https://github.com/mozilla/sccache/releases/download/v$version/sccache-v$version-x86_64-unknown-linux-musl.tar.gz
           - type: archive
             only-arches:
@@ -135,7 +134,6 @@ modules:
             x-checker-data:
               type: anitya
               project-id: 227267
-              stable-only: true
               url-template: https://github.com/mozilla/sccache/releases/download/v$version/sccache-v$version-aarch64-unknown-linux-musl.tar.gz
         cleanup:
           - '*'
