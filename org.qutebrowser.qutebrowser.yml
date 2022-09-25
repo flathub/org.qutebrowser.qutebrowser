@@ -223,6 +223,32 @@ modules:
                   project-id: 1800
                   url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
 
+      - name: maturin-bin
+        buildsystem: simple
+        build-commands:
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} maturin --no-build-isolation
+        sources:
+          - type: file
+            only-arches:
+              - x86_64
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.2-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+            sha256: 5eb555636eb9fd4f54efc48e5891067f94c0b50f7f402a897c41644f817e70f4
+            x-checker-data:
+              type: anitya
+              project-id: 42653
+              url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+          - type: file
+            only-arches:
+              - aarch64
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+            sha256: 93fef9c0ead64fb0741c18009dc0521181b91241d1c09b0eda5c9a5e06dfc6d0
+            x-checker-data:
+              type: anitya
+              project-id: 42653
+              url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        cleanup:
+          - '*'
+
       - python-adblock/python-adblock.json
 
       - name: pdfjs
