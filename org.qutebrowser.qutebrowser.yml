@@ -4,19 +4,6 @@ runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    version: '21.08'
-    add-ld-path: .
-    no-autodownload: true
-  org.qutebrowser.qutebrowser.Userscripts:
-    directory: userscripts
-    version: stable
-    add-ld-path: lib
-    no-autodownload: true
-command: /app/bin/qutebrowser
-rename-icon: qutebrowser
 base: com.riverbankcomputing.PyQt.BaseApp
 #base: io.qt.qtwebengine.BaseApp  # pyqt-shared-module
 base-version: 5.15-21.08
@@ -31,6 +18,19 @@ build-options:
     - SCCACHE_BIN=/app/bin/sccache
     - SCCACHE_DIR=/run/ccache/sccache
     - SCCACHE_CONF=/run/ccache/sccache/config
+command: /app/bin/qutebrowser
+rename-icon: qutebrowser
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    version: '21.08'
+    add-ld-path: .
+    no-autodownload: true
+  org.qutebrowser.qutebrowser.Userscripts:
+    directory: userscripts
+    version: stable
+    add-ld-path: lib
+    no-autodownload: true
 finish-args:
   - --device=dri
   - --env=PATH=/app/bin:/app/userscripts/bin:/usr/bin:/app/userscripts/share/perl6/site/bin:/var/data/bin:/var/data/python/bin
