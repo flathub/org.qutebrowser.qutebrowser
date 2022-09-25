@@ -75,6 +75,7 @@ cleanup-commands:
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/tomli-*.dist-info
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/typing_extensions-*.dist-info
   - rm -vrf ${FLATPAK_DEST}/lib/python*/site-packages/typing_extensions.py
+
 modules:
   - name: qutebrowser
     buildsystem: simple
@@ -111,6 +112,7 @@ modules:
           timestamp-query: .[].commit.committer.date
       - type: patch
         path: qutebrowser-appdata-wiki.patch
+
     modules:
       - name: sccache
         buildsystem: simple
@@ -137,16 +139,112 @@ modules:
               url-template: https://github.com/mozilla/sccache/releases/download/v$version/sccache-v$version-aarch64-unknown-linux-musl.tar.gz
         cleanup:
           - '*'
+
      #- pyqt-shared-module.json
-      - asciidoc/asciidoc.json
-      - python-jinja/python-jinja.json
-      # pygments required by format_json userscript, and optional for viewing source with ':view-source --pygments',
-      #   available in the sdk but not in the runtime
-      - python-pygments/python-pygments.json
-      - python-pyyaml/python-pyyaml.json
+
+      - name: asciidoc
+        buildsystem: simple
+        build-commands:
+          - python setup.py build
+          - python setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+          - install -Dm644 asciidoc/resources/docbook-xsl/*.xsl -t ${FLATPAK_DEST}/lib/python/site-packages/asciidoc/resources/docbook-xsl/
+        sources:
+          - type: archive
+            url: https://github.com/asciidoc-py/asciidoc-py/archive/10.2.0/asciidoc-10.2.0.tar.gz
+            sha256: 684ea53c1f5b71d6d1ac6086bbc96906b1f709ecc7ab536615b0f0c9e1baa3cc
+            x-checker-data:
+              type: html
+              url: https://asciidoc-py.github.io/
+              version-pattern: AsciiDoc ([\d\.-]+) Released
+              url-template: https://github.com/asciidoc-py/asciidoc-py/archive/$version/asciidoc-$version.tar.gz
+        cleanup:
+          - '*'
+
+      - name: python-jinja
+        buildsystem: simple
+        build-commands:
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} Jinja2 --no-build-isolation
+        sources:
+          - type: file
+            url: https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz
+            sha256: 31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852
+            x-checker-data:
+              type: pypi
+              name: Jinja2
+        modules:
+          - name: python-markupsafe
+            buildsystem: simple
+            build-commands:
+              - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} MarkupSafe --no-build-isolation
+            sources:
+              - type: file
+                url: https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz
+                sha256: 7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b
+                x-checker-data:
+                  type: pypi
+                  name: MarkupSafe
+
+      - name: python-pygments
+        # available in the sdk but not in the runtime
+        # required by format_json userscript, and optional for viewing source with ':view-source --pygments',
+        buildsystem: simple
+        build-commands:
+          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD --prefix=$FLATPAK_DEST Pygments --no-build-isolation
+        sources:
+          - type: file
+            url: https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz
+            sha256: 56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1
+            x-checker-data:
+              type: pypi
+              name: Pygments
+
+      - name: python-pyyaml
+        buildsystem: simple
+        build-commands:
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} PyYAML --no-build-isolation
+        sources:
+          - type: file
+            url: https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz
+            sha256: 68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2
+            x-checker-data:
+              type: pypi
+              name: PyYAML
+        modules:
+          - name: libyaml
+            config-opts:
+              - --enable-static=no
+              - DOXYGEN=false
+            sources:
+              - type: archive
+                url: https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
+                sha256: c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4
+                x-checker-data:
+                  type: anitya
+                  project-id: 1800
+                  url-template: https://github.com/yaml/libyaml/releases/download/$version/yaml-$version.tar.gz
+
       - python-adblock/python-adblock.json
       #- python-adblock-bin/python-adblock-bin.json
-      - pdfjs/pdfjs.json
+
+      - name: pdfjs
+        buildsystem: simple
+        build-commands:
+          - unzip pdfjs-*.zip
+          - install -dm755 ${FLATPAK_DEST}/share/pdf.js
+          - cp -R {LICENSE,build,web} ${FLATPAK_DEST}/share/pdf.js
+          - find ${FLATPAK_DEST}/share/pdf.js -type f -exec chmod 644 {} \;
+        sources:
+          - type: file
+            url: https://github.com/mozilla/pdf.js/releases/download/v2.16.105/pdfjs-2.16.105-dist.zip
+            sha256: 47abfa0dd7574333e801c1dc159340e0d22956edcd6d7293ed5fee54f0e07e0b
+            x-checker-data:
+              is-important: true
+              type: json
+              url: https://api.github.com/repos/mozilla/pdf.js/releases
+              version-query: .[0] | .tag_name | sub("^v"; "")
+              url-query: .[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip") | .browser_download_url
+
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
+
       # TODO: f-e-d-c for tests
       #- tests/tests-dependencies.json
