@@ -1,0 +1,5 @@
+[net]
+offline = true
+
+[term]
+verbose = true

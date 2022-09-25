@@ -1,17 +1,11 @@
 {
     "name": "maturin",
-    "build-options": {
-        "env": [
-            "CARGO_HOME=/run/build/maturin/cargo"
-        ],
-        "prepend-path": "/usr/lib/sdk/rust-stable/bin"
-    },
     "buildsystem": "simple",
     "build-commands": [
-        "cargo --offline fetch --manifest-path Cargo.toml --verbose",
-        "cargo --offline build --release --verbose",
-        "install -Dm755 target/release/maturin -t /app/bin/",
-        "install -Dm644 maturin/__init__.py -t /app/lib/python$(python -c 'import sys; print(\"%s.%s\" %sys.version_info[0:2])')/site-packages/maturin/"
+        "eval ${CARGO_VARS} cargo fetch",
+        "eval ${CARGO_VARS} cargo build --release",
+        "install -Dm755 target/release/maturin -t ${FLATPAK_DEST}/bin/",
+        "install -Dm644 maturin/__init__.py -t ${FLATPAK_DEST}/lib/python/site-packages/maturin/"
     ],
     "sources": [
         {
@@ -19,7 +13,13 @@
             "url": "https://github.com/PyO3/maturin/archive/v0.12.11.tar.gz",
             "sha256": "4d39f15fae9c01f2f23a544fc26b20c68693ec03f820b30ca5f505647c452be1"
         },
-        "cargo-sources.json"
+        "cargo-sources.json",
+        {
+            "type": "file",
+            "dest": ".cargo",
+            "dest-filename": "config",
+            "path": "cargo-config"
+        }
     ],
     "cleanup": [
         "*"
