@@ -19,8 +19,5 @@
             "dest-filename": "config",
             "path": "cargo-config"
         }
-    ],
-    "modules": [
-        "../maturin-bin/maturin-bin.json"
     ]
 }
