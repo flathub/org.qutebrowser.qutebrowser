@@ -11,10 +11,9 @@ build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
   env:
 #   - ENABLED_PYQT_BINDINGS=QtCore:QtDBus:QtGui:QtNetwork:QtOpenGL:QtPrintSupport:QtQml:QtQuick:QtSql:QtTest:QtWebChannel:QtWidgets
-    - CARGO_VARS=
-      HOME=${FLATPAK_BUILDER_BUILDDIR}
-      CARGO_HOME=${FLATPAK_BUILDER_BUILDDIR}/cargo
-      RUSTC_WRAPPER=$(if [ "$CCACHE_DIR" == "/run/ccache" ]; then echo ${SCCACHE_BIN}; fi;)
+    - CARGO_VARS= HOME=${FLATPAK_BUILDER_BUILDDIR} CARGO_HOME=${FLATPAK_BUILDER_BUILDDIR}/cargo
+      RUSTC_WRAPPER=$(if [ "$CCACHE_DIR" == "/run/ccache" ]; then echo ${SCCACHE_BIN};
+      fi;)
     - SCCACHE_BIN=/app/bin/sccache
     - SCCACHE_DIR=/run/ccache/sccache
     - SCCACHE_CONF=/run/ccache/sccache/config
@@ -122,8 +121,8 @@ modules:
           - type: archive
             only-arches:
               - x86_64
-            url: https://github.com/mozilla/sccache/releases/download/v0.3.0/sccache-v0.3.0-x86_64-unknown-linux-musl.tar.gz
-            sha256: e6cd8485f93d683a49c83796b9986f090901765aa4feb40d191b03ea770311d8
+            url: https://github.com/mozilla/sccache/releases/download/v0.3.3/sccache-v0.3.3-x86_64-unknown-linux-musl.tar.gz
+            sha256: 427bd2151a1b01cd9b094d842e22c445b30f3c645f171a9a62ea55270f06bf23
             x-checker-data:
               type: anitya
               project-id: 227267
@@ -163,7 +162,8 @@ modules:
       - name: python-jinja
         buildsystem: simple
         build-commands:
-          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} Jinja2 --no-build-isolation
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+            --prefix=${FLATPAK_DEST} Jinja2 --no-build-isolation
         sources:
           - type: file
             url: https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz
@@ -175,7 +175,8 @@ modules:
           - name: python-markupsafe
             buildsystem: simple
             build-commands:
-              - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} MarkupSafe --no-build-isolation
+              - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+                --prefix=${FLATPAK_DEST} MarkupSafe --no-build-isolation
             sources:
               - type: file
                 url: https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz
@@ -189,7 +190,8 @@ modules:
         # required by format_json userscript, and optional for viewing source with ':view-source --pygments',
         buildsystem: simple
         build-commands:
-          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD --prefix=$FLATPAK_DEST Pygments --no-build-isolation
+          - pip3 install --ignore-installed --exists-action=i --no-index --find-links=file://$PWD
+            --prefix=$FLATPAK_DEST Pygments --no-build-isolation
         sources:
           - type: file
             url: https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz
@@ -201,7 +203,8 @@ modules:
       - name: python-pyyaml
         buildsystem: simple
         build-commands:
-          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} PyYAML --no-build-isolation
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+            --prefix=${FLATPAK_DEST} PyYAML --no-build-isolation
         sources:
           - type: file
             url: https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz
@@ -226,13 +229,14 @@ modules:
       - name: maturin-bin
         buildsystem: simple
         build-commands:
-          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} maturin --no-build-isolation
+          - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+            --prefix=${FLATPAK_DEST} maturin --no-build-isolation
         sources:
           - type: file
             only-arches:
               - x86_64
-            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.2-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-            sha256: 5eb555636eb9fd4f54efc48e5891067f94c0b50f7f402a897c41644f817e70f4
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.14.7-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+            sha256: 6bb39a7e696d0a916eeadb5c6bce087e1b759fb528e180a894875669d3b86bd4
             x-checker-data:
               type: anitya
               project-id: 42653
@@ -240,8 +244,8 @@ modules:
           - type: file
             only-arches:
               - aarch64
-            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-            sha256: 93fef9c0ead64fb0741c18009dc0521181b91241d1c09b0eda5c9a5e06dfc6d0
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.14.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+            sha256: cc90a505c359e5cb3c7b69582b0cda2a2d67943b34188537b487c9425fd5cf86
             x-checker-data:
               type: anitya
               project-id: 42653
@@ -260,14 +264,15 @@ modules:
           - find ${FLATPAK_DEST}/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v2.16.105/pdfjs-2.16.105-dist.zip
-            sha256: 47abfa0dd7574333e801c1dc159340e0d22956edcd6d7293ed5fee54f0e07e0b
+            url: https://github.com/mozilla/pdf.js/releases/download/v3.1.81/pdfjs-3.1.81-dist.zip
+            sha256: 36bb5687a72c82eaae2e13484ffecbc28d73aa8d715894ef25085b463a678fac
             x-checker-data:
               is-important: true
               type: json
               url: https://api.github.com/repos/mozilla/pdf.js/releases
               version-query: .[0] | .tag_name | sub("^v"; "")
-              url-query: .[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip") | .browser_download_url
+              url-query: .[0] | .assets[] | select(.name=="pdfjs-" + $version + "-dist.zip")
+                | .browser_download_url
 
       - flatpak-spawn-wrapper/flatpak-spawn-wrapper.json
 
