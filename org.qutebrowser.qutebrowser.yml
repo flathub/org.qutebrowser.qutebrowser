@@ -235,21 +235,25 @@ modules:
           - type: file
             only-arches:
               - x86_64
-            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.14.13-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-            sha256: 76e41762af4a535ba3654df1ec4e43b5e6df15594dffcff26adae6ac187fff16
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.7-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+            sha256: a96f1b3ede71c0f76b8c7cfac18a9eec90174bdf434fa9aeff491be9a7ca5179
             x-checker-data:
               type: anitya
               project-id: 42653
               url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+              versions:
+                <: 0.14.0
           - type: file
             only-arches:
               - aarch64
-            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.14.13-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-            sha256: f1d4dace8d848da098cd4c7398f2480af9a6a2395f34f0cc4f7b726890d502e2
+            url: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-0.13.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+            sha256: 0b6ac1219a809155057fd1f358f7ece03c3abd2e2991832ce5146825a9fa4160
             x-checker-data:
               type: anitya
               project-id: 42653
               url-template: https://files.pythonhosted.org/packages/py3/m/maturin/maturin-$version-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+              versions:
+                <: 0.14.0
         cleanup:
           - '*'
 
