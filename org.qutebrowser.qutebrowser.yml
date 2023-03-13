@@ -100,8 +100,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        tag: v2.5.3
-        commit: 2fe78b7644605c1e6622573935e7a2404922cbcd
+        tag: v2.5.4
+        commit: c5919da4c410e706aacf348b76748a80a17b58ce
         x-checker-data:
           is-main-source: true
           type: json
