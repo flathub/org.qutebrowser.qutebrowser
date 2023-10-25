@@ -1,12 +1,12 @@
 app-id: org.qutebrowser.qutebrowser
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 base: com.riverbankcomputing.PyQt.BaseApp
 #base: io.qt.qtwebengine.BaseApp  # pyqt-shared-module
-base-version: 5.15-21.08
+base-version: 5.15-23.08
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
   env:
@@ -22,7 +22,7 @@ rename-icon: qutebrowser
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: '21.08'
+    version: '23.08'
     add-ld-path: .
     no-autodownload: true
   org.qutebrowser.qutebrowser.Userscripts:
