@@ -17,7 +17,7 @@ build-options:
     - SCCACHE_BIN=/app/bin/sccache
     - SCCACHE_DIR=/run/ccache/sccache
     - SCCACHE_CONF=/run/ccache/sccache/config
-command: /app/bin/qutebrowser
+command: qutebrowser
 rename-icon: qutebrowser
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
