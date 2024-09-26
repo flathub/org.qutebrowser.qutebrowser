@@ -3,3 +3,5 @@ Cargo.lock
 changes.patch*
 tests-requirements.txt
 version
+.flatpak-builder
+repo
