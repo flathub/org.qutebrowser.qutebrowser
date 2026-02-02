@@ -1,12 +1,12 @@
 app-id: org.qutebrowser.qutebrowser
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: 6.9
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 base: com.riverbankcomputing.PyQt.BaseApp
 #base: io.qt.qtwebengine.BaseApp  # pyqt-shared-module
-base-version: 5.15-21.08
+base-version: 6.9
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
   env:
@@ -22,7 +22,7 @@ rename-icon: qutebrowser
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: '21.08'
+    version: '24.08'
     add-ld-path: .
     no-autodownload: true
   org.qutebrowser.qutebrowser.Userscripts:
@@ -100,8 +100,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/qutebrowser/qutebrowser.git
-        tag: v2.5.4
-        commit: c5919da4c410e706aacf348b76748a80a17b58ce
+        tag: v3.6.1
+        commit: 2e5f805cceb9494d0aeb8564785d7452983b68cd
         x-checker-data:
           is-main-source: true
           type: json
@@ -121,8 +121,8 @@ modules:
           - type: archive
             only-arches:
               - x86_64
-            url: https://github.com/mozilla/sccache/releases/download/v0.3.3/sccache-v0.3.3-x86_64-unknown-linux-musl.tar.gz
-            sha256: 427bd2151a1b01cd9b094d842e22c445b30f3c645f171a9a62ea55270f06bf23
+            url: https://github.com/mozilla/sccache/releases/download/v0.12.0/sccache-v0.12.0-x86_64-unknown-linux-musl.tar.gz
+            sha256: b0e89ead6899224a4ba2b90e9073bf1ce036d95bab30f3dc33c1e1468bc4ad44
             x-checker-data:
               type: anitya
               project-id: 227267
@@ -149,8 +149,8 @@ modules:
           - install -Dm644 asciidoc/resources/docbook-xsl/*.xsl -t ${FLATPAK_DEST}/lib/python/site-packages/asciidoc/resources/docbook-xsl/
         sources:
           - type: archive
-            url: https://github.com/asciidoc-py/asciidoc-py/archive/10.2.0/asciidoc-10.2.0.tar.gz
-            sha256: 684ea53c1f5b71d6d1ac6086bbc96906b1f709ecc7ab536615b0f0c9e1baa3cc
+            url: https://github.com/asciidoc-py/asciidoc-py/archive/10.2.1/asciidoc-10.2.1.tar.gz
+            sha256: 8e1fb9691952cc4f13357e1ef58172e566c5f88e3c44222d4a8693585f884507
             x-checker-data:
               type: html
               url: https://asciidoc-py.github.io/
@@ -166,8 +166,8 @@ modules:
             --prefix=${FLATPAK_DEST} Jinja2 --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz
-            sha256: 31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852
+            url: https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz
+            sha256: 0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d
             x-checker-data:
               type: pypi
               name: Jinja2
@@ -179,8 +179,8 @@ modules:
                 --prefix=${FLATPAK_DEST} MarkupSafe --no-build-isolation
             sources:
               - type: file
-                url: https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz
-                sha256: abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d
+                url: https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz
+                sha256: 722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698
                 x-checker-data:
                   type: pypi
                   name: MarkupSafe
@@ -207,8 +207,8 @@ modules:
             --prefix=${FLATPAK_DEST} PyYAML --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz
-            sha256: 68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2
+            url: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+            sha256: d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
             x-checker-data:
               type: pypi
               name: PyYAML
@@ -268,8 +268,8 @@ modules:
           - find ${FLATPAK_DEST}/share/pdf.js -type f -exec chmod 644 {} \;
         sources:
           - type: file
-            url: https://github.com/mozilla/pdf.js/releases/download/v3.2.146/pdfjs-3.2.146-legacy-dist.zip
-            sha256: c99d9ca19d57a09cc1dadf7fa0965a69af8bc36f7021cbc0bf8deb6f8551ad0a
+            url: https://github.com/mozilla/pdf.js/releases/download/v5.4.394/pdfjs-5.4.394-legacy-dist.zip
+            sha256: e0a621408a2570cc8ffc870b0b4801177f6ebaea50c5f2a66de0c7597abc5294
 #           x-checker-data:
 #             is-important: true
 #             type: json
